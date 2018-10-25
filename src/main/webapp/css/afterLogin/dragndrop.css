@@ -1,0 +1,188 @@
+#contentArea {
+	position: relative;
+	width: 65%;
+	height: 100%;
+}
+
+#usernameId {
+	text-align: center;
+	margin: 0 auto;
+}
+#dragNdropArea {
+	position: relative;
+	float: left;
+	clear: left;
+	left: 50%;
+	width: 500px;
+	height: 200px;
+	margin-top: 120px;
+	margin-left: -250px;
+	border: 4px dashed #111;
+}
+#dragNdropImg {
+    position: relative;
+    float: left;
+    clear: left;
+    left: 50%;
+    bottom: 4px;
+}
+#dragNdropForm {
+	position: absolute;
+	float: left;
+	width: 100%;
+	height: 100%;
+}
+
+#dragNdropForm p {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	line-height: 170px;
+	color: #111;
+	font-family: Arial;
+}
+
+#dragNdropInput {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	outline: none;
+	opacity: 0;
+}
+#dragNdropButton {
+	margin: 0;
+	color: #fff;
+	background: #45B39D;
+	border: none;
+	width: 500px;
+	height: 35px;
+	margin-top: 220px;
+	border-radius: 4px;
+	border-bottom: 4px solid #117A60;
+	transition: all .2s ease;
+	outline: none;
+	text-align: center;
+}
+
+
+#dragNdropButton:hover {
+	background: #149174;
+	color: #111;
+}
+#dragNdropButton:active {
+	border: 0;
+}
+
+
+#userKeyword{
+	position: relative;
+	color: #000;
+	float: left;
+	clear: left;
+	left: 50%;
+	width: 500px;
+	height: 35px;
+	margin-top: -55px;
+	margin-left: -250px;
+	
+}
+
+#userKeyword:valid {
+	border: 2px solid black;
+}
+#userKeyword:invalid {
+	border: 2px dashed red;
+}
+
+#friendsList {
+	position: relative;
+	width: 35%;
+	height: 100%;
+	float: right;
+	clear: right;
+	left: 0%;
+	top: 0%;
+	
+}
+
+/*
+div.jp-playlist a {
+	padding: 8px 0 9px 20px;
+}
+
+div.jp-type-playlist div.jp-playlist a {
+	color: #fff;
+	text-decoration: none;
+	padding: 10px 0 10px 10px;
+	background: #232323;
+	display: block;
+}
+
+@media (max-width: 1024px)
+div.jp-type-playlist div.jp-playlist a {
+	padding: 6px 20px 11px 20px!important;
+	font-size: 1.3em!important;
+}
+@media (max-width: 1440px)
+div.jp-type-playlist div.jp-playlist a {
+    padding: 13px 20px 16px 20px!important;
+}
+
+@media (max-width: 1600px)
+div.jp-type-playlist div.jp-playlist a {
+    padding: 22px 20px 22px 20px!important;
+}
+div.jp-type-playlist div.jp-playlist a {
+}
+div.jp-type-playlist div.jp-playlist a {
+    color: #999!important;
+    text-decoration: none;
+    padding: 22px 20px 22px 20px!important;
+    background: #222;
+    display: block;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.jp-playlist ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 0px;
+    font-size: .72em;
+}
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+/*
+#dragNdropForm button {
+	margin: 0;
+	color: #fff;
+	background: #45B39D;
+	border: none;
+	width: 500px;
+	height: 35px;
+	margin-top: 20px;
+	margin-left: -4px;
+	border-radius: 4px;
+	border-bottom: 4px solid #117A60;
+	transition: all .2s ease;
+	outline: none;
+}
+#dragNdropForm button:hover {
+	background: #149174;
+	color: #111;
+}
+
+#dragNdropForm button:active {
+	border: 0;
+}
+*/

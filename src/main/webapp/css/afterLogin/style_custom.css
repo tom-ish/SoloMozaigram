@@ -1,0 +1,23 @@
+#leftpane {
+	position: relative;
+	float: left;
+	width: 65%;
+}
+
+#rightpane {
+	float: left;
+	width: 33%;
+	margin-left: 2%;	
+}
+
+div#page-wrapper {
+	margin-left: 52px;
+}
+/*
+#homeLogo {
+	background: #111 url("../../images/home.png") no-repeat 14px 14px;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	-webkit-transition: 0.5s all;
+}*/
