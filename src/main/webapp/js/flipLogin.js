@@ -8,7 +8,7 @@ $().ready(function() {
 
 $(".signup_link").click(function() {
 
-	$(".signin_form").css('opacity', '0');
+	$(".login_form").css('opacity', '0');
 	$(".signup_form").css('opacity', '100');
 	
 	
@@ -19,7 +19,7 @@ $(".signup_link").click(function() {
 
 $("#unflip-btn").click(function(){
   
-	$(".signin_form").css('opacity', '100');
+	$(".login_form").css('opacity', '100');
 	$(".signup_form").css('opacity', '0');
 	
   	$("#card").flip(false);
