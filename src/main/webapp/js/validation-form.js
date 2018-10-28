@@ -21,7 +21,7 @@ validateForm.ready = function() {
 				identifier : 'password',
 				rules : [
 					{
-						type : 'emtpy',
+						type : 'empty',
 						prompt : 'Please enter a password'
 					}
 				]
