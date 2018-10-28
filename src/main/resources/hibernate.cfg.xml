@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+	<hibernate-configuration>
+		<session-factory>
+			<!-- Select ou SQL dialect -->
+			<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+			<!--  JDBC Database connection settings -->
+			<property name="connection.driver_class">org.postgresql.Driver</property>
+			<property name="connection.url">jdbc:postgresql://ec2-50-16-202-213.compute-1.amazonaws.com:5432/da5njdatl991hn?sslmode=require</property>
+			<property name="connection.username">nuvvhgenjviffn</property>
+			<property name="connection.password">88c5e0822d52b10bf9138eb7ba756af22f04dd7c679b93d1f04a577e9b2f7eab</property>
+			
+			<!-- JDBC connection pool settings... using built-in test pool -->
+			<property name="connection.pool_size">1</property>
+			
+			<!-- Print executed SQL to stdout -->
+			<property name="show_sql">false</property>
+			
+			<!-- Drop and re-create all database on startup -->
+			<!-- <property name="hibernate.hbm2ddl.auto">create-drop</property> -->
+			<property name="hibernate.hbm2ddl.auto">update</property>
+			
+			
+			<!--  Echo the SQL to stdout -->
+			<property name="show_sql">true</property>
+			
+			<!--  Set the current session context -->
+			<property name="current_session_context_class">thread</property>
+		</session-factory>
+	</hibernate-configuration>
