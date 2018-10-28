@@ -21,6 +21,7 @@ hibernate_entity\Friendship.class
 database\DBUserTask.class
 servlets\AsyncUploadDataServlet.class
 services\ServicesFriendship.class
+servlets\MyTestServlet.class
 services\ServicesUserTask.class
 database\DBStatic.class
 servlets\GetAllFriendsServlet.class
