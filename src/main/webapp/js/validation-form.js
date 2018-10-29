@@ -34,8 +34,10 @@ validateForm.ready = function() {
 	};
 	
 	var login = function() {
-		username = formulaire.username.value;
-		pwd = formulaire.password.value;
+		var formulaire = $('.form#loginForm');
+		
+		username = formulaire.find('#usernameInput').val();
+		pwd = formulaire.find('#passwordInput').val();
 
 		var ok = verif_connect_form(username, pwd);
 		console.log("verif_connect_form" + ok);

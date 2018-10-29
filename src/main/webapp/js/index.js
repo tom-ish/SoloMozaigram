@@ -14,16 +14,17 @@ var app = {
 			});
 			$('#goToSignInZone').click(function(){
 				showSignupLoginPage();
-			});
-
+			})
+/*
 			$('#signupButton').click(function(){
-				validation-form.createUser(signupForm);
+				validation-form.createUser();
 				return false;
 			});
 			$('#loginButton').click(function(){
-				validation-form.login(logForm);
+				validation-form.login();
 				return false;
 			})
+			*/
 		}
 };
 
