@@ -15,16 +15,6 @@ var app = {
 			$('#goToSignInZone').click(function(){
 				showSignupLoginPage();
 			})
-/*
-			$('#signupButton').click(function(){
-				validation-form.createUser();
-				return false;
-			});
-			$('#loginButton').click(function(){
-				validation-form.login();
-				return false;
-			})
-			*/
 		}
 };
 
@@ -49,7 +39,7 @@ function showSignupLoginPage() {
 
 function switchToMyPage() {
 	console.log("switchToMyPage called");
-	window.location.href = "./myspace.html";
+	window.location.href = "./html/myspace.html";
 }
 
 function checkBrowserCompatibility() {
