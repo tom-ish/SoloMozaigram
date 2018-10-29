@@ -27,7 +27,8 @@ validateForm.ready = function() {
 				]
 			}
 		},
-		onSuccess : function() {
+		onSuccess : function(event, fields) {
+			event.preventDefault();
 			console.log("login success");
 			login();
 		}
@@ -38,13 +39,15 @@ validateForm.ready = function() {
 		
 		username = formulaire.find('#usernameInput').val();
 		pwd = formulaire.find('#passwordInput').val();
-
+/*
 		var ok = verif_connect_form(username, pwd);
 		console.log("verif_connect_form" + ok);
 		console.log("username : " + username + ", pwd : " + pwd);
 		if(ok) {
 			ServerServices.connect(username, pwd);
 		}
+		*/
+		ServerServices.connect(username, pwd);
 	};
 	
 	
@@ -109,7 +112,8 @@ validateForm.ready = function() {
 				]
 			}
 		},
-		onSuccess: function() {
+		onSuccess: function(event, fields) {
+			event.preventDefault();
 			console.log("signup success");
 			createUser();
 		}
