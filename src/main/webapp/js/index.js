@@ -20,7 +20,7 @@ var app = {
 				validation-form.createUser(signupForm);
 				return false;
 			});
-			$('#logButton').click(function(){
+			$('#loginButton').click(function(){
 				validation-form.login(logForm);
 				return false;
 			})
