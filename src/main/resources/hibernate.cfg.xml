@@ -16,16 +16,26 @@
 			<!-- JDBC connection pool settings... using built-in test pool -->
 			<property name="connection.pool_size">1</property>
 			
+			<!-- c3p0 config http://www.hibernate.org/214.html -->
+        	<property name="connection.provider_class">org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider</property>
+			<property name="c3p0.acquire_increment">1</property>
+	        <property name="c3p0.idle_test_period">60</property>
+	        <property name="c3p0.min_size">1</property>
+	        <property name="c3p0.max_size">2</property>
+	        <property name="c3p0.max_statements">50</property>
+	        <property name="c3p0.timeout">0</property>
+	        <property name="c3p0.acquireRetryAttempts">1</property>
+	        <property name="c3p0.acquireRetryDelay">250</property>
+	
+	        <property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+	        
 			<!-- Print executed SQL to stdout -->
 			<property name="show_sql">false</property>
+			
 			
 			<!-- Drop and re-create all database on startup -->
 			<!-- <property name="hibernate.hbm2ddl.auto">create-drop</property> -->
 			<property name="hibernate.hbm2ddl.auto">update</property>
-			
-			
-			<!--  Echo the SQL to stdout -->
-			<property name="show_sql">true</property>
 			
 			<!--  Set the current session context -->
 			<property name="current_session_context_class">thread</property>
