@@ -24,10 +24,8 @@ var ServerServices = {
 					console.log(jqXHR.responseText + " status: " + jqXHR.status);
 					console.log("errorThrown : " + errorThrown);
 //					alert("Erreur Ajax: SignUp is not working.\n" + textStatus + " " + errorThrown);
-					
-					$('#error').innerHTML = jqXHR.responseText;
-					$('#container').hide();
-					$('#error').show();
+
+					loadErrorPage(jqXHR.responseText);
 				}
 			});
 		},
@@ -68,9 +66,7 @@ var ServerServices = {
 					console.log(jqXHR.responseText + " status: " + jqXHR.status);
 					//alert("Erreur Ajax: Connexion is not working.\n" + textStatus + " " + errorThrown);
 					
-					document.open();
-					document.write(jqXHR.responseText);
-					document.close();
+					loadErrorPage(jqXHR.responseText);
 				}
 			});
 		},
@@ -89,9 +85,8 @@ var ServerServices = {
 					}
 				},
 				error: function(jqXHR, textStatus, errorThrown) {
-					console.log(textStatus);
-					console.log(jqXHR.responseText + " status : " + jqXHR.status);
-					
+
+					loadErrorPage(jqXHR.responseText);
 				}
 			});
 		},
@@ -122,6 +117,7 @@ var ServerServices = {
 				error: function(jqXHR, textStatus, errorThrown) {
 					console.log(textStatus);
 					console.log(jqXHR.responseText + " status : " + jqXHR.status);
+					loadErrorPage(jqXHR.responseText);
 				}
 			});
 		},
@@ -426,5 +422,11 @@ var ServerServices = {
 					console.log(jqXHR.responseText + " status: " + jqXHR.status);
 				}
 			});
+		},
+		
+		loadErrorPage = function(response) {
+			document.open();
+			document.write(response);
+			document.close();
 		}
 }
