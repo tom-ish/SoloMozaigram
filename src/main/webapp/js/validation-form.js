@@ -37,8 +37,8 @@ validateForm.ready = function() {
 	var login = function() {
 		var formulaire = $('.form#loginForm');
 		
-		username = formulaire.find('#usernameInput').val();
-		pwd = formulaire.find('#passwordInput').val();
+		username = formulaire.find('#loginUsernameInput').val();
+		pwd = formulaire.find('#loginPasswordInput').val();
 /*
 		var ok = verif_connect_form(username, pwd);
 		console.log("verif_connect_form" + ok);
@@ -124,10 +124,10 @@ validateForm.ready = function() {
 	var createUser = function() {
 		var formulaire = $('.form#signupForm');
 		
-		username = formulaire.find('#usernameInput').val();
-		email = formulaire.find('#emailInput').val();
-		pwd = formulaire.find('#passwordInput').val();
-		pwd2 = formulaire.find('#confirmPasswordInput').val();
+		username = formulaire.find('#signupUsernameInput').val();
+		email = formulaire.find('#signupEmailInput').val();
+		pwd = formulaire.find('#signupPasswordInput').val();
+		pwd2 = formulaire.find('#signupConfirmPasswordInput').val();
 		
 		console.log("input values : " + username + ", " + pwd + ", " + pwd2 + ", " + email);
 
