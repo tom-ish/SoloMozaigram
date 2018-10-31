@@ -422,11 +422,12 @@ var ServerServices = {
 					console.log(jqXHR.responseText + " status: " + jqXHR.status);
 				}
 			});
-		},
-		
-		loadErrorPage = function(response) {
-			document.open();
-			document.write(response);
-			document.close();
 		}
+}
+
+
+loadErrorPage = function(response) {
+	document.open();
+	document.write(response);
+	document.close();
 }
