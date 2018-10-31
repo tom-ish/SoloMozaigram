@@ -18,13 +18,16 @@ var ServerServices = {
 						console.log("password2 : " + json.password2);
 						console.log("email : " + json.email);
 					}
-					
 				},
 				error: function(jqXHR , textStatus , errorThrown ){
 					console.log(textStatus);
 					console.log(jqXHR.responseText + " status: " + jqXHR.status);
 					console.log("errorThrown : " + errorThrown);
 //					alert("Erreur Ajax: SignUp is not working.\n" + textStatus + " " + errorThrown);
+					
+					$('#error').innerHTML = jqXHR.responseText;
+					$('#container').hide();
+					$('#error').show();
 				}
 			});
 		},
@@ -84,6 +87,7 @@ var ServerServices = {
 				error: function(jqXHR, textStatus, errorThrown) {
 					console.log(textStatus);
 					console.log(jqXHR.responseText + " status : " + jqXHR.status);
+					
 				}
 			});
 		},
