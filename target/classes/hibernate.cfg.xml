@@ -16,8 +16,9 @@
 			<!-- JDBC connection pool settings... using built-in test pool -->
 			<property name="connection.pool_size">1</property>
 			
+	
 			<!-- c3p0 config http://www.hibernate.org/214.html -->
-        	<property name="connection.provider_class">org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider</property>
+    <!--  	<property name="connection.provider_class">org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider</property> -->
 	        
 			<!-- Print executed SQL to stdout -->
 			<property name="show_sql">false</property>
