@@ -30,6 +30,7 @@ var ServerServices = {
 			});
 		},
 		connect : function connect(username, password) {
+			var serverResponded = false;
 			$.ajax ({
 				type: "POST",
 				url: "ConnectUserServlet",
@@ -45,6 +46,8 @@ var ServerServices = {
 						console.log(json);
 						console.log(json.friendRequest);
 						console.log(json.friends);
+						
+						serverResponded = true;
 						// Store username in localStorage Object before switching to MozaikPage
 						// Web Storage Compatibility should be checked at start
 						localStorage.clear();
@@ -60,6 +63,18 @@ var ServerServices = {
 						console.log("Connexion failed!");
 						console.log("returned code : " + json.ConnectUserServlet);
 					}
+				},
+				complete: function(json) {
+					if(!serverResponded) {
+						setTimeout(function(){
+							// Schedule the next
+							ServerServices.connect(username, password);
+						}, 3000);
+					}
+					else {
+						console.log("SUCCESS");
+					}
+					
 				},
 				error: function(jqXHR , textStatus , errorThrown ){
 					console.log(textStatus);
@@ -427,6 +442,7 @@ var ServerServices = {
 
 
 loadErrorPage = function(response) {
+	
 	document.open();
 	document.write(response);
 	document.close();
