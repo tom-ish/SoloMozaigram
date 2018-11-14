@@ -7,7 +7,10 @@ var mySpaceContent = {
 			console.log($('.ui.labeled.icon.sidebar'));
 		}
 		
-		$('.ui.labeled.icon.sidebar').sidebar('toggle');
+		
+		$('#toggle').click(function() {
+			$('.ui.labeled.icon.sidebar').sidebar('toggle');
+		});
 		
 		var page_owner = localStorage.getItem("username");
 		document.getElementById("usernameDiv").innerHTML = "Welcome " + page_owner;
