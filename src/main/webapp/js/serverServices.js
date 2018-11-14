@@ -70,9 +70,10 @@ var ServerServices = {
 							// Schedule the next
 							ServerServices.connect(username, password);
 						}, 3000);
+						console.log("connect FAILURE");
 					}
 					else {
-						console.log("SUCCESS");
+						console.log("connect SUCCESS");
 					}
 					
 				},
@@ -204,7 +205,6 @@ var ServerServices = {
 							// Schedule the next
 							ServerServices.isMozaikGenerated(sessionkey);
 						}, 3000);
-						
 					}
 					else {
 						console.log("SUCCESS");
