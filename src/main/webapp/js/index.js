@@ -34,7 +34,7 @@ function showSignupLoginPage() {
 
 function switchToMyPage() {
 	console.log("switchToMyPage called");
-	window.location.href = "./myspace.html";
+	window.location.href = "./html/myspace.html";
 }
 
 function checkBrowserCompatibility() {
