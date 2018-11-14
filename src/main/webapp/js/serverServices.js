@@ -84,8 +84,10 @@ var ServerServices = {
 					
 					//loadErrorPage(jqXHR.responseText);
 					
-					if(jqXHR.status === 503)
+					if(jqXHR.status === 503) {
+						console.log("connect error : jqXHR = " + jqXHR.status);
 						ServerServices.connect(username, password);
+					}
 				}
 			});
 		},
