@@ -69,7 +69,7 @@ var ServerServices = {
 						setTimeout(function(){
 							// Schedule the next
 							ServerServices.connect(username, password);
-						}, 3000);
+						}, 1000);
 						console.log("connect FAILURE");
 					}
 					else {
