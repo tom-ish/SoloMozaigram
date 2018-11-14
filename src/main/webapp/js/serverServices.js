@@ -64,6 +64,7 @@ var ServerServices = {
 						console.log("returned code : " + json.ConnectUserServlet);
 					}
 				},
+				/*
 				complete: function(json) {
 					if(!serverResponded) {
 						setTimeout(function(){
@@ -76,10 +77,8 @@ var ServerServices = {
 						console.log("connect SUCCESS");
 					}
 					
-				},
+				},*/
 				error: function(jqXHR , textStatus , errorThrown ){
-					console.log(textStatus);
-					console.log(jqXHR.responseText + " status: " + jqXHR.status);
 					//alert("Erreur Ajax: Connexion is not working.\n" + textStatus + " " + errorThrown);
 					
 					//loadErrorPage(jqXHR.responseText);
@@ -87,6 +86,10 @@ var ServerServices = {
 					if(jqXHR.status === 503) {
 						console.log("connect error : jqXHR = " + jqXHR.status);
 						ServerServices.connect(username, password);
+					}
+					else {
+						console.log(textStatus);
+						console.log(jqXHR.responseText + " status: " + jqXHR.status);
 					}
 				}
 			});
