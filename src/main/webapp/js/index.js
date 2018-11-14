@@ -18,7 +18,6 @@ var app = {
 		}
 };
 
-
 function showSignupLoginPage() {
 	console.log("showSignupPage called with logZoneVisible : "+logZoneVisible);
 	if(logZoneVisible) {
@@ -32,10 +31,6 @@ function showSignupLoginPage() {
 		logZoneVisible=true;
 	}
 }
-
-
-
-
 
 function switchToMyPage() {
 	console.log("switchToMyPage called");
@@ -51,7 +46,6 @@ function checkBrowserCompatibility() {
 		// No Web Storage support...
 	}
 }
-
 
 window.onload = function(){
 	app.initialize();
