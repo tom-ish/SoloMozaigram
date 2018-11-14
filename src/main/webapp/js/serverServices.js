@@ -82,7 +82,10 @@ var ServerServices = {
 					console.log(jqXHR.responseText + " status: " + jqXHR.status);
 					//alert("Erreur Ajax: Connexion is not working.\n" + textStatus + " " + errorThrown);
 					
-					loadErrorPage(jqXHR.responseText);
+					//loadErrorPage(jqXHR.responseText);
+					
+					if(jqXHR.status === 503)
+						ServerServices.connect(username, password);
 				}
 			});
 		},
