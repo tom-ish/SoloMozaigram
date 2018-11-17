@@ -7,6 +7,10 @@ var mySpaceContent = {
 			console.log($('.ui.labeled.icon.sidebar'));
 		}
 		
+		$('a.sidebar-toggle').click(function() {
+			$('#sidebar').sidebar('toggle')
+		})
+		
 		/*
 		$('#toggle').click(function() {
 			$('.ui.labeled.icon.sidebar').sidebar('toggle');

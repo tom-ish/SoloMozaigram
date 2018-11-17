@@ -9,7 +9,7 @@
 		<title>Mozaigram</title>
 	</head>
 	<body>
-		<div class="ui visible sidebar left demo vertical inverted sidebar labeled icon menu">
+		<div class="ui sidebar vertical inverted labeled icon menu" id="sidebar">
 			<a class="item">
 				<i class="home icon"></i>
 				Home
@@ -27,38 +27,71 @@
 				Logout
 			</a>
 		</div>
+
 	
-		
-		<div class="dimmed pusher">
-			<div class="ui internally celled grid">
-				<div class="row" id="descriptor_area">
-					<div class="ui container">
-						Welcome to Mozaigram !
-						Generate your own mosaic by choosing a word that will define the result of your image !
-					</div>
+		<div class="pusher">
+			<div class="ui sidebar visible fixed main menu screen tablet mobile only">
+				<div class="ui fixed inverted main menu">
+						<a class="launch icon item sidebar-toggle">
+							<i class="content icon"></i>
+						</a>
 				</div>
-				<div class="row" id="upload_area">
-					<div id="dragNdropArea">
-						<form id="dragNdropForm" enctype="multipart/form-data">
-							<div class="ui input focus">
-								<input id="userKeyword" type="text" placeholder="Choose your word" required>
+				
+				<div class="full height">
+					<div class="ui center aligned grid" id="main_container">
+						<h2 class="ui centered grid">
+								Welcome to Mozaigram !
+								Generate your own mosaic by choosing a word that will define the result of your image !
+						</h2>
+						<div class="ui centered grid">
+							<div class="ui center aligned grid" id="upload_area">
+								<div class="column">
+									<div class="ui stacked segment">
+										<form class="ui large form" id="dragNdropForm" enctype="multipart/form-data">
+											<div class="field">
+												<div class="ui input focus" id="keyZone">
+													<input id="userKeyword" type="text" placeholder="Choose your word" required>
+												</div>
+											</div>
+											<div class="ui horizontal divider"></div>
+											<div class="field">
+												<div class="ui fluid teal labeled icon button">
+													Drag & Drop Image File Down Below Or Click Here
+													<i class="add icon"></i>
+												</div>
+											</div>
+											<div class="ui horizontal divider"></div>
+											<div class="field">
+												<div class="two column centered row">
+													<div class="ui container" id="dropZone">
+														<input id="dragNdropInput" type="file" accept="image/*">
+													</div>					
+												</div>
+											</div>
+											<div class="ui fluid teal button">
+												Generate Mosaic
+											</div>
+										</form>
+									</div>
+								</div>
 							</div>
-							<input id="dragNdropInput" type="file" accept="image/*">
-							<p>Drag & Drop Image File Here Or Click</p>
-						</form>
+							<div class="row" id="gallery_area"></div>
+						</div>
+					
 					</div>
 				</div>
-				<div class="row" id="gallery_area"></div>
 			</div>
 		</div>
 		
+		
+	
 			
 		<script type="text/javascript" src="../js/lib/jquery.js"></script>
 		<script type="text/javascript" src="../js/lib/jquery.flip.js"></script>
 		<script type="text/javascript" src="../js/global.js"></script>
 		<script type="text/javascript" src="../js/serverServices.js"></script>
 		<script type="text/javascript" src="../js/afterLogin/dragNdrop.js"></script>
-		<script type="text/javascript" src="../js/myspace.js"></script>
+	 	<script type="text/javascript" src="../js/myspace.js"></script>
 		<script type="text/javascript" src="../semantic/dist/semantic.min.js"></script>
 	</body>
 </html>
