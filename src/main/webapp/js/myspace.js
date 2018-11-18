@@ -1,12 +1,5 @@
 var mySpaceContent = {
 	initialize : function(){
-		if($('.ui.labeled.icon.sidebar') == undefined)
-			console.log("jquery $$$ not working");
-		else  {
-			console.log("jquery $$$ working \n");
-			console.log($('.ui.labeled.icon.sidebar'));
-		}
-		
 		$('a.sidebar-toggle').click(function() {
 			$('#sidebar').sidebar('toggle')
 		});
@@ -20,6 +13,24 @@ var mySpaceContent = {
 			$('#dropZone').show();
 			fileUploaded = false;
 		});
+		
+		$('#generate-button').click(function() {
+			var str = document.getElementById('dragNdropInput').value;
+			if( (typeof str === "undefined") || (str.length <= 0) )
+				return;
+			console.log(str);
+			
+//			ServerServices.uploadData(dragNdropForm.userKeyword.value, fileList[0]);
+			//ServerServices.asyncUploadData(dragNdropForm, sessionkey);
+
+
+		});
+		
+		
+		$('#userKeyword').focusout(function() {
+			if(fileUploaded)
+				$('#generate-button').removeClass("disabled");
+		})
 		
 		$('#username').html(localStorage.getItem("username"));
 		

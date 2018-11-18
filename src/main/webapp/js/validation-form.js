@@ -135,6 +135,7 @@ validateForm.ready = function() {
 		switchToHomePage();
 	};
 	
+	
 	$('.form#loginForm').form(loginValidationRules);
 	$('.form#signupForm').form(signupValidationRules);
 	

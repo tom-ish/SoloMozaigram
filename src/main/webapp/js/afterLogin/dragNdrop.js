@@ -14,7 +14,9 @@ $(document).ready(function(){
 				loadImage(fileList[0]);
 				fileUploaded = true;
 				$('#reset-button').removeClass("disabled");
-				$('#generate-button').removeClass("disabled");
+				
+				if( (typeof str !== "undefined") && (str.length > 0) )
+					$('#generate-button').removeClass("disabled");
 				/*
 			$("#dragNdropButton").click(function(){
 				console.log("button clicked");
@@ -26,20 +28,6 @@ $(document).ready(function(){
 				return false;
 			});
 				 */
-				$("#generate-button").click(function() {
-					console.log("button clicked");
-					console.log(dragNdropForm);
-					console.log("---------------------");
-					console.log(sessionkey);
-					var str = document.getElementById('dragNdropInput').value;
-					console.log("test str");
-					console.log(str);
-					
-//					ServerServices.uploadData(dragNdropForm.userKeyword.value, fileList[0]);
-					//ServerServices.asyncUploadData(dragNdropForm, sessionkey);
-					ServerServices.uploadData(dragNdropForm, sessionkey);
-					return false;
-				});
 			}
 			else {
 				$('#dragNdropForm p').text("Please check your file extension... Accepting only images !");
