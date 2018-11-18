@@ -11,11 +11,25 @@
 	height: 200px;
 	margin-top: 120px;
 	margin-left: -250px;*/
-	border: 4px dashed #111;
+	height: 300px;
+	padding: 20px;
+	border: 2px dashed #0f3c4b;
+}
+#droppedZone {
+	height: 300px;
+	padding: 20px;
+}
+#dropZoneParent {
+	background-color: #c8dadf;
 }
 #dragNdropInput {
-	height: 300px;
 	opacity: 0;
+}
+.black-blue {
+	color: #0f3c4b;
+}
+.is-invertable:hover {
+	color: teal;
 }
 #userKeyword:valid {
 	border: 2px solid black;

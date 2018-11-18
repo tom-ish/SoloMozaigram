@@ -87,11 +87,35 @@ function checkDataUploadValidity(keyword, image) {
 }
 
 function loadImage(imgFile) {
-	var img = document.createElement("img");
-	var reader = new FileReader();
-	var dragNdropArea = $(document.getElementById("dragNdropArea"));
-	var dragNdropForm = $(document.getElementById("dragNdropForm"));
+	var img = document.createElement("img"),
+		reader = new FileReader(),
+		dropZone = $(document.getElementById("dropZone")),
+		dragNdropForm = $(document.getElementById("dragNdropForm"));
 	
+	reader.onloadend = function() {
+		var image = new Image;
+		image.src = reader.result;
+		document.getElementById("dragNdropInput").setAttribute("display", "none");
+		var attributes = dragNdropForm.prop("attributes");
+		$.each(attributes, function() {
+			console.log(this.name + ": " + this.value);
+			img.setAttribute(this.name, this.Value);
+		});		
+		img.id = "dragNdropImg";
+		img.src = reader.result;
+		img.classList = "ui middle aligned centered medium image";
+	};
+	reader.readAsDataURL(imgFile);
+	
+	var droppedZone = document.createElement("div");
+	droppedZone.id = "droppedZone";
+	droppedZone.classList = "ui container";
+	droppedZone.append(img);
+	dropZone.hide();
+	$(document.getElementById("dropZoneParent")).append(droppedZone);
+	return;
+	
+	/*
 	reader.onloadend = function() {
 		var imgHeight;
 		var imgWidth;
@@ -100,8 +124,8 @@ function loadImage(imgFile) {
 			imgWidth = this.width;
 			imgHeight = this.height;
 			
-			var frameHeight = document.getElementById("dragNdropArea").offsetHeight;
-			var frameWidth = document.getElementById("dragNdropArea").offsetWidth;
+			var frameHeight = document.getElementById("dropZone").offsetHeight;
+			var frameWidth = document.getElementById("dropZone").offsetWidth;
 			console.log("imgHeight : " + imgHeight + ", frameHeight : " + frameHeight + ", k : " + (imgHeight/frameHeight));
 			console.log("imgWidth : " + imgWidth + ", frameWidth : " + frameWidth + ", k : " + (imgWidth/frameWidth));
 			
@@ -111,7 +135,7 @@ function loadImage(imgFile) {
 				img.setAttribute("height", frameHeight);
 				img.setAttribute("width", (imgWidth/k));
 
-				var frame_marginLeft = getStyleRuleValue('margin-left', "#dragNdropArea");
+				var frame_marginLeft = getStyleRuleValue('margin-left', "#dropZone");
 				var frame_ml_value = parseInt(frame_marginLeft.substring(0, frame_marginLeft.length-2));
 				var margin_left = (((frameWidth - (imgWidth/k))/2) + frame_ml_value);
 				img.style.marginLeft = margin_left+"px";
@@ -124,10 +148,10 @@ function loadImage(imgFile) {
 				
 				// frameHeight - (imgHeight/k)/2
 				
-				var frame_marginTop = getStyleRuleValue('margin-top', "#dragNdropArea");
+				var frame_marginTop = getStyleRuleValue('margin-top', "#dropZone");
 				var frame_mt_value = parseInt(frame_marginTop.substring(0, frame_marginTop.length-2));
 				var margin_top = (((frameHeight - (imgHeight/k))/2));
-				img.style.marginLeft = getStyleRuleValue('margin-left', "#dragNdropArea");
+				img.style.marginLeft = getStyleRuleValue('margin-left', "#dropZone");
 				img.style.marginTop = margin_top+"px";
 			}
 			console.log("test");
@@ -136,7 +160,7 @@ function loadImage(imgFile) {
 		image.src = reader.result;
 		// Load the image instead of the upload area
 		//$(document.getElementById("dragNdropForm").removeChild(document.getElementById("dragNdropInput")));
-		$(document.getElementById("dragNdropForm").removeChild(document.getElementsByTagName("P")[0]));
+		//$(document.getElementById("dragNdropForm").removeChild(document.getElementsByTagName("P")[0]));
 		document.getElementById("dragNdropInput").setAttribute("display", "none");
 		var attributes = dragNdropForm.prop("attributes");
 		$.each(attributes, function() {
@@ -149,6 +173,7 @@ function loadImage(imgFile) {
 	reader.readAsDataURL(imgFile);
 	dragNdropForm.append(img);
 	return;
+	*/
 }
 
 
@@ -157,15 +182,15 @@ function displayUploadButton() {
 /*	var button = document.createElement("div");
 	button.id = "dragNdropButton";
 	button.textContent = "Upload";
-	var dragNdropArea = $(document.getElementById("dragNdropArea"));
-	dragNdropArea.append(button);
+	var dropZone = $(document.getElementById("dropZone"));
+	dropZone.append(button);
 */
 	var button = document.createElement("button");
 	button.id = "dragNdropButton";
 	button.form = "dragNdropForm";
 	button.value = "Upload";
 	button.type = "submit";
-	$(document.getElementById("dragNdropArea")).append(button);
+	$(document.getElementById("dropZone")).append(button);
 	return;
 }
 

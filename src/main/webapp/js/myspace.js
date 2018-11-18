@@ -9,7 +9,9 @@ var mySpaceContent = {
 		
 		$('a.sidebar-toggle').click(function() {
 			$('#sidebar').sidebar('toggle')
-		})
+		});
+		
+		document.getElementById("username").innerHTML = localStorage.getItem("username");
 		
 		/*
 		$('#toggle').click(function() {

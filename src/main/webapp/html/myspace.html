@@ -31,10 +31,14 @@
 	
 		<div class="pusher">
 			<div class="ui sidebar visible fixed main menu screen tablet mobile only">
-				<div class="ui fixed inverted main menu">
-						<a class="launch icon item sidebar-toggle">
-							<i class="content icon"></i>
-						</a>
+				<div class="ui fixed main menu">
+					<a class="launch icon item sidebar-toggle">
+						<i class="content icon"></i>
+					</a>
+				  	<a class="item">
+						<i class="circular user icon"></i>
+					  	<span id="username"></span>
+					</a>
 				</div>
 				
 				<div class="full height">
@@ -53,19 +57,20 @@
 													<input id="userKeyword" type="text" placeholder="Choose your word" required>
 												</div>
 											</div>
+										
 											<div class="ui horizontal divider"></div>
 											<div class="field">
-												<div class="ui fluid teal labeled icon button">
-													Drag & Drop Image File Down Below Or Click Here
-													<i class="add icon"></i>
-												</div>
-											</div>
-											<div class="ui horizontal divider"></div>
-											<div class="field">
-												<div class="two column centered row">
+												<div class="two column centered row" id="dropZoneParent">
 													<div class="ui container" id="dropZone">
 														<input id="dragNdropInput" type="file" accept="image/*">
-													</div>					
+														<div class="ui center aligned">
+															<i class="upload huge icon black-blue"></i>
+														</div>
+														<div class="ui horizontal divider"></div>
+														<label class="black-blue is-invertable" for="dragNdropInput">
+															<strong>Choose an image file</strong> or drag it here.
+														</label>
+													</div>			
 												</div>
 											</div>
 											<div class="ui fluid teal button">
@@ -90,7 +95,7 @@
 		<script type="text/javascript" src="../js/lib/jquery.flip.js"></script>
 		<script type="text/javascript" src="../js/global.js"></script>
 		<script type="text/javascript" src="../js/serverServices.js"></script>
-		<script type="text/javascript" src="../js/afterLogin/dragNdrop.js"></script>
+		<script type="text/javascript" src="../js/afterLogin/dragndrop.js"></script>
 	 	<script type="text/javascript" src="../js/myspace.js"></script>
 		<script type="text/javascript" src="../semantic/dist/semantic.min.js"></script>
 	</body>
