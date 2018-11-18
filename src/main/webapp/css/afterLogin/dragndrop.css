@@ -16,8 +16,7 @@
 	border: 2px dashed #0f3c4b;
 }
 #droppedZone {
-	height: 300px;
-	padding: 20px;
+	min-height: 300px;
 }
 #dropZoneParent {
 	background-color: #c8dadf;
@@ -37,14 +36,6 @@
 #userKeyword:invalid {
 	border: 2px dashed red;
 }
-#dragNdropImg {
-    position: relative;
-    float: left;
-    clear: left;
-    left: 50%;
-    bottom: 4px;
-}
-
 
 
 #friendsList {

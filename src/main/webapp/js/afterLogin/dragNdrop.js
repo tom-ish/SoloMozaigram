@@ -12,8 +12,9 @@ $(document).ready(function(){
 				//$('#dragNdropForm p').text(this.files.length + " file(s) selected");
 				//var image = adaptImageDimensions(this.files[0]);
 				loadImage(fileList[0]);
-				displayUploadButton();
 				fileUploaded = true;
+				$('#reset-button').removeClass("disabled");
+				$('#generate-button').removeClass("disabled");
 				/*
 			$("#dragNdropButton").click(function(){
 				console.log("button clicked");
@@ -25,7 +26,7 @@ $(document).ready(function(){
 				return false;
 			});
 				 */
-				$("#dragNdropButton").click(function() {
+				$("#generate-button").click(function() {
 					console.log("button clicked");
 					console.log(dragNdropForm);
 					console.log("---------------------");
@@ -50,9 +51,6 @@ $(document).ready(function(){
 			console.log(this.files.length);
 		}
 	});
-	
-	
-
 });
 
 
@@ -75,7 +73,7 @@ function checkFileExtension(filename) {
 			
 		default:
 			// Cancel the form submission
-			// submitEvent.preventDefault();
+			submitEvent.preventDefault();
 			return false;
 	}
 	return false;
@@ -95,15 +93,11 @@ function loadImage(imgFile) {
 	reader.onloadend = function() {
 		var image = new Image;
 		image.src = reader.result;
-		document.getElementById("dragNdropInput").setAttribute("display", "none");
-		var attributes = dragNdropForm.prop("attributes");
-		$.each(attributes, function() {
-			console.log(this.name + ": " + this.value);
-			img.setAttribute(this.name, this.Value);
-		});		
+		$("#dragNdropInput").hide();
+
 		img.id = "dragNdropImg";
 		img.src = reader.result;
-		img.classList = "ui middle aligned centered medium image";
+		img.classList = "ui centered middle aligned medium image";
 	};
 	reader.readAsDataURL(imgFile);
 	
@@ -111,100 +105,13 @@ function loadImage(imgFile) {
 	droppedZone.id = "droppedZone";
 	droppedZone.classList = "ui container";
 	droppedZone.append(img);
-	dropZone.hide();
-	$(document.getElementById("dropZoneParent")).append(droppedZone);
-	return;
 	
-	/*
-	reader.onloadend = function() {
-		var imgHeight;
-		var imgWidth;
-		var image = new Image;
-		image.onload = function() {
-			imgWidth = this.width;
-			imgHeight = this.height;
-			
-			var frameHeight = document.getElementById("dropZone").offsetHeight;
-			var frameWidth = document.getElementById("dropZone").offsetWidth;
-			console.log("imgHeight : " + imgHeight + ", frameHeight : " + frameHeight + ", k : " + (imgHeight/frameHeight));
-			console.log("imgWidth : " + imgWidth + ", frameWidth : " + frameWidth + ", k : " + (imgWidth/frameWidth));
-			
-			if((imgHeight/frameHeight) > (imgWidth/frameWidth)) {
-				k = imgHeight/frameHeight;
-				
-				img.setAttribute("height", frameHeight);
-				img.setAttribute("width", (imgWidth/k));
+	var droppedImgPath = $('#droppedImgPath');
+	droppedImgPath.html(""+imgFile.name);
+	droppedImgPath.show();
 
-				var frame_marginLeft = getStyleRuleValue('margin-left', "#dropZone");
-				var frame_ml_value = parseInt(frame_marginLeft.substring(0, frame_marginLeft.length-2));
-				var margin_left = (((frameWidth - (imgWidth/k))/2) + frame_ml_value);
-				img.style.marginLeft = margin_left+"px";
-			}
-			else {
-				k = imgWidth/frameWidth;
-				
-				img.setAttribute("width", frameWidth);
-				img.setAttribute("height", imgHeight/k);
-				
-				// frameHeight - (imgHeight/k)/2
-				
-				var frame_marginTop = getStyleRuleValue('margin-top', "#dropZone");
-				var frame_mt_value = parseInt(frame_marginTop.substring(0, frame_marginTop.length-2));
-				var margin_top = (((frameHeight - (imgHeight/k))/2));
-				img.style.marginLeft = getStyleRuleValue('margin-left', "#dropZone");
-				img.style.marginTop = margin_top+"px";
-			}
-			console.log("test");
-			console.log(img);
-		};
-		image.src = reader.result;
-		// Load the image instead of the upload area
-		//$(document.getElementById("dragNdropForm").removeChild(document.getElementById("dragNdropInput")));
-		//$(document.getElementById("dragNdropForm").removeChild(document.getElementsByTagName("P")[0]));
-		document.getElementById("dragNdropInput").setAttribute("display", "none");
-		var attributes = dragNdropForm.prop("attributes");
-		$.each(attributes, function() {
-			console.log(this.name + ": " + this.value);
-			img.setAttribute(this.name, this.Value);
-		});		
-		img.id = "dragNdropImg";
-		img.src = reader.result;
-	}
-	reader.readAsDataURL(imgFile);
-	dragNdropForm.append(img);
+	dropZone.hide();
+	
+	$("#dropZoneParent").append(droppedZone);
 	return;
-	*/
-}
-
-
-function displayUploadButton() {
-	console.log("displaying upload button...");
-/*	var button = document.createElement("div");
-	button.id = "dragNdropButton";
-	button.textContent = "Upload";
-	var dropZone = $(document.getElementById("dropZone"));
-	dropZone.append(button);
-*/
-	var button = document.createElement("button");
-	button.id = "dragNdropButton";
-	button.form = "dragNdropForm";
-	button.value = "Upload";
-	button.type = "submit";
-	$(document.getElementById("dropZone")).append(button);
-	return;
-}
-
-function getStyleRuleValue(style, selector, sheet) {
-    var sheets = typeof sheet !== 'undefined' ? [sheet] : document.styleSheets;
-    for (var i = 0, l = sheets.length; i < l; i++) {
-        var sheet = sheets[i];
-        if( !sheet.cssRules ) { continue; }
-        for (var j = 0, k = sheet.cssRules.length; j < k; j++) {
-            var rule = sheet.cssRules[j];
-            if (rule.selectorText && rule.selectorText.split(',').indexOf(selector) !== -1) {
-                return rule.style[style];
-            }
-        }
-    }
-    return null;
 }

@@ -11,7 +11,17 @@ var mySpaceContent = {
 			$('#sidebar').sidebar('toggle')
 		});
 		
-		document.getElementById("username").innerHTML = localStorage.getItem("username");
+		$('#reset-button').click(function() {
+			$('#userKeyword').value = "";
+			$('#dragNdropInput').value = "";
+			$('#dragNdropInput').show();
+			$('#droppedZone').remove();
+			$('#droppedImgPath').html("");
+			$('#dropZone').show();
+			fileUploaded = false;
+		});
+		
+		$('#username').html(localStorage.getItem("username"));
 		
 		/*
 		$('#toggle').click(function() {
