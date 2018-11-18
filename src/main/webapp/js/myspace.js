@@ -23,7 +23,7 @@ var mySpaceContent = {
 			console.log(userKeyword);
 			console.log(document.getElementById('dragNdropInput').files[0].name);
 			var imgFile = document.getElementById('dragNdropInput').files[0];
-			ServerServices.uploadData(userKeyword, imgFile);
+			ServerServices.uploadData(userKeyword, imgFile, getLocalStorage("sessionKey"));
 			//ServerServices.asyncUploadData(dragNdropForm, sessionkey);
 
 			return false;

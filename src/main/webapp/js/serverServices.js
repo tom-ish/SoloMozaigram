@@ -114,14 +114,15 @@ var ServerServices = {
 				}
 			});
 		},
-		uploadData : function uploadData(form, sessionkey) {
+		uploadData : function uploadData(userKeyword, imgFile, sessionkey) {
 			console.log("ServerServices.uploadData()");
-			console.log(form);
-			console.log(form.userKeyword.value);
-			var dataform = new FormData(form);
+			console.log(userKeyword);
+			var dataform = new FormData();
+			dataform.append("userKeyword", userKeyword);
+			dataform.append("imageFile", imgFile);
 			dataform.append("sessionkey", sessionkey);
 			console.log("filename : ");
-			console.log(""+$('#dragNdropInput').val());
+			console.log(imgFile.val());
 			
 			$.ajax({
 				type: "POST",
