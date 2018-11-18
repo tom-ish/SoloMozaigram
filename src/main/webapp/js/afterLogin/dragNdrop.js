@@ -2,6 +2,9 @@ var username = localStorage.getItem("username");
 var sessionkey = localStorage.getItem("sessionKey");
 
 var fileUploaded = false;
+var userKeywordMissing = true;
+var userKeyword;
+
 $(document).ready(function(){
 	$('#dragNdropInput').change(function () {
 		var fileList = this.files;
@@ -15,8 +18,10 @@ $(document).ready(function(){
 				fileUploaded = true;
 				$('#reset-button').removeClass("disabled");
 				
-				if( (typeof str !== "undefined") && (str.length > 0) )
-					$('#generate-button').removeClass("disabled");
+				console.log("userKeyword: " + userKeyword);
+				if(!userKeywordMissing) {
+					$('#generate-button').removeClass("disabled");					
+				}
 				/*
 			$("#dragNdropButton").click(function(){
 				console.log("button clicked");
@@ -85,7 +90,7 @@ function loadImage(imgFile) {
 
 		img.id = "dragNdropImg";
 		img.src = reader.result;
-		img.classList = "ui centered middle aligned medium image";
+		img.classList = "ui centered medium image";
 	};
 	reader.readAsDataURL(imgFile);
 	

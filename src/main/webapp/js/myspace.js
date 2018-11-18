@@ -10,26 +10,34 @@ var mySpaceContent = {
 			$('#dragNdropInput').show();
 			$('#droppedZone').remove();
 			$('#droppedImgPath').html("");
+			$('#reset-button').addClass("disabled");
+			$('#generate-button').addClass("disabled");
 			$('#dropZone').show();
+			
 			fileUploaded = false;
+			userKeywordMissing = true;
+			userKeyword = "";
 		});
 		
 		$('#generate-button').click(function() {
-			var str = document.getElementById('dragNdropInput').value;
-			if( (typeof str === "undefined") || (str.length <= 0) )
-				return;
-			console.log(str);
-			
-//			ServerServices.uploadData(dragNdropForm.userKeyword.value, fileList[0]);
+			console.log(userKeyword);
+			console.log(document.getElementById('dragNdropInput').files[0].name);
+			var imgFile = document.getElementById('dragNdropInput').files[0];
+			ServerServices.uploadData(userKeyword, imgFile);
 			//ServerServices.asyncUploadData(dragNdropForm, sessionkey);
 
-
+			return false;
 		});
 		
 		
 		$('#userKeyword').focusout(function() {
-			if(fileUploaded)
+			userKeyword = this.value;
+			console.log(userKeyword);
+			if( (typeof userKeyword !== "undefined") && (userKeyword.length > 0) )
+				userKeywordMissing = false;
+			if(!userKeywordMissing && fileUploaded)
 				$('#generate-button').removeClass("disabled");
+			
 		})
 		
 		$('#username').html(localStorage.getItem("username"));
