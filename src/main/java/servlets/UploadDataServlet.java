@@ -38,7 +38,7 @@ import utils.Tools;
 /**
  * Servlet implementation class UploadDataServlet
  */
-@WebServlet("/UploadDataServlet")
+@WebServlet("/html/UploadDataServlet")
 @MultipartConfig
 public class UploadDataServlet extends HttpServlet {
 
