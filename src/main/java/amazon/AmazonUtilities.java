@@ -19,6 +19,7 @@ public class AmazonUtilities {
 	
 	
 	public static int uploadImagesAmazonAPI(File toUpload) {
+		System.out.println("AmazonUtilities.uploadImagesAmazonAPI() called with " + toUpload.getAbsolutePath());
 		String awsAccessKeyId = System.getenv(Persist.AWS_ACCESS_KEY_ID);
 		String awsSecretAccessKey = System.getenv(Persist.AWS_SECRET_KEY_ID);
 		BasicAWSCredentials awsCreds = new BasicAWSCredentials(awsAccessKeyId, awsSecretAccessKey);

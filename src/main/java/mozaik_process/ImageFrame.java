@@ -106,7 +106,7 @@ public class ImageFrame {
 				int distance=Integer.MAX_VALUE;
 				//int itofclos=0;
 				String closer=null;
-				System.out.println("< ================ ["+i+"/"+weighedpixels.length+"]["+j+"/"+weighedpixels[0].length+"] ================ >");
+				//System.out.println("< ================ ["+i+"/"+weighedpixels.length+"]["+j+"/"+weighedpixels[0].length+"] ================ >");
 				for (String c:library){
 					int d=(weighedpixels[j][i][0]-collection.get(c)[0])*(weighedpixels[j][i][0]-collection.get(c)[0])+(weighedpixels[j][i][1]-collection.get(c)[1])*(weighedpixels[j][i][1]-collection.get(c)[1])+(weighedpixels[j][i][2]-collection.get(c)[2])*(weighedpixels[j][i][2]-collection.get(c)[2]);
 					//System.out.println("from library : " + c + " d="+d);
@@ -259,7 +259,7 @@ public class ImageFrame {
 				int distance=Integer.MAX_VALUE;
 				//int itofclos=0;
 				BufferedImage closer=null;
-				System.out.println("< ================ ["+i+"/"+weighedpixels.length+"]["+j+"/"+weighedpixels[0].length+"] ================ >");
+				//System.out.println("< ================ ["+i+"/"+weighedpixels.length+"]["+j+"/"+weighedpixels[0].length+"] ================ >");
 				for (BufferedImage c:collection.keySet()){
 					int d=(weighedpixels[j][i][0]-collection.get(c)[0])*(weighedpixels[j][i][0]-collection.get(c)[0])+(weighedpixels[j][i][1]-collection.get(c)[1])*(weighedpixels[j][i][1]-collection.get(c)[1])+(weighedpixels[j][i][2]-collection.get(c)[2])*(weighedpixels[j][i][2]-collection.get(c)[2]);
 					//System.out.println("from library : " + c + " d="+d);
@@ -316,7 +316,7 @@ public class ImageFrame {
 		
 		System.out.println("GRAPHICS");
 		System.out.print("DRAW OPERATION : ");
-		System.out.println(System.currentTimeMillis() - startTime);
+		System.out.println(System.currentTimeMillis() - startTime + " ms");
 		
 		File output = new File(originalFileName);
 //        File output = Paths.get(originalFileName).toFile();
