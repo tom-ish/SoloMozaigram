@@ -21,12 +21,16 @@ public class AmazonUtilities {
 	public static int uploadImagesAmazonAPI(File toUpload) {
 		System.out.println("AmazonUtilities.uploadImagesAmazonAPI() called with " + toUpload.getAbsolutePath());
 		String awsAccessKeyId = System.getenv(Persist.AWS_ACCESS_KEY_ID);
+		System.out.println("1");
 		String awsSecretAccessKey = System.getenv(Persist.AWS_SECRET_KEY_ID);
+		System.out.println("2");
 		BasicAWSCredentials awsCreds = new BasicAWSCredentials(awsAccessKeyId, awsSecretAccessKey);
+		System.out.println("3");
 		AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
 		                        .withCredentials(new AWSStaticCredentialsProvider(awsCreds))
 		                        .withRegion(Regions.EU_CENTRAL_1)
 		                        .build();
+		System.out.println("4");
 		
 		TransferManager tm = new TransferManager(s3Client);
 		
