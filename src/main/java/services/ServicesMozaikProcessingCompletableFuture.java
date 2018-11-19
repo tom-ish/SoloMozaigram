@@ -27,6 +27,7 @@ public class ServicesMozaikProcessingCompletableFuture {
 
 	private static int NB_THREAD = Runtime.getRuntime().availableProcessors();
 	private static int NB_IMAGES = 149;
+	private static String PIXABAY_API_KEY = System.getenv(Persist.PIXABAY_API_KEY);
 	
 	public static File FROM_REPOSITORY = new File("images_save");
 	
@@ -42,7 +43,8 @@ public class ServicesMozaikProcessingCompletableFuture {
 	}
 	
 	public static ArrayList<String> loadAPIImagesFromKeyword(String keyword) {
-		String url = "https://api.qwant.com/api/search/images?count="+NB_IMAGES+"&offset=1&q="+keyword;
+//		String url = "https://api.qwant.com/api/search/images?count="+NB_IMAGES+"&offset=1&q="+keyword;
+		String url = "https://pixabay.com/api/?key="+PIXABAY_API_KEY+"&q="+keyword+"&image_type=photo";
 		return Tools.getURLsfromJSON(Tools.readJsonFromUrl(url));
 	}
 	

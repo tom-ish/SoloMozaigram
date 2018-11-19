@@ -97,6 +97,8 @@ public class Persist {
 	public static final String PSQL_USERNAME = "PSQL_USERNAME";
 	public static final String PSQL_PASSWORD = "PSQL_PASSWORD";
 	
+	public static final String PIXABAY_API_KEY = "PIXABAY_API_KEY";
+	
 	/*
 	 * LOCALHOST STORAGE REPOSITORY
 	 */

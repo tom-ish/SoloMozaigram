@@ -101,18 +101,17 @@ public class Tools {
 	public static ArrayList<String> getURLsfromJSON(JSONObject jsonObject) {
 		long startTime = System.currentTimeMillis();
 		ArrayList<String> urls = new ArrayList<String>();
-		JSONObject data;
+		JSONArray items;
 		try {
-			data = (JSONObject) jsonObject.get("data");
-			JSONObject result = (JSONObject) data.get("result");
-			JSONArray items = (JSONArray) result.get("items");
+			items = (JSONArray) jsonObject.get("hits");
 			
 			System.out.println("Number of items : " + items.length());
 			for (int i = 0; i < items.length(); i++) {
 				JSONObject item = (JSONObject)items.get(i);
-				String media = (String) item.get("media");
+				String media = (String) item.get("previewURL");
+				/*
 				int size = Integer.parseInt((String) (item.get("size")));
-				if(size < SIZE_LIMIT)
+				if(size < SIZE_LIMIT)*/
 					urls.add(media);
 			}
 		} catch (JSONException e) {
