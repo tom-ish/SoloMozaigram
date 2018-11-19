@@ -117,12 +117,13 @@ var ServerServices = {
 		uploadData : function uploadData(userKeyword, imgFile, sessionkey) {
 			console.log("ServerServices.uploadData()");
 			console.log(userKeyword);
+			console.log("filename : ");
+			console.log(imgFile.name);
+			
 			var dataform = new FormData();
 			dataform.append("userKeyword", userKeyword);
 			dataform.append("imageFile", imgFile);
 			dataform.append("sessionkey", sessionkey);
-			console.log("filename : ");
-			console.log(imgFile.val());
 			
 			$.ajax({
 				type: "POST",

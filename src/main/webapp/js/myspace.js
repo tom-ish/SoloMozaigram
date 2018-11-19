@@ -20,8 +20,6 @@ var mySpaceContent = {
 		});
 		
 		$('#generate-button').click(function() {
-			console.log(userKeyword);
-			console.log(document.getElementById('dragNdropInput').files[0].name);
 			var imgFile = document.getElementById('dragNdropInput').files[0];
 			ServerServices.uploadData(userKeyword, imgFile, localStorage.getItem("sessionKey"));
 			//ServerServices.asyncUploadData(dragNdropForm, sessionkey);
