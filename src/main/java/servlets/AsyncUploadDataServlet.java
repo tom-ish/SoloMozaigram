@@ -33,7 +33,7 @@ import utils.Tools;
 /**
  * Servlet implementation class AsyncUploadDataServlet
  */
-@WebServlet(urlPatterns= {"/AsyncUploadDataServlet"}, asyncSupported=true)
+@WebServlet(urlPatterns= {"/html/AsyncUploadDataServlet"}, asyncSupported=true)
 public class AsyncUploadDataServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

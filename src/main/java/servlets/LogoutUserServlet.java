@@ -20,7 +20,7 @@ import utils.Persist;
 /**
  * Servlet implementation class LogoutUserServlet
  */
-@WebServlet("/LogoutUserServlet")
+@WebServlet("/html/LogoutUserServlet")
 public class LogoutUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

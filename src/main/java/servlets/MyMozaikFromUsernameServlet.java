@@ -20,7 +20,7 @@ import utils.Persist;
 /**
  * Servlet implementation class MyMozaikFromUsernameServlet
  */
-@WebServlet("/MyMozaikFromUsernameServlet")
+@WebServlet("/html/MyMozaikFromUsernameServlet")
 public class MyMozaikFromUsernameServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

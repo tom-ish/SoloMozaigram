@@ -22,7 +22,7 @@ import utils.Persist;
 /**
  * Servlet implementation class GetAllFriendRequestServlet
  */
-@WebServlet("/GetAllFriendRequestServlet")
+@WebServlet("/html/GetAllFriendRequestServlet")
 public class GetAllFriendRequestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

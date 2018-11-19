@@ -27,7 +27,7 @@ import utils.Persist;
 /**
  * Servlet implementation class IsMozaikGeneratedServlet
  */
-@WebServlet("/IsMozaikGeneratedServlet")
+@WebServlet("/html/IsMozaikGeneratedServlet")
 public class IsMozaikGeneratedServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

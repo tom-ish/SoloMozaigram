@@ -21,7 +21,7 @@ import utils.Persist;
 /**
  * Servlet implementation class AddFriendServlet
  */
-@WebServlet("/SendFriendRequestServlet")
+@WebServlet("/html/SendFriendRequestServlet")
 public class SendFriendRequestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

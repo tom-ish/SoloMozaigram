@@ -19,7 +19,7 @@ import utils.Persist;
 /**
  * Servlet implementation class AddCommentServlet
  */
-@WebServlet("/AddCommentServlet")
+@WebServlet("/html/AddCommentServlet")
 public class AddCommentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

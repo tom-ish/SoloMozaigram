@@ -37,7 +37,7 @@ import utils.Persist;
 /**
  * Servlet implementation class UploadDataServlet
  */
-@WebServlet("/GetImgUserServlet")
+@WebServlet("/html/GetImgUserServlet")
 @MultipartConfig
 public class GetImgUserServlet extends HttpServlet {
 

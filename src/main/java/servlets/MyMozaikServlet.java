@@ -24,7 +24,7 @@ import utils.Persist;
 /**
  * Servlet implementation class GetUserImagesServlet
  */
-@WebServlet("/MyMozaikServlet")
+@WebServlet("/html/MyMozaikServlet")
 public class MyMozaikServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

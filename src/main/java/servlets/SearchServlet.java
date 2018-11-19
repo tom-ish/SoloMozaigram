@@ -36,7 +36,7 @@ import utils.Persist;
 /**
  * Servlet implementation class UploadDataServlet
  */
-@WebServlet("/SearchServlet")
+@WebServlet("/html/SearchServlet")
 @MultipartConfig
 public class SearchServlet extends HttpServlet {
 

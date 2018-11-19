@@ -21,7 +21,7 @@ import utils.Persist;
 /**
  * Servlet implementation class GetAllFriendsServlet
  */
-@WebServlet("/GetAllFriendsServlet")
+@WebServlet("/html/GetAllFriendsServlet")
 public class GetAllFriendsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
