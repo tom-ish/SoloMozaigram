@@ -73,6 +73,7 @@ public class DBLibrary {
 			System.out.println("No default library found for user " + user.getId() + " - " + user.getUsername() + ", creating one...");
 			return createDefaultLibrary(user);
 		}
+		System.out.println(rslt);
 		return rslt;
 	}
 

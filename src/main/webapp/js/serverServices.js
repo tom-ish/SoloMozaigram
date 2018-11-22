@@ -219,7 +219,7 @@ var ServerServices = {
 						setTimeout(function(){
 							// Schedule the next
 							ServerServices.isMozaikGenerated(sessionkey);
-						}, 3000);
+						}, 10000);
 					}
 					else {
 						console.log("SUCCESS");
