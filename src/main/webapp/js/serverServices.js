@@ -205,6 +205,8 @@ var ServerServices = {
 							console.log(json);
 							// imgPath contains the server Path to the image here
 							console.log(json.imgPath);
+							
+							$('#generate-button').removeClass('loading no-clickable');
 							generated = true;
 						}
 					}

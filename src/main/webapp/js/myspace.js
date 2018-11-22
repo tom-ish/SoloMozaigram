@@ -24,6 +24,7 @@ var mySpaceContent = {
 			ServerServices.uploadData(userKeyword, imgFile, localStorage.getItem("sessionKey"));
 			//ServerServices.asyncUploadData(dragNdropForm, sessionkey);
 
+			$('#generate-button').addClass('loading no-clickable');
 			return false;
 		});
 		
