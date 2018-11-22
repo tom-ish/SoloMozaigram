@@ -44,6 +44,7 @@ public class DBLibrary {
 	}
 
 	public static Library getUserLibraryFromName(String name) {
+		System.out.println("getUserLibraryFromName() called with argument " + name);
 		String hql = "from Library as l where l.name=:name";
 		Session session = HibernateUtil.currentSession();
 		if(session != null) {
@@ -56,9 +57,6 @@ public class DBLibrary {
 						HibernateUtil.closeSession();
 						return library;
 					}
-			}
-			catch(HibernateException e) {
-				e.printStackTrace();
 			}
 			finally {
 				HibernateUtil.closeSession();
