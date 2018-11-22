@@ -34,7 +34,7 @@ var mySpaceContent = {
 			console.log(userKeyword);
 			if( (typeof userKeyword !== "undefined") && (userKeyword.length > 0) )
 				userKeywordMissing = false;
-			if(!userKeywordMissing && fileUploaded)
+			if(!userKeywordMissing && fileUploaded && !is_uploading)
 				$('#generate-button').removeClass("disabled");
 			
 		})

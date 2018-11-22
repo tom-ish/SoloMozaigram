@@ -7,3 +7,6 @@ var PROCESS_COMPLETE = 707;
 
 var STRINGIFY_SEPARATOR="###";
 var STRINGIFY_ATTRIBUTE_SEPARATOR="&&&";
+
+var generated = false;
+var is_uploading = false;

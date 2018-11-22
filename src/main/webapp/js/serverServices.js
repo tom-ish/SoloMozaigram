@@ -137,6 +137,7 @@ var ServerServices = {
 					if(json.UploadDataServlet == PROCESS_COMPLETABLE_FUTURE_TASKS_STARTED) {
 						console.log(json);
 						console.log("sessionKey: " + sessionkey);
+						is_uploading = true;
 						ServerServices.isMozaikGenerated(sessionkey);
 					}
 				},
@@ -192,7 +193,6 @@ var ServerServices = {
 		},*/
 		isMozaikGenerated : function isMozaikGenerated(sessionkey) {
 			console.log("isMozaikGenerated called from client sessionkey : "+sessionkey+"...");
-			var generated = false;
 			$.ajax({
 				type: "POST",
 				url: "IsMozaikGeneratedServlet",
@@ -208,6 +208,7 @@ var ServerServices = {
 							
 							$('#generate-button').disabled = "";
 							$('#generate-button').removeClass('loading disabled');
+							is_uploading = false;
 							generated = true;
 						}
 					}
