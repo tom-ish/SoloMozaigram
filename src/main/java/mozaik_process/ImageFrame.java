@@ -319,7 +319,7 @@ public class ImageFrame {
 		System.out.println(System.currentTimeMillis() - startTime + " ms");
 		System.out.println("now is : " + System.currentTimeMillis());
 		
-		File output = new File(originalFileName);
+		File output = new File(originalFileName + "_" + System.currentTimeMillis());
 //        File output = Paths.get(originalFileName).toFile();
         System.out.println("output file created");
 		System.out.println(output.getAbsolutePath());
