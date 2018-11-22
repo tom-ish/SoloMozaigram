@@ -27,6 +27,7 @@ import org.json.JSONObject;
 import database.DBSessionKey;
 import database.DBStatic;
 import database.DBUserTask;
+import hibernate_entity.UserTask;
 import mozaik_process.ImageResizer;
 import services.ServicesAuthentification;
 import services.ServicesMozaikProcessingCompletableFuture;
@@ -98,6 +99,9 @@ public class UploadDataServlet extends HttpServlet {
 				return;
 			}
 			
+			UserTask userTask = DBUserTask.createUserTask(sessionkey);
+			json.put("UserTask", "" + userTask);
+			
 			System.out.println("CompletableFuture call started...");
 			rslt = generateMozaik(sessionkey, keyword, image, originalFileName);
 			System.out.println("... CompletableFuture call ended");		
@@ -136,7 +140,7 @@ public class UploadDataServlet extends HttpServlet {
 
 	private int generateMozaik(String sessionkey, String keyword, Image image, String originalFileName) {
 		long startTime = System.currentTimeMillis();
-		DBUserTask.createUserTask(sessionkey);		
+		
 		
 		saveAndResizeImagesFromURLs(sessionkey, keyword).
 			thenCompose(savedImages -> ServicesMozaikProcessingCompletableFuture.generateMozaik(savedImages, image, originalFileName)).

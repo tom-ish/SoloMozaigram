@@ -19,7 +19,7 @@ public class ServicesUserTask {
 			return Persist.ERROR_SESSION_KEY_NOT_FOUND;
 		else {
 			UserSession userSession = DBSessionKey.getUserSessionFromSessionKey(sessionkey);
-			if(DBUserTask.isUserTaskCompleted(userSession)) {
+			if(DBUserTask.isUserTaskCompleted(userSession) == Persist.OK) {
 				System.out.println("TASK COMPLETED");
 				// Remove UserTask
 				if(!DBUserTask.removeUserTask(userSession)) {

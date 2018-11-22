@@ -69,10 +69,16 @@ public class DBLibrary {
 	}
 
 	public static Library getUserDefaultLibrary(User user) {
-		return getUserLibraryFromName(user.getUsername()+Persist.DEFAULT_LIBRARY);
+		Library rslt = getUserLibraryFromName(user.getUsername()+Persist.DEFAULT_LIBRARY);
+		if(rslt == null) {
+			System.out.println("No default library found for user " + user.getId() + " - " + user.getUsername() + ", creating one...");
+			return createDefaultLibrary(user);
+		}
+		return rslt;
 	}
 
 	public static Library createDefaultLibrary(User user) {
+		System.out.println("creating new default_library for user " + user.getId() + " - " + user.getUsername());
 		Library defaultLibrary = new Library(user, user.getUsername()+Persist.DEFAULT_LIBRARY); 
 		Session session = HibernateUtil.currentSession();
 		Transaction tx = null;
