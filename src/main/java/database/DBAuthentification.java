@@ -185,20 +185,15 @@ public class DBAuthentification {
 		Session session = HibernateUtil.currentSession();
 		if(session != null) {
 			try {
-				System.out.println("OPENED_SESSION in isPasswordExact");
 				List<User> users = session.createQuery(hql)
 						.setParameter("username", username)
 						.getResultList();
 				for(User user : users) {
-					System.out.println(user);
 					if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
 						HibernateUtil.closeSession();
 						return true;
 					}
 				}
-			}
-			catch(HibernateException e) {
-				e.printStackTrace();
 			}
 			finally {
 				HibernateUtil.closeSession();
