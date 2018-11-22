@@ -207,7 +207,7 @@ var ServerServices = {
 							console.log(json.imgPath);
 							
 							$('#generate-button').disabled = "";
-							$('#generate-button').removeClass('loading');
+							$('#generate-button').removeClass('loading disabled');
 							generated = true;
 						}
 					}
