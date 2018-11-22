@@ -37,7 +37,6 @@ public class ServicesImage {
 
 			// si l'id de l'image != 0, c'est que l'ajout s'est bien deroule
 			if(img != null) {
-				System.out.println(img);
 				//  => on l'ajoute au default_library de l'user
 				Library defaultLibrary = DBLibrary.getUserDefaultLibrary(user);		
 				if(defaultLibrary == null)
