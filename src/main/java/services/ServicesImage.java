@@ -41,10 +41,9 @@ public class ServicesImage {
 				//  => on l'ajoute au default_library de l'user
 				Library defaultLibrary = DBLibrary.getUserDefaultLibrary(user);		
 				if(defaultLibrary == null)
-					System.out.println("No default librairy found for " + user.getId() + " - " + user.getUsername());
+					System.out.println("No default library found for " + user.getId() + " - " + user.getUsername());
 				else {
-					System.out.println("Default librairy found for " + user.getId() + " - " + user.getUsername());				
-					System.out.println(defaultLibrary.toString());
+					System.out.println("Default library found for " + user.getId() + " - " + user.getUsername() + ", Library : " + defaultLibrary);
 				}
 				if(DBLibrary.addImageToLibrary(user, img, defaultLibrary) == Persist.SUCCESS) {
 					System.out.println("BEFORE NOTIFYING...");
