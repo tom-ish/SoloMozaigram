@@ -1,7 +1,9 @@
 var mySpaceContent = {
 	initialize : function(){
 		$('a.sidebar-toggle').click(function() {
-			$('#sidebar').sidebar('toggle')
+			$('#sidebar')
+				.sidebar('setting', 'transition', 'overlay')
+				.sidebar('toggle')
 		});
 		
 		$('#reset-button').click(function() {

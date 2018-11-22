@@ -317,15 +317,13 @@ public class ImageFrame {
 		System.out.println("GRAPHICS");
 		System.out.print("DRAW OPERATION : ");
 		System.out.println(System.currentTimeMillis() - startTime + " ms");
+		System.out.println("now is : " + System.currentTimeMillis());
 		
 		File output = new File(originalFileName);
 //        File output = Paths.get(originalFileName).toFile();
         System.out.println("output file created");
-		
-		
 		System.out.println(output.getAbsolutePath());
-		System.out.println(output.isFile());
-		System.out.println(output.isDirectory());
+		
 		try {
 			if(ImageIO.write(rslt, "jpg", output) == false)
 				System.out.println("ERROR ON ImageIO.write");
