@@ -14,7 +14,6 @@ import utils.Persist;
 public class DBUserTask {
 
 	public static boolean isUserTaskCompleted(UserSession userSession) {
-		System.out.println("isTaskCompleted?");
 		String hql = "from UserTask usertask where usertask.userSession=:userSession";
 		Session session = HibernateUtil.currentSession();
 		if(session != null) {

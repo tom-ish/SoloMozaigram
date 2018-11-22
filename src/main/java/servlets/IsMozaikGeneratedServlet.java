@@ -62,7 +62,7 @@ public class IsMozaikGeneratedServlet extends HttpServlet {
 		if(reset == Persist.RESET_SESSION_KEY_OK) {
 			try {
 				Integer rslt = ServicesUserTask.getImgPath(sessionkey, json);
-				json.put("IsMozaikGeneratedServlet", ""+rslt);
+				json.put("IsMozaikGeneratedServlet", ""+ rslt);
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}			

@@ -61,4 +61,11 @@ public class Library {
 	public void setCreationDate(Date creationDate) { this.creationDate = creationDate; }
 	public void setName(String name) { this.name = name; }
 
+	@Override
+	public String toString() {
+		return "Library [id=" + id + ", user=" + user + ", name=" + name + ", images.size=" + images.size() + ", creationDate="
+				+ creationDate + "]";
+	}
+
+	
 }
