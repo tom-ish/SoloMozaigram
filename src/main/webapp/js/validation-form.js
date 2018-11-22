@@ -29,7 +29,7 @@ validateForm.ready = function() {
 		},
 		onSuccess : function(event, fields) {
 			event.preventDefault();
-			console.log("login success");
+			console.log("login form validation success");
 			login();
 		}
 	};
@@ -47,6 +47,9 @@ validateForm.ready = function() {
 			ServerServices.connect(username, pwd);
 		}
 		*/
+		
+		$('#loginButton').addClass('loading disabled');
+		
 		ServerServices.connect(username, pwd);
 	};
 	
@@ -114,7 +117,7 @@ validateForm.ready = function() {
 		},
 		onSuccess: function(event, fields) {
 			event.preventDefault();
-			console.log("signup success");
+			console.log("signup form vaildation success");
 			createUser();
 		}
 	};
@@ -130,6 +133,7 @@ validateForm.ready = function() {
 		pwd2 = formulaire.find('#signupConfirmPasswordInput').val();
 		
 		console.log("input values : " + username + ", " + pwd + ", " + pwd2 + ", " + email);
+		$('#signupButton').addClass('loading disabled');
 
 		ServerServices.signup(username, pwd, pwd2, email);
 		switchToHomePage();
