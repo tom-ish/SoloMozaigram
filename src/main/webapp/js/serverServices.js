@@ -214,6 +214,7 @@ var ServerServices = {
 					}
 				},
 				complete: function(json) {
+					console.log(json);
 					if(!generated) {
 						setTimeout(function(){
 							// Schedule the next
