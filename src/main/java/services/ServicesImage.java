@@ -43,7 +43,7 @@ public class ServicesImage {
 				if(defaultLibrary == null)
 					defaultLibrary = DBLibrary.createDefaultLibrary(user);
 				
-				System.out.println(defaultLibrary);
+				System.out.println(defaultLibrary.toString());
 				if(DBLibrary.addImageToLibrary(user, img, defaultLibrary) == Persist.SUCCESS) {
 					System.out.println("BEFORE NOTIFYING...");
 					// on notifie dans la table UserTask la completion de la generation de mosaique

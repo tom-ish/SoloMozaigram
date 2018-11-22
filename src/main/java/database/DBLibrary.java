@@ -16,9 +16,9 @@ public class DBLibrary {
 
 	public static int addImageToLibrary(User user, Image img, Library library) {
 		System.out.println("addImageToLibrary() called");
-		System.out.println(user);
-		System.out.println(img);
-		System.out.println(library);
+		System.out.println(user.toString());
+		System.out.println(img.toString());
+		System.out.println(library.toString());
 		if(user != null && img != null && library != null) {
 			Session session = HibernateUtil.currentSession();
 			Transaction tx = null;
