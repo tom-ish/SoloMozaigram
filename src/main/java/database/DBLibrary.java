@@ -54,7 +54,7 @@ public class DBLibrary {
 						.getResultList();
 				for(Library library : libraries)
 					if(library.getName().equals(name)) {
-						System.out.println("...found user library");
+						System.out.println("...found user library : " + library);
 						HibernateUtil.closeSession();
 						return library;
 					}

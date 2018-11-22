@@ -56,7 +56,8 @@ public class DBSessionKey {
 			}
 			finally {
 				HibernateUtil.closeSession();
-			}		}
+			}		
+		}
 		return null;
 	}
 
