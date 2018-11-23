@@ -57,7 +57,7 @@ var mySpaceContent = {
 	initializeUserImagesGallery : function() {
 		var images = localStorage.getItem("images");
 		for(image in images) {
-			console.log(image);
+			console.log(images[image]);
 		}
 	}
 };
