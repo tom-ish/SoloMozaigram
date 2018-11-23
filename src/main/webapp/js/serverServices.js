@@ -57,7 +57,7 @@ var ServerServices = {
 						localStorage.setItem("friends", json.friends);
 						localStorage.setItem("friendRequests", json.friendRequests);
 						localStorage.setItem("requestedpage", json.username);
-						localStorage.setItem("images", JSON.parse(json.images));
+						localStorage.setItem("images", JSON.stringify(json.images));
 						switchToMyPage();
 					}
 					else{
