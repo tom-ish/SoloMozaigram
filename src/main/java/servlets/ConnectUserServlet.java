@@ -53,8 +53,8 @@ public class ConnectUserServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		
 
-		PrintWriter writer = response.getWriter();
 		response.setContentType("application/json");
+		PrintWriter writer = response.getWriter();
 		
 		try {
 			JSONObject json = new JSONObject();
