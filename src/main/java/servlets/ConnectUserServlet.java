@@ -61,7 +61,8 @@ public class ConnectUserServlet extends HttpServlet {
 			int rslt = ServicesAuthentification.connectUser(username, password, json);
 			json.put("ConnectUserServlet", ""+rslt);
 			System.out.println(json);
-			json.write(writer);
+//			json.write(writer);
+			writer.println(json);
 //			writer.println(json.toString());
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
