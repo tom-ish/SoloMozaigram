@@ -15,6 +15,7 @@ import javax.imageio.ImageIO;
 import algorithm.ImageComponent;
 import amazon.AmazonUtilities;
 import utils.Persist;
+import utils.Tools;
 
 public class ImageFrame {
 	
@@ -319,7 +320,7 @@ public class ImageFrame {
 		System.out.println(System.currentTimeMillis() - startTime + " ms");
 		System.out.println("now is : " + System.currentTimeMillis());
 		
-		File output = new File(originalFileName + "_" + System.currentTimeMillis());
+		File output = new File(Tools.addCurrentTimeMillis(originalFileName));
 //        File output = Paths.get(originalFileName).toFile();
         System.out.println("output file created");
 		System.out.println(output.getAbsolutePath());

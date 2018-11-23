@@ -131,6 +131,15 @@ public class Tools {
 		return false;
 	}
 
+	public static String addCurrentTimeMillis(String filename) {
+		String ext = filename.substring(filename.lastIndexOf('.'), filename.length());
+		String path = filename.substring(0, filename.indexOf(ext));
+		
+		String rslt = path + "_" + System.currentTimeMillis() + ext;
+		System.out.println("filename : " + filename);
+		
+		return rslt;
+	}
 	
 	
 	public static String getFileName(Part part) {
