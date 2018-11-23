@@ -52,10 +52,18 @@ var mySpaceContent = {
 		var page_owner = localStorage.getItem("username");
 		document.getElementById("usernameDiv").innerHTML = "Welcome " + page_owner;
 		*/
+	},
+
+	initializeUserImagesGallery : function() {
+		var images = JSON.parse(localStorage.getItem("images"));
+		for(image in images) {
+			console.log(image);
+		}
 	}
 };
 
 
 window.onload = function() {
 	mySpaceContent.initialize();
+	mySpaceContent.initializeUserImagesGallery();
 }
