@@ -56,8 +56,9 @@ var mySpaceContent = {
 
 	initializeUserImagesGallery : function() {
 		var images = JSON.parse(localStorage.getItem("images"));
-		for(image in images) {
-			console.log(images[image]);
+		for(i in images) {
+			console.log(images[i]);
+			let image = images[i];
 			var aImg = document.createElement('a');
 			aImg.className = "item";
 
