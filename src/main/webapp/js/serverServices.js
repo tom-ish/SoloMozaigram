@@ -46,6 +46,7 @@ var ServerServices = {
 						console.log(json);
 						console.log(json.friendRequest);
 						console.log(json.friends);
+						console.log(json.images);
 						
 						serverResponded = true;
 						// Store username in localStorage Object before switching to MozaikPage
