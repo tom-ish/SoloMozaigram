@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import database.DBAuthentification;
 import database.DBFriendship;
 import database.DBSessionKey;
+import hibernate_entity.Image;
 import hibernate_entity.User;
 import hibernate_entity.UserSession;
 import utils.Persist;
@@ -48,13 +49,15 @@ public class ServicesAuthentification {
 			int getFriendsRslt = ServicesFriendship.getAllFriends(sessionkey, json);
 			int getFriendRequestsRslt = ServicesFriendship.getAllFriendRequest(sessionkey, json);
 			List<String> userImagesURL = ServicesImage.getPathsFromUser(user);
+			List<Image> userImages = ServicesImage.getImagesFromUserAsHibernateEntity(user);
 			
 			if(sessionkey != null){
 				json.put("username", username);
 				json.put("sessionKey", sessionkey);
 				json.put("getFriendsRslt", getFriendsRslt);
 				json.put("getFriendRequestsRslt", getFriendRequestsRslt);
-				json.put("images", userImagesURL);
+				json.put("imagesPath", userImagesURL);
+				json.put("images", userImages);
 				return Persist.SUCCESS;
 			}
 		}

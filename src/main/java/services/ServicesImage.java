@@ -81,6 +81,10 @@ public class ServicesImage {
 		return rslt;
 	}
 	
+	public static List<hibernate_entity.Image> getImagesFromUserAsHibernateEntity(User user) {
+		return DBImage.getUserImages(user);
+	}
+	
 	public static ArrayList<String> getPathsfromUser (String username){
 		List<hibernate_entity.Image> images = DBImage.getImages();
 		ArrayList<String> results= new ArrayList<String>();
