@@ -54,14 +54,15 @@ public class ConnectUserServlet extends HttpServlet {
 		
 
 		PrintWriter writer = response.getWriter();
-		response.setContentType("text/plain");
+		response.setContentType("application/json");
 		
 		try {
 			JSONObject json = new JSONObject();
 			int rslt = ServicesAuthentification.connectUser(username, password, json);
 			json.put("ConnectUserServlet", ""+rslt);
 			System.out.println(json);
-			writer.println(json.toString());
+			json.write(writer);
+//			writer.println(json.toString());
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
