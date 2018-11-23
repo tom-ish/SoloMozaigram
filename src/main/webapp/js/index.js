@@ -14,7 +14,7 @@ var app = {
 			});
 			$('#goToSignInZone').click(function(){
 				showSignupLoginPage();
-			})
+			});
 		}
 };
 
