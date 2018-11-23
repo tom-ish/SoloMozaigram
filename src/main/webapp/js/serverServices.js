@@ -52,11 +52,11 @@ var ServerServices = {
 						// Store username in localStorage Object before switching to MozaikPage
 						// Web Storage Compatibility should be checked at start
 						localStorage.clear();
-						localStorage.setItem("username", json.username);
-						localStorage.setItem("sessionKey", json.sessionKey);
-						localStorage.setItem("friends", json.friends);
-						localStorage.setItem("friendRequests", json.friendRequests);
-						localStorage.setItem("requestedpage", json.username);
+						localStorage.setItem("username", JSON.stringify(json.username));
+						localStorage.setItem("sessionKey", JSON.stringify(json.sessionKey));
+						localStorage.setItem("friends", JSON.stringify(json.friends));
+						localStorage.setItem("friendRequests", JSON.stringify(json.friendRequests));
+						localStorage.setItem("requestedpage", JSON.stringify(json.username));
 						localStorage.setItem("images", JSON.stringify(json.images));
 						switchToMyPage();
 					}
@@ -278,7 +278,7 @@ var ServerServices = {
 					if(json.GetAllFriendsServlet == SUCCESS_CODE){
 						console.log("getAllFriends success!");
 						console.log(json);
-						localStorage.setItem("friends", json.friends);
+						localStorage.setItem("friends", JSON.stringify(json.friends));
 					}
 					else{
 						console.log("getAllFriends failed!");
@@ -302,7 +302,7 @@ var ServerServices = {
 					if(json.GetAllFriendRequestServlet == SUCCESS_CODE){
 						console.log("getAllFriendRequest success!");
 						console.log(json);
-						localStorage.setItem("friendRequests", json.friendRequests);
+						localStorage.setItem("friendRequests", JSON.stringify(json.friendRequests));
 					}
 					else {
 						console.log("getAllFriendRequest failed!");
@@ -326,8 +326,8 @@ var ServerServices = {
 				dataType: 'json',
 				success: function(json) {
 					if (json.SearchServlet == SUCCESS_CODE){
-						var listResearch = json.listResearch;
-						var listImg = json.listImg;
+						var listResearch = JSON.stringify(json.listResearch);
+						var listImg = JSON.stringify(json.listImg);
 						localStorage.setItem("listResearch",listResearch);
 						localStorage.setItem("listImg",listImg);
 						displayResults(searchword);
@@ -355,7 +355,7 @@ var ServerServices = {
 				dataType: 'json',
 				success: function(json) {
 					if (json.GetImgUserServlet == SUCCESS_CODE){
-						listImg = json.listImg;
+						listImg = JSON.stringify(json.listImg);
 						console.log("getImgUser returned "+listImg+" for a search for "+name);
 						displayImages(listImg);
 					}

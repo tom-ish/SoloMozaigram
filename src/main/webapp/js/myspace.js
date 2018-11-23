@@ -58,6 +58,16 @@ var mySpaceContent = {
 		var images = JSON.parse(localStorage.getItem("images"));
 		for(image in images) {
 			console.log(images[image]);
+			var aImg = document.createElement('a');
+			aImg.className = "item";
+
+			var img = document.createElement('img');
+			img.className = "ui image";
+			img.id = image.id;
+			img.src = image.link;
+			aImg.appendChild(img);
+
+			$('#user_images_gallery').appendChild(aImg);
 		}
 	}
 };
