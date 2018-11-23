@@ -63,6 +63,7 @@ public class ConnectUserServlet extends HttpServlet {
 			System.out.println(json);
 //			json.write(writer);
 			writer.println(json);
+			writer.flush();
 //			writer.println(json.toString());
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

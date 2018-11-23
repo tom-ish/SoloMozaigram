@@ -38,6 +38,8 @@ public class User {
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="auteur")
 	private Set<Comment> comments;
+	
+	private User user;
 		
 	public User() {}
 	
@@ -48,6 +50,7 @@ public class User {
 		this.friends = new HashSet<Friendship>();
 		this.libraries = new HashSet<Library>();
 		this.comments = new HashSet<Comment>();
+		this.user = new User();
 	}
 	
 	public int getId() { return this.id; }
@@ -67,7 +70,7 @@ public class User {
 	public void setFriends(Set<Friendship> friends) { this.friends = friends; }
 	public void setLibraries(Set<Library> libraries) { this.libraries = libraries; }
 	public void setComments(Set<Comment> comments) { this.comments = comments; }
-
+	
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", email=" + email + "]";
