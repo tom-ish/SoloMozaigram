@@ -39,7 +39,6 @@ public class User {
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="auteur")
 	private Set<Comment> comments;
 	
-	private User user;
 		
 	public User() {}
 	
@@ -50,7 +49,6 @@ public class User {
 		this.friends = new HashSet<Friendship>();
 		this.libraries = new HashSet<Library>();
 		this.comments = new HashSet<Comment>();
-		this.user = new User();
 	}
 	
 	public int getId() { return this.id; }
