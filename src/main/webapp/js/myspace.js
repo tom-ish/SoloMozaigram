@@ -67,7 +67,7 @@ var mySpaceContent = {
 			img.src = image.link;
 			aImg.appendChild(img);
 
-			$('#user_images_gallery').appendChild(aImg);
+			$('#user_images_gallery').append(aImg);
 		}
 	}
 };
