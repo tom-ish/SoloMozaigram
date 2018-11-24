@@ -62,6 +62,10 @@ var mySpaceContent = {
 
 	initializeUserImagesGallery : function() {
 		var images = JSON.parse(localStorage.getItem("images"));
+
+		let headerDiv = document.createElement('div');
+		headerDiv.className = "ui horizontal divider";
+
 		for(i in images) {
 			console.log(images[i]);
 			let image = images[i];
@@ -69,13 +73,15 @@ var mySpaceContent = {
 			aImg.className = "item";
 
 			var img = document.createElement('img');
-			img.className = "ui image";
 			img.id = image.id;
 			img.src = image.link;
 			aImg.appendChild(img);
 
+			$('#user_images_gallery').append(headerDiv);
 			$('#user_images_gallery').append(aImg);
 		}
+
+		$('#user_images_gallery').append(headerDiv);
 	}
 };
 
