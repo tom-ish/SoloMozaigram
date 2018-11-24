@@ -66,6 +66,8 @@ var mySpaceContent = {
 		var headerDiv = document.createElement('div');
 		headerDiv.className = "ui horizontal divider";
 
+		var gallery = $('#user_images_gallery');
+
 		for(i in images) {
 			console.log(images[i]);
 			console.log(headerDiv);
@@ -78,11 +80,11 @@ var mySpaceContent = {
 			img.src = image.link;
 			aImg.appendChild(img);
 
-			$('#user_images_gallery').append(headerDiv);
-			$('#user_images_gallery').append(aImg);
+			gallery.append(headerDiv);
+			gallery.append(aImg);
 		}
 
-		$('#user_images_gallery').append(headerDiv);
+		gallery.append(headerDiv);
 	}
 };
 
