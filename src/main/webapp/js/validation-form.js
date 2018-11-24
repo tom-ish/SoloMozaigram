@@ -50,7 +50,7 @@ validateForm.ready = function() {
 		
 		$('#loginButton').addClass('loading disabled');
 		
-		//ServerServices.connect(username, pwd);
+		ServerServices.connect(username, pwd);
 	};
 	
 	
@@ -136,25 +136,12 @@ validateForm.ready = function() {
 		$('#signupButton').addClass('loading disabled');
 
 		ServerServices.signup(username, pwd, pwd2, email);
-		switchToHomePage();
 	};
 	
 	
 	$('.form#loginForm').form(loginValidationRules);
 	$('.form#signupForm').form(signupValidationRules);
 	
-}
-
-function switchToHomePage() {
-	console.log("switchToHomePage called");
-	if(isLoginPage) {
-		isLoginPage = false;
-	}
-	
-	$('#logZone').hide();
-	$('#signupZone').hide();
-	$('#homePage').show();
-	logZoneVisible=false;
 }
 
 // attach ready event
