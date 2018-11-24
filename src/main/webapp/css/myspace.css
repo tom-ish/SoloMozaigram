@@ -5,3 +5,13 @@
 #dragNdropForm {
 	min-width: 400px;
 }
+/*
+#main_menu {
+	z-index: 2;
+}
+#gallery_area {
+	z-index: 1;
+}*/
+#powered_by {
+	margin-top: 20px;
+}

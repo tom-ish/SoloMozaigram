@@ -1,10 +1,18 @@
 var mySpaceContent = {
 	initialize : function(){
+
+
 		$('a.sidebar-toggle').click(function() {
 			$('#sidebar')
 				.sidebar('setting', 'transition', 'overlay')
-				.sidebar('toggle')
+				.sidebar('toggle');
 		});
+
+		$('a.gallery-toggle').click(function() {
+			$('#gallery_area')
+				.sidebar('setting', 'transition', 'overlay')
+				.sidebar('toggle');
+		})
 		
 		$('#reset-button').click(function() {
 			$('#userKeyword').value = "";

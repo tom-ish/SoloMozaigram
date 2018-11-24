@@ -13,13 +13,18 @@
 	margin-left: -250px;*/
 	min-height: 300px;
 	padding: 20px;
-	border: 2px dashed #0f3c4b;
 }
 #dropZoneParent {
 	background-color: #c8dadf;
+	border: 2px dashed #0f3c4b;
 }
 #dragNdropInput {
 	opacity: 0;
+	display: none;
+}
+#input_area {
+	/*width: 250px;*/
+	width: auto;
 }
 #dragNdropImg {
 	vertical-align: middle;

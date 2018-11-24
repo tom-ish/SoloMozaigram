@@ -50,7 +50,7 @@ validateForm.ready = function() {
 		
 		$('#loginButton').addClass('loading disabled');
 		
-		ServerServices.connect(username, pwd);
+		//ServerServices.connect(username, pwd);
 	};
 	
 	

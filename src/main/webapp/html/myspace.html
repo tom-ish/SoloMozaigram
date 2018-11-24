@@ -10,27 +10,53 @@
 	</head>
 	<body>
 		<div class="ui sidebar vertical inverted labeled icon menu" id="sidebar">
-			<a class="item">
-				<i class="home icon"></i>
-				Home
-			</a>
-			<a class="item">
-				<i class="smile icon"></i>
-				Friends
-			</a>
-			<a class="item">
-				<i class="search icon"></i>
-				Search
-			</a>
-			<a class="item">
-				<i class="sign-out icon"></i>
-				Logout
-			</a>
+			<div>
+				<a class="item">
+					<i class="home icon"></i>
+					Home
+				</a>
+				<a class="item">
+					<i class="smile icon"></i>
+					Friends
+				</a>
+				<a class="item">
+					<i class="search icon"></i>
+					Search
+				</a>
+				<a class="item">
+					<i class="sign-out icon"></i>
+					Logout
+				</a>
+
+				<div class="ui centered grid" id="powered_by">
+					<div class="centered raw">
+						<img class="ui rounded mini image" src="../img/pixabay_logo_square.png">
+					</div>
+				</div>
+			</div>
 		</div>
+
+		<div class="ui right sidebar vertical menu" id="gallery_area">
+			<div class="ui large images" id="user_images_gallery">
+				<a class="item">
+					<img class="ui image" src="../img/joconde_mosaic_big.jpg">
+				</a>
+				<a class="item">
+					<img class="ui image" src="../img/joconde_mosaic_big_2.jpg">
+				</a>
+				<a class="item">
+					<img class="ui image" src="../img/mosaic_pharaon.jpg">
+				</a>
+				<a class="item">
+					<img class="ui image" src="../img/mosaic-gradient.jpg">
+				</a>
+			</div>
+		</div>
+
 
 		<div class="pusher">
 			<div class="ui sidebar visible fixed main menu screen tablet mobile only">
-				<div class="ui fixed main menu">
+				<div class="ui fixed main menu" id="main_menu">
 					<a class="launch icon item sidebar-toggle">
 						<i class="content icon"></i>
 					</a>
@@ -38,40 +64,23 @@
 						<i class="circular user icon"></i>
 					  	<span id="username"></span>
 					</div>
-					<div class="right menu">
-						<div class="ui item">
-							<img class="ui rounded mini image" src="../img/pixabay_logo_square.png">
-						</div>
-					</div>
+					<a class="right floated item gallery-toggle">
+						<i class="images icon"></i>
+						<span id=gallery-toggle">Your gallery</span>
+					</a>
 				</div>
-
-				
 				
 				<div class="full height">
-					<div class="ui sidebar right visible vertical menu" id="sidebar">
-						<div class="ui large" images" id="user_images_gallery">
-							<a class="item">
-								<img class="ui image" src="../img/joconde_mosaic_big.jpg">
-							</a>
-							<a class="item">
-								<img class="ui image" src="../img/joconde_mosaic_big_2.jpg">
-							</a>
-							<a class="item">
-								<img class="ui image" src="../img/mosaic_pharaon.jpg">
-							</a>
-							<a class="item">
-								<img class="ui image" src="../img/mosaic-gradient.jpg">
-							</a>
-						</div>
-					</div>
 					<div class="ui center aligned grid" id="main_container">
-						<h2 class="ui centered grid">
+						<div class="ui center aligned grid" id="upload_area">
+							<div class="row">
+								<h2>
 								Welcome to Mozaigram !
 								Generate your own mosaic by choosing a word that will define the result of your image !
-						</h2>
-						<div class="ui centered grid">
-							<div class="ui center aligned grid" id="upload_area">
-								<div class="column">
+								</h2>
+							</div>
+							<div class="row">
+								<div class="twelve wide column">
 									<div class="ui stacked segment">
 										<form class="ui large form" id="dragNdropForm" enctype="multipart/form-data">
 											<div class="field">
@@ -83,15 +92,21 @@
 											<div class="ui horizontal divider"></div>
 											<div class="field">
 												<div class="two column centered row" id="dropZoneParent">
-													<div class="ui container" id="dropZone">
-														<input id="dragNdropInput" type="file" accept="image/*">
-														<div class="ui center aligned">
-															<i class="upload huge icon black-blue"></i>
+													<div class="ui grid" id="dropZone">
+														<div class="ui middle aligned row">
+															<div class="ui column">
+																<div class="ui center aligned">
+																	<i class="upload huge icon black-blue"></i>
+																</div>
+																<div class="ui horizontal divider"></div>
+																<div id="input_area" class="ui column">
+																	<input id="dragNdropInput" type="file" accept="image/*">
+																	<label class="black-blue is-invertable" for="dragNdropInput" id="dragNdropLabel">
+																		<strong>Choose an image file</strong> or drag it here.
+																	</label>	
+																</div>
+															</div>
 														</div>
-														<div class="ui horizontal divider"></div>
-														<label class="black-blue is-invertable" for="dragNdropInput">
-															<strong>Choose an image file</strong> or drag it here.
-														</label>
 													</div>			
 												</div>
 											</div>
@@ -108,9 +123,8 @@
 									</div>
 								</div>
 							</div>
-							<div class="row" id="gallery_area"></div>
+							
 						</div>
-					
 					</div>
 				</div>
 			</div>
