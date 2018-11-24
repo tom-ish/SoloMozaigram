@@ -63,7 +63,7 @@ var mySpaceContent = {
 	initializeUserImagesGallery : function() {
 		var images = JSON.parse(localStorage.getItem("images"));
 
-		var headerDiv = document.createElement('div');
+		let headerDiv = document.createElement('div');
 		headerDiv.className = "ui horizontal divider";
 
 		var gallery = $('#user_images_gallery');
