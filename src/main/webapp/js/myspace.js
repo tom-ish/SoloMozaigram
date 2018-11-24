@@ -80,13 +80,13 @@ var mySpaceContent = {
 			img.src = image.link;
 			aImg.appendChild(img);
 			
-			var headerDiv = document.createElement('div');
+			let headerDiv = document.createElement('div');
 			headerDiv.className = "ui horizontal divider";
 			gallery.append(headerDiv);
 			gallery.append(aImg);
 		}
 
-		var headerDiv = document.createElement('div');
+		let headerDiv = document.createElement('div');
 		headerDiv.className = "ui horizontal divider";
 		gallery.append(headerDiv);
 	}
