@@ -86,9 +86,9 @@ var mySpaceContent = {
 			gallery.append(aImg);
 		}
 
-		let headerDiv = document.createElement('div');
-		headerDiv.className = "ui horizontal divider";
-		gallery.append(headerDiv);
+		let lastHeaderDiv = document.createElement('div');
+		lastHeaderDiv.className = "ui horizontal divider";
+		gallery.append(lastHeaderDiv);
 	}
 };
 
