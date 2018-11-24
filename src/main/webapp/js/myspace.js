@@ -68,6 +68,7 @@ var mySpaceContent = {
 
 		for(i in images) {
 			console.log(images[i]);
+			console.log(headerDiv);
 			let image = images[i];
 			var aImg = document.createElement('a');
 			aImg.className = "item";
