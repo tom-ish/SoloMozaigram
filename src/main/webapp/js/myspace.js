@@ -68,20 +68,57 @@ var mySpaceContent = {
 		for(i in images) {
 			console.log(images[i]);
 			let image = images[i];
+
+
 			let divider = document.createElement('div');
 			divider.className = "ui horizontal divider";
 			gallery.append(divider);
 
+			var card = $(
+				'<div class="column">' +
+					'<div class="ui centered fluid card">' +
+						'<div class="image">' +
+							'<img id="' + image.id + '" src="' + image.link + '" />' +
+						'</div>' +
+						'<div class="content">' +
+							'<a class="header">' + image.keyword + '</a>' +
+							'<div class="meta">' +
+								'<span class="date">' + image.creationDate + ' Filter' +'</span>' +
+							'</div>' +
+							'<div class="description">' + image.originalFilename + '</div>' +
+						'</div>'+
+						'<div class="extra content">' +
+							'<span class="left floated">' + 
+								'<i class="comments outline icon">'+ '</i>' +
+								(typeof image.comments.count == "undefined" ? 0 : image.comments.count) +' comments'+
+							'</span>' +
+						'</div>' +
+					'</div>'+
+				'</div>'
+            );
+
+            gallery.append(card);
+
+			/*
 			var card = document.createElement('div'),
 				imageDiv = document.createElement('div'),
 				img = document.createElement('img'),
 				cardDesc = document.createElement('div'),
-				aHeader = document.createElement('a');
+				aHeader = document.createElement('a'),
+				metaDiv = document.createElement('div'),
+				dateSpan = document.createElement('span'),
+				extraContentDiv = document.createElement('div'),
+				commentSpan = document.createElement('span');
 
-			card.className = "ui fluid card";
+			card.className = "ui centered fluid card";
 			imageDiv.className = "image";
 			cardDesc.className = "content";
 			aHeader.className = "header";
+			metaDiv.className = "meta";
+			dateSpan.className = "date";
+			extraContentDiv.className = "extra content";
+			commentSpan.className = "left floated";
+
 
 			img.id = image.id;
 			img.src = image.link;
@@ -94,7 +131,7 @@ var mySpaceContent = {
 
 			gallery.append(card);
 			
-
+*/
 /*
 			var aImg = document.createElement('a');
 			aImg.className = "item";
