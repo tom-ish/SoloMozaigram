@@ -73,7 +73,7 @@ var mySpaceContent = {
 			let divider = document.createElement('div');
 			divider.className = "ui horizontal divider";
 			gallery.append(divider);
-
+/*
 			var card = $(
 				'<div class="column">' +
 					'<div class="ui centered fluid card">' +
@@ -97,8 +97,45 @@ var mySpaceContent = {
 				'</div>'
             );
 
+            card.find('a.mosaic-card').click(setCardClickEvent(image));
+*/
+
+			var imageObject = new Image(image.id, image.link, image.originalFilename, image.keyword, image.creationDate, image.author, image.comments);
+			var card = imageObject.generateCardView();
             gallery.append(card);
 		}
+	},
+
+	setCardClickEvent : function(image) {
+		card.find('a.mosaic-card').click(function(event) {
+			var modal = $(
+				'<div class="ui modal">' +
+					'<i class="close icon"></i>' +
+					'<div class="header">' +
+						image.originalFilename +
+					'</div>' +
+					'<div class="image content">' +
+						'<div class="image">' +
+							'<img src="' + image.link + '" />' +
+						'</div>' +
+						'<div class="column">' +
+							'<div class="ui comments">' +
+								'<h3 class="ui dividing header">Comments</h3>' +
+								'<div class="comment">' +
+							'</div>' +
+						'</div>' +
+					'</div>' +
+					'<div class="actions">' +
+						'<div class="ui button">' + "Cancel" + '</div>' +
+						'<div class="ui button">' + "OK" + '</div>' +
+					'</div>' +
+				'</div>'
+				);
+
+			$('body').append(modal);
+
+			modal.modal('show');
+		});
 	},
 
 	setMosaicCardClickEvent : function() {
@@ -138,5 +175,5 @@ var mySpaceContent = {
 window.onload = function() {
 	mySpaceContent.initialize();
 	mySpaceContent.initializeUserImagesGallery();
-	mySpaceContent.setMosaicCardClickEvent();
+	//mySpaceContent.setMosaicCardClickEvent();
 }
