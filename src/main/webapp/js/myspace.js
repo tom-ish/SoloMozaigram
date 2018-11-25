@@ -109,7 +109,7 @@ var mySpaceContent = {
 				'<div class="ui modal">' +
 					'<i class="close icon"></i>' +
 					'<div class="header">' +
-						Modal Title +
+						"Modal Title" +
 					'</div>' +
 					'<div class="image content">' +
 						'<div class="image">' +
