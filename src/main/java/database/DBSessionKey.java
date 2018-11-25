@@ -129,6 +129,7 @@ public class DBSessionKey {
 						.setParameter("sessionkey", sessionkey)
 						.getResultList();
 				for(UserSession userSession : userSessions) {
+					System.out.println(userSession);
 					if(userSession.getSessionkey().equals(sessionkey)) {
 						Instant now = Instant.now();
 						Calendar cal = Calendar.getInstance();
@@ -147,6 +148,7 @@ public class DBSessionKey {
 				HibernateUtil.closeSession();
 			}
 		}
+		System.out.println("key not found : " + sessionkey);
 		return Persist.ERROR_SESSION_KEY_NOT_FOUND;
 	}
 
