@@ -90,7 +90,7 @@ var mySpaceContent = {
 			imageDiv.appendChild(img);
 			cardDesc.appendChild(aHeader);
 			card.appendChild(imageDiv);
-			card.appendChild(cardHeaderDiv);
+			card.appendChild(cardDesc);
 
 			gallery.append(card);
 			

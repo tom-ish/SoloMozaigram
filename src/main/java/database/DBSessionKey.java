@@ -120,16 +120,15 @@ public class DBSessionKey {
 	}
 
 	public static int isSessionKeyExpired(String sessionkey) {
-		String hql = "from UserSession as usersession"/* where usersession.sessionkey=:sessionkey"*/;
+		String hql = "from UserSession as usersession where usersession.sessionkey=:sessionkey";
 
 		Session session = HibernateUtil.currentSession();
 		if(session != null) {
 			try {
-				List<UserSession> userSessions = session.createQuery(hql)/*
-						.setParameter("sessionkey", sessionkey)*/
+				List<UserSession> userSessions = session.createQuery(hql)
+						.setParameter("sessionkey", sessionkey)
 						.getResultList();
 				for(UserSession userSession : userSessions) {
-					System.out.println(userSession);
 					if(userSession.getSessionkey().equals(sessionkey)) {
 						Instant now = Instant.now();
 						Calendar cal = Calendar.getInstance();
@@ -148,7 +147,6 @@ public class DBSessionKey {
 				HibernateUtil.closeSession();
 			}
 		}
-		System.out.println("key not found : " + sessionkey);
 		return Persist.ERROR_SESSION_KEY_NOT_FOUND;
 	}
 
