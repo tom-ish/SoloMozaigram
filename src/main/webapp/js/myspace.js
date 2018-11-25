@@ -90,7 +90,7 @@ var mySpaceContent = {
 						'<div class="extra content">' +
 							'<span class="left floated">' + 
 								'<i class="comments outline icon">'+ '</i>' +
-								((typeof image.comments == null || typeof image.comments == "undefined") ? 0 : image.comments.count) +' comments'+
+								((image.comments == null || typeof image.comments == "undefined") ? 0 : image.comments.count) +' comments'+
 							'</span>' +
 						'</div>' +
 					'</div>'+
