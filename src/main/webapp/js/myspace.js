@@ -62,15 +62,40 @@ var mySpaceContent = {
 
 	initializeUserImagesGallery : function() {
 		var images = JSON.parse(localStorage.getItem("images"));
-
-		let headerDiv = document.createElement('div');
-		headerDiv.className = "ui horizontal divider";
-
 		var gallery = $('#user_images_gallery');
+
 
 		for(i in images) {
 			console.log(images[i]);
 			let image = images[i];
+			let divider = document.createElement('div');
+			divider.className = "ui horizontal divider";
+			gallery.append(divider);
+
+			var card = document.createElement('div'),
+				imageDiv = document.createElement('div'),
+				img = document.createElement('img'),
+				cardHeaderDiv = document.createElement('div'),
+				aHeader = document.createElement('a');
+
+			card.className = "ui fluid card";
+			imageDiv.className = "image";
+			cardHeaderDiv.className = "content";
+			aHeader.className = "header";
+
+			img.id = image.id;
+			img.src = image.link;
+			aHeader.innerHTML = image.creationDate;
+
+			imageDiv.appendChild(img);
+			cardHeaderDiv.appendChild(aHeader);
+			card.appendChild(imageDiv);
+			card.appendChild(cardHeaderDiv);
+
+			gallery.append(card);
+			
+
+/*
 			var aImg = document.createElement('a');
 			aImg.className = "item";
 
@@ -83,11 +108,8 @@ var mySpaceContent = {
 			headerDiv.className = "ui horizontal divider";
 			gallery.append(headerDiv);
 			gallery.append(aImg);
+			*/
 		}
-
-		let lastHeaderDiv = document.createElement('div');
-		lastHeaderDiv.className = "ui horizontal divider";
-		gallery.append(lastHeaderDiv);
 	}
 };
 
