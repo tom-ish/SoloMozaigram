@@ -125,7 +125,7 @@ var ServerServices = {
 			var dataform = new FormData();
 			dataform.append("userKeyword", userKeyword);
 			dataform.append("imageFile", imgFile);
-			dataform.append("sessionkey", sessionkey);
+			dataform.append("sessionkey", JSON.parse(sessionkey));
 			
 			$.ajax({
 				type: "POST",
