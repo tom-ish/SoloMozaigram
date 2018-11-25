@@ -128,6 +128,9 @@ var mySpaceContent = {
 
 			$('body').append(modal);
 
+			$('.ui.modal')
+				.modal('show');
+
 		});
 	}
 };
