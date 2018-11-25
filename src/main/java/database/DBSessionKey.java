@@ -120,13 +120,13 @@ public class DBSessionKey {
 	}
 
 	public static int isSessionKeyExpired(String sessionkey) {
-		String hql = "from UserSession as usersession where usersession.sessionkey=:sessionkey";
+		String hql = "from UserSession as usersession"/* where usersession.sessionkey=:sessionkey"*/;
 
 		Session session = HibernateUtil.currentSession();
 		if(session != null) {
 			try {
-				List<UserSession> userSessions = session.createQuery(hql)
-						.setParameter("sessionkey", sessionkey)
+				List<UserSession> userSessions = session.createQuery(hql)/*
+						.setParameter("sessionkey", sessionkey)*/
 						.getResultList();
 				for(UserSession userSession : userSessions) {
 					System.out.println(userSession);
