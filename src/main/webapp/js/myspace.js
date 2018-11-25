@@ -102,14 +102,14 @@ var mySpaceContent = {
 	},
 
 	setMosaicCardClickEvent : function() {
-		$('.mosaic-card').click(function() {
+		$('.mosaic-card').click(function(event) {
 //			event.target.id
 
 			var modal = $(
 				'<div class="ui modal">' +
 					'<i class="close icon"></i>' +
 					'<div class="header">' +
-						"Modal Title" +
+						event.target.innerHTML +
 					'</div>' +
 					'<div class="image content">' +
 						'<div class="image">' +
@@ -128,8 +128,7 @@ var mySpaceContent = {
 
 			$('body').append(modal);
 
-			$('.ui.modal')
-				.modal('show');
+			modal.modal('show');
 
 		});
 	}
