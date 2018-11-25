@@ -120,6 +120,7 @@ var ServerServices = {
 			console.log(userKeyword);
 			console.log("filename : ");
 			console.log(imgFile.name);
+			console.log(sessionkey);
 			
 			var dataform = new FormData();
 			dataform.append("userKeyword", userKeyword);

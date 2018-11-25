@@ -85,6 +85,8 @@ public class UploadDataServlet extends HttpServlet {
 		response.setContentType("text/plain");
 		
 		JSONObject json = new JSONObject();
+		
+		System.out.println("SESSIONKEY=" + sessionkey);
 
 		int reset = ServicesAuthentification.resetSessionKey(sessionkey);
 		System.out.println("RESET SESSION : " + reset);
