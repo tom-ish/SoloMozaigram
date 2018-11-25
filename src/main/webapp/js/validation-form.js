@@ -29,13 +29,14 @@ validateForm.ready = function() {
 		},
 		onSuccess : function(event, fields) {
 			event.preventDefault();
+			event.stopImmediatePropagation();
 			console.log("login form validation success");
 			login();
 		}
 	};
 	
 	var login = function() {
-		var formulaire = $('.form#loginForm');
+		var formulaire = $('#loginForm');
 		
 		username = formulaire.find('#loginUsernameInput').val();
 		pwd = formulaire.find('#loginPasswordInput').val();
@@ -117,6 +118,7 @@ validateForm.ready = function() {
 		},
 		onSuccess: function(event, fields) {
 			event.preventDefault();
+			event.stopImmediatePropagation();
 			console.log("signup form vaildation success");
 			createUser();
 		}
@@ -125,7 +127,7 @@ validateForm.ready = function() {
 
 	
 	var createUser = function() {
-		var formulaire = $('.form#signupForm');
+		var formulaire = $('#signupForm');
 		
 		username = formulaire.find('#signupUsernameInput').val();
 		email = formulaire.find('#signupEmailInput').val();
@@ -139,8 +141,8 @@ validateForm.ready = function() {
 	};
 	
 	
-	$('.form#loginForm').form(loginValidationRules);
-	$('.form#signupForm').form(signupValidationRules);
+	$('#loginForm').form(loginValidationRules);
+	$('#signupForm').form(signupValidationRules);
 	
 }
 

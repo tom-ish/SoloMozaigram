@@ -79,6 +79,7 @@ public class UploadDataServlet extends HttpServlet {
 		BufferedImage originalImage = FileProcess.getBufferedImageFromPart(imageFilePart);
 		BufferedImage image = ImageResizer.resizeValidDimensions(originalImage, originalImage.getType(), originalImage.getWidth(), originalImage.getHeight());
 		
+		System.out.println("image resizing OK");
 
 		PrintWriter writer = response.getWriter();
 		response.setContentType("text/plain");
@@ -86,7 +87,9 @@ public class UploadDataServlet extends HttpServlet {
 		JSONObject json = new JSONObject();
 
 		int reset = ServicesAuthentification.resetSessionKey(sessionkey);
-		if(reset == Persist.RESET_SESSION_KEY_OK) {			
+		System.out.println("RESET SESSION : " + reset);
+		
+		if(reset == Persist.RESET_SESSION_KEY_OK) {	
 			int rslt = ServicesMozaikProcessingCompletableFuture.verifyParameters(sessionkey, keyword, imageFilePart);
 			if(rslt != Persist.SUCCESS) {
 				try {
@@ -98,9 +101,12 @@ public class UploadDataServlet extends HttpServlet {
 				}
 				return;
 			}
+			System.out.println("PARAMETER VERIFICATION OK : " + rslt);
 			
 			UserTask userTask = DBUserTask.createUserTask(sessionkey);
 			json.put("userTaskId", "" + userTask.getId());
+			
+			System.out.println("USER TASK CREATED : " + userTask.getId());
 			
 			System.out.println("CompletableFuture call started...");
 			rslt = generateMozaik(sessionkey, keyword, image, originalFileName);
