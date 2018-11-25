@@ -81,11 +81,11 @@ var mySpaceContent = {
 							'<img id="' + image.id + '" src="' + image.link + '" />' +
 						'</div>' +
 						'<div class="content">' +
-							'<a class="header">' + image.keyword + '</a>' +
+							'<a class="header">' + image.originalFilename + '</a>' +
 							'<div class="meta">' +
 								'<span class="date">' + image.creationDate +'</span>' +
 							'</div>' +
-							'<div class="description">' + image.originalFilename + '</div>' +
+							'<div class="description">' + image.keyword + '</div>' +
 						'</div>'+
 						'<div class="extra content">' +
 							'<span class="left floated">' + 
