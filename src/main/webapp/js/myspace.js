@@ -85,7 +85,7 @@ var mySpaceContent = {
 							'<div class="meta">' +
 								'<span class="date">' + image.creationDate +'</span>' +
 							'</div>' +
-							'<div class="description">' + image.keyword + '</div>' +
+							'<div class="description">Keyword used : ' + image.keyword + '</div>' +
 						'</div>'+
 						'<div class="extra content">' +
 							'<span class="left floated">' + 
