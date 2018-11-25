@@ -78,10 +78,10 @@ var mySpaceContent = {
 				'<div class="column">' +
 					'<div class="ui centered fluid card">' +
 						'<div class="image">' +
-							'<img id="' + image.id + '" src="' + image.link + '" />' +
+							'<img src="' + image.link + '" />' +
 						'</div>' +
 						'<div class="content">' +
-							'<a class="header">' + image.originalFilename + '</a>' +
+							'<a class="header mosaic-card" id="' + image.id + '">' + image.originalFilename + '</a>' +
 							'<div class="meta">' +
 								'<span class="date">' + image.creationDate +'</span>' +
 							'</div>' +
@@ -98,55 +98,37 @@ var mySpaceContent = {
             );
 
             gallery.append(card);
-
-			/*
-			var card = document.createElement('div'),
-				imageDiv = document.createElement('div'),
-				img = document.createElement('img'),
-				cardDesc = document.createElement('div'),
-				aHeader = document.createElement('a'),
-				metaDiv = document.createElement('div'),
-				dateSpan = document.createElement('span'),
-				extraContentDiv = document.createElement('div'),
-				commentSpan = document.createElement('span');
-
-			card.className = "ui centered fluid card";
-			imageDiv.className = "image";
-			cardDesc.className = "content";
-			aHeader.className = "header";
-			metaDiv.className = "meta";
-			dateSpan.className = "date";
-			extraContentDiv.className = "extra content";
-			commentSpan.className = "left floated";
-
-
-			img.id = image.id;
-			img.src = image.link;
-			aHeader.innerHTML = image.creationDate;
-
-			imageDiv.appendChild(img);
-			cardDesc.appendChild(aHeader);
-			card.appendChild(imageDiv);
-			card.appendChild(cardDesc);
-
-			gallery.append(card);
-			
-*/
-/*
-			var aImg = document.createElement('a');
-			aImg.className = "item";
-
-			var img = document.createElement('img');
-			img.id = image.id;
-			img.src = image.link;
-			aImg.appendChild(img);
-			
-			let headerDiv = document.createElement('div');
-			headerDiv.className = "ui horizontal divider";
-			gallery.append(headerDiv);
-			gallery.append(aImg);
-			*/
 		}
+	},
+
+	setMosaicCardClickEvent : function() {
+		$('.mosaic-card').click(function() {
+//			event.target.id
+
+			var modal = $(
+				'<div class="ui modal">' +
+					'<i class="close icon"></i>' +
+					'<div class="header">' +
+						Modal Title +
+					'</div>' +
+					'<div class="image content">' +
+						'<div class="image">' +
+							"An image can appear on left or an icon" +
+						'</div>' +
+						'<div class="description">' +
+							"A description can appear on the right" +
+						'</div>' +
+					'</div>' +
+					'<div class="actions">' +
+						'<div class="ui button">' + "Cancel" + '</div>' +
+						'<div class="ui button">' + "OK" + '</div>' +
+					'</div>' +
+				'</div>'
+				);
+
+			$('body').append(modal);
+
+		});
 	}
 };
 
@@ -154,4 +136,5 @@ var mySpaceContent = {
 window.onload = function() {
 	mySpaceContent.initialize();
 	mySpaceContent.initializeUserImagesGallery();
+	mySpaceContent.setMosaicCardClickEvent();
 }
