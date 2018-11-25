@@ -56,7 +56,6 @@ public class ServicesAuthentification {
 				json.put("sessionKey", sessionkey);
 				json.put("getFriendsRslt", getFriendsRslt);
 				json.put("getFriendRequestsRslt", getFriendRequestsRslt);
-				json.put("imagesPath", userImagesURL);
 				json.put("images", userImages);
 				return Persist.SUCCESS;
 			}

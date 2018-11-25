@@ -39,7 +39,7 @@ public class ServicesUserTask {
 							json.put("userTaskRemoved", ""+Persist.OK);
 							json.put("status", ""+Persist.PROCESS_COMPLETE);
 							json.put("imgPath", ""+userTask.getPath());
-							json.put("imgOriginalFilename", img.getOrignalFilename());
+							json.put("imgOriginalFilename", img.getOriginalFilename());
 							json.put("imgCreationDate", img.getCreationDate());
 						}
 						

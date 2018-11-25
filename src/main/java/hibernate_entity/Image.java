@@ -58,7 +58,7 @@ public class Image {
 	
 	public int getId() { return this.id; }
 	public String getLink() { return this.link; }
-	public String getOrignalFilename() { return this.originalFilename; }
+	public String getOriginalFilename() { return this.originalFilename; }
 	public String getKeyword() { return this.keyword; }
 	public Set<Comment> getComments() { return this.comments; }
 	public Date getCreationDate() { return this.creationDate; }

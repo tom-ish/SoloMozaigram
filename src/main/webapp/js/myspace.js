@@ -83,7 +83,7 @@ var mySpaceContent = {
 						'<div class="content">' +
 							'<a class="header">' + image.keyword + '</a>' +
 							'<div class="meta">' +
-								'<span class="date">' + image.creationDate + ' Filter' +'</span>' +
+								'<span class="date">' + image.creationDate +'</span>' +
 							'</div>' +
 							'<div class="description">' + image.originalFilename + '</div>' +
 						'</div>'+
