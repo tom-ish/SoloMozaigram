@@ -138,6 +138,7 @@ var ServerServices = {
 					if(json.UploadDataServlet == PROCESS_COMPLETABLE_FUTURE_TASKS_STARTED) {
 						console.log(json);
 						console.log("sessionKey: " + sessionkey);
+						console.log("userTaskId: " + json.userTaskId);
 						is_uploading = true;
 						ServerServices.isMozaikGenerated(sessionkey, JSON.stringify(json.userTaskId));
 					}
