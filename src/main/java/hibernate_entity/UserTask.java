@@ -37,6 +37,9 @@ public class UserTask {
 	@Column(name="path")
 	private String path;
 	
+	@Column(name="img_id")
+	private int imgId;
+		
 	public UserTask() {}
 	
 	public UserTask(UserSession userSession, int status, String path) {
@@ -50,17 +53,19 @@ public class UserTask {
 	public UserSession getUserSession() { return this.userSession; }
 	public int getStatus() { return this.status; }
 	public String getPath() { return this.path; }
+	public int getImgId() { return this.imgId; }
 	
 	public void setId(int id) { this.id = id; }
 	public void setCreationDate(Date since) { this.since = since; }
 	public void setUserSession(UserSession userSession) { this.userSession = userSession; }
 	public void setStatus(int status) { this.status = status; }
 	public void setPath(String path) { this.path = path; }
+	public void setImgId(int imgId) { this.imgId = imgId; }
 
 	@Override
 	public String toString() {
 		return "UserTask [id=" + id + ", since=" + since + ", userSession=" + userSession + ", status=" + status
-				+ ", path=" + path + "]";
+				+ ", path=" + path + ", imgId=" + imgId + "]";
 	}
 	
 }

@@ -54,6 +54,7 @@ public class IsMozaikGeneratedServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String sessionkey = request.getParameter("sessionkey");
+		String userTaskId = request.getParameter("userTaskId");
 		response.setContentType("text/plain");
 		
 		JSONObject json = new JSONObject();
@@ -61,7 +62,7 @@ public class IsMozaikGeneratedServlet extends HttpServlet {
 		int reset = ServicesAuthentification.resetSessionKey(sessionkey);
 		if(reset == Persist.RESET_SESSION_KEY_OK) {
 			try {
-				Integer rslt = ServicesUserTask.getImgPath(sessionkey, json);
+				Integer rslt = ServicesUserTask.getImage(sessionkey, userTaskId, json);
 				json.put("IsMozaikGeneratedServlet", ""+ rslt);
 			} catch (JSONException e) {
 				e.printStackTrace();

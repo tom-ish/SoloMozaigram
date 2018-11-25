@@ -100,7 +100,7 @@ public class UploadDataServlet extends HttpServlet {
 			}
 			
 			UserTask userTask = DBUserTask.createUserTask(sessionkey);
-			json.put("UserTask", "" + userTask);
+			json.put("userTaskId", "" + userTask.getId());
 			
 			System.out.println("CompletableFuture call started...");
 			rslt = generateMozaik(sessionkey, keyword, image, originalFileName);
@@ -140,11 +140,11 @@ public class UploadDataServlet extends HttpServlet {
 
 	private int generateMozaik(String sessionkey, String keyword, Image image, String originalFileName) {
 		long startTime = System.currentTimeMillis();
-		
+		String newFilename = originalFileName;
 		
 		saveAndResizeImagesFromURLs(sessionkey, keyword).
-			thenCompose(savedImages -> ServicesMozaikProcessingCompletableFuture.generateMozaik(savedImages, image, originalFileName)).
-			thenCompose(status -> ServicesMozaikProcessingCompletableFuture.storeMozaik(status, sessionkey, originalFileName)).
+			thenCompose(savedImages -> ServicesMozaikProcessingCompletableFuture.generateMozaik(savedImages, image, originalFileName, newFilename)).
+			thenCompose(status -> ServicesMozaikProcessingCompletableFuture.storeMozaik(status, sessionkey, originalFileName, newFilename, keyword)).
 			thenAccept( (status) -> {
 				System.out.println(System.currentTimeMillis() - startTime);
 				System.out.println("COMPLETED FUTURE - STATUS : " + status);

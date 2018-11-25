@@ -139,7 +139,7 @@ var ServerServices = {
 						console.log(json);
 						console.log("sessionKey: " + sessionkey);
 						is_uploading = true;
-						ServerServices.isMozaikGenerated(sessionkey);
+						ServerServices.isMozaikGenerated(sessionkey, JSON.stringify(json.userTaskId));
 					}
 				},
 				error: function(jqXHR, textStatus, errorThrown) {
@@ -192,12 +192,12 @@ var ServerServices = {
 				}
 			});
 		},*/
-		isMozaikGenerated : function isMozaikGenerated(sessionkey) {
+		isMozaikGenerated : function isMozaikGenerated(sessionkey, userTaskId) {
 			console.log("isMozaikGenerated called from client sessionkey : "+sessionkey+"...");
 			$.ajax({
 				type: "POST",
 				url: "IsMozaikGeneratedServlet",
-				data: "sessionkey=" + sessionkey,
+				data: "sessionkey=" + sessionkey + "&userTaskId=" + userTaskId,
 				dataType: 'json',
 				success: function(json) {
 					if(json.IsMozaikGeneratedServlet == SUCCESS_CODE) {
@@ -206,6 +206,8 @@ var ServerServices = {
 							console.log(json);
 							// imgPath contains the server Path to the image here
 							console.log(json.imgPath);
+							console.log(json.imgOriginalFilename);
+							console.log(json.imgCreationDate);
 							
 							$('#generate-button').disabled = "";
 							$('#generate-button').removeClass('loading disabled');
@@ -219,7 +221,7 @@ var ServerServices = {
 					if(!generated) {
 						setTimeout(function(){
 							// Schedule the next
-							ServerServices.isMozaikGenerated(sessionkey);
+							ServerServices.isMozaikGenerated(sessionkey, userTaskId);
 						}, 10000);
 					}
 					else {

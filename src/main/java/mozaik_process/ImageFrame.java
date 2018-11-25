@@ -25,13 +25,14 @@ public class ImageFrame {
 	private File f;
 	private List<BufferedImage> savedImages;
 	
-	private String originalFileName;
+	private String originalFileName, storedFilename;
 	
 
-	public ImageFrame (List<BufferedImage> savedImages, Image file, String originalFileName) {
+	public ImageFrame (List<BufferedImage> savedImages, Image file, String originalFileName, String storedFilename) {
 		this.component = new ImageComponent(file);
 		this.savedImages = savedImages;
 		this.originalFileName = originalFileName;
+		this.storedFilename = storedFilename;
 	}
 	
 	public int compute(int grain) {
@@ -320,7 +321,8 @@ public class ImageFrame {
 		System.out.println(System.currentTimeMillis() - startTime + " ms");
 		System.out.println("now is : " + System.currentTimeMillis());
 		
-		File output = new File(Tools.addCurrentTimeMillis(originalFileName));
+		this.storedFilename = Tools.addCurrentTimeMillis(this.originalFileName);
+		File output = new File(this.storedFilename);
 //        File output = Paths.get(originalFileName).toFile();
         System.out.println("output file created");
 		System.out.println(output.getAbsolutePath());

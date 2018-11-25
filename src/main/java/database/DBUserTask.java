@@ -1,5 +1,6 @@
 package database;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.HibernateException;
@@ -13,16 +14,20 @@ import utils.Persist;
 
 public class DBUserTask {
 
-	public static boolean isUserTaskCompleted(UserSession userSession) {
-		String hql = "from UserTask usertask where usertask.userSession=:userSession";
+	public static boolean isUserTaskCompleted(UserSession userSession, int userTaskId) {
+		String hql = "from UserTask usertask where usertask.userSession=:userSession and usertask.id=:userTaskId";
 		Session session = HibernateUtil.currentSession();
 		if(session != null) {
 			try {
 				List<UserTask> userTasks = session.createQuery(hql)
 						.setParameter("userSession", userSession)
+						.setParameter("userTaskId", userTaskId)
 						.getResultList();
-				for(UserTask userTask : userTasks) {
-					if(userTask.getUserSession().getSessionkey().equals(userSession.getSessionkey()) && userTask.getStatus() == Persist.PROCESS_COMPLETE) {
+				for(UserTask task : userTasks) {
+					if(task.getId() == userTaskId 
+							&& task.getUserSession().getSessionkey().equals(userSession.getSessionkey())
+							&& task.getId() == userTaskId
+							&& task.getStatus() == Persist.PROCESS_COMPLETE) {
 						HibernateUtil.closeSession();
 						return Persist.OK;
 					}
@@ -65,7 +70,7 @@ public class DBUserTask {
 	}
 
 
-	public static UserTask notifyUserTaskComplete(UserSession userSession, String path) {
+	public static UserTask notifyUserTaskComplete(UserSession userSession, String path, int imgId) {
 		String hql = "from UserTask";
 
 		System.out.println("NOTIFY FUNCTION ENTERED");
@@ -83,6 +88,7 @@ public class DBUserTask {
 						UserTask taskToUpdate = session.load(UserTask.class, userTask.getId());
 						taskToUpdate.setStatus(Persist.PROCESS_COMPLETE);
 						taskToUpdate.setPath(path);
+						taskToUpdate.setImgId(imgId);
 						session.flush();
 						tx.commit();
 						System.out.println("USER TASK COMPLETED");
@@ -131,17 +137,20 @@ public class DBUserTask {
 		return "";
 	}
 
-	public static UserTask getUserTask(UserSession userSession) {
-		String hql = "from UserTask as usertask where usertask.userSession=:userSession";
-
+	
+	public static UserTask getUserTask(UserSession userSession, int userTaskId) {
+		String hql = "from UserTask as usertask where usertask.userSession=:userSession and usertask.id=:userTaskId";
 		Session session = HibernateUtil.currentSession();
 		if(session != null) {
 			try {
 				List<UserTask> userTasks = session.createQuery(hql)
 						.setParameter("userSession", userSession)
+						.setParameter("userTaskId", userTaskId)
 						.getResultList();
 				for(UserTask userTask : userTasks) {
-					if(userTask.getUserSession().equals(userSession)) {
+					if(userTask.getId() == userTaskId
+							&& userTask.getUserSession().getSessionkey().equals(userSession.getSessionkey()) 
+							&& userTask.getUserSession().getUser().getId() == userSession.getUser().getId()) {
 						HibernateUtil.closeSession();
 						return userTask;
 					}
@@ -156,6 +165,9 @@ public class DBUserTask {
 		}
 		return null;
 	}
+	
+	
+
 /*
 	public static boolean removeUserTask(UserSession userSession) {
 		String hql = "delete UserTask where userSession=:userSession";
@@ -180,7 +192,7 @@ public class DBUserTask {
 	}
 	*/
 	
-	public static boolean removeUserTask(UserSession userSession) {
+	public static boolean removeUserTask(UserSession userSession, int userTaskId) {
 		System.out.println("REMOVE_USER_TASK");
 		String hql = "from UserTask";
 		Session session = HibernateUtil.currentSession();
@@ -191,7 +203,7 @@ public class DBUserTask {
 						.getResultList();
 				for(UserTask userTask : userTasks) {
 					System.out.println(userTask);
-					if(userTask.getUserSession().getSessionkey().equals(userSession.getSessionkey())) {
+					if(userTask.getUserSession().getSessionkey().equals(userSession.getSessionkey()) && userTask.getId() == userTaskId) {
 						tx = session.beginTransaction();
 						session.delete(userTask);
 						session.flush();
@@ -212,5 +224,6 @@ public class DBUserTask {
 		}
 		return false;
 	}
+
 
 }

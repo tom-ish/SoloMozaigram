@@ -24,8 +24,15 @@ public class Image {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
+	@Column(name="link")
 	private String link;
+	
+	@Column(name="original_filename")
+	private String originalFilename;
+	
+	@Column(name="keyword")
+	private String keyword;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="userid", nullable=false)
@@ -41,28 +48,34 @@ public class Image {
 	
 	public Image() {}
 	
-	public Image(String link, User user) {
+	public Image(String link, String originalFilename, String keyword, User user) {
 		this.link = link;
+		this.originalFilename = originalFilename;
+		this.keyword = keyword;
 		this.user = user;
 		this.comments = new HashSet<Comment>();
 	}
 	
 	public int getId() { return this.id; }
 	public String getLink() { return this.link; }
+	public String getOrignalFilename() { return this.originalFilename; }
+	public String getKeyword() { return this.keyword; }
 	public Set<Comment> getComments() { return this.comments; }
 	public Date getCreationDate() { return this.creationDate; }
 	public User getUser() { return this.user; }
 	
 	public void setId(int id) { this.id = id; }
 	public void setLink(String link) { this.link = link; }
+	public void setOriginalFilename(String originalFilename) { this.originalFilename = originalFilename; }
+	public void setKeyword(String keyword) { this.keyword = keyword; }
 	public void setComments(Set<Comment> comments) { this.comments = comments; }
 	public void setCreationDate(Date creationDate) { this.creationDate = creationDate; }
 	public void setUser(User user) { this.user = user; }
 
 	@Override
 	public String toString() {
-		return "Image [id=" + id + ", link=" + link + ", user=" + user + ", creationDate=" + creationDate
-				+ ", comments=" + comments + "]";
+		return "Image [id=" + id + ", link=" + link + ", keyword=" + keyword + ", originalFilename= " + originalFilename 
+				+ ", user=" + user + ", creationDate=" + creationDate + ", comments=" + comments + "]";
 	}
 	
 	

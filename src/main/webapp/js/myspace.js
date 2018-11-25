@@ -75,12 +75,12 @@ var mySpaceContent = {
 			var card = document.createElement('div'),
 				imageDiv = document.createElement('div'),
 				img = document.createElement('img'),
-				cardHeaderDiv = document.createElement('div'),
+				cardDesc = document.createElement('div'),
 				aHeader = document.createElement('a');
 
 			card.className = "ui fluid card";
 			imageDiv.className = "image";
-			cardHeaderDiv.className = "content";
+			cardDesc.className = "content";
 			aHeader.className = "header";
 
 			img.id = image.id;
@@ -88,7 +88,7 @@ var mySpaceContent = {
 			aHeader.innerHTML = image.creationDate;
 
 			imageDiv.appendChild(img);
-			cardHeaderDiv.appendChild(aHeader);
+			cardDesc.appendChild(aHeader);
 			card.appendChild(imageDiv);
 			card.appendChild(cardHeaderDiv);
 

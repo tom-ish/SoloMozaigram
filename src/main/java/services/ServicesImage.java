@@ -22,7 +22,7 @@ import utils.Tools;
 
 public class ServicesImage {
 	
-	public static Integer addImage(String sessionkey, String imgPath) {
+	public static Integer addImage(String sessionkey, String imgPath, String originalFilename, String keyword) {
 		if(Tools.isNullParameter(sessionkey) || Tools.isNullParameter(imgPath))
 			return Persist.ERROR_NULL_PARAMETER;
 		else if(DBSessionKey.isSessionKeyExpired(sessionkey) == Persist.ERROR_SESSION_KEY_EXPIRED)
@@ -33,7 +33,7 @@ public class ServicesImage {
 			User user = DBSessionKey.getUserByKey(sessionkey);
 			// On stocke l'adresse de l'image dans la DB Images
 			String imgURL = Persist.AMAZON_S3_SERVER_URL+imgPath;
-			hibernate_entity.Image img = DBImage.addImage(imgURL, user);
+			hibernate_entity.Image img = DBImage.addImage(imgURL, originalFilename, keyword, user);
 
 			// si l'id de l'image != 0, c'est que l'ajout s'est bien deroule
 			if(img != null) {
@@ -48,7 +48,8 @@ public class ServicesImage {
 					System.out.println("BEFORE NOTIFYING...");
 					// on notifie dans la table UserTask la completion de la generation de mosaique
 					UserSession userSession = DBSessionKey.getUserSessionFromSessionKey(sessionkey);
-					UserTask userTask = DBUserTask.notifyUserTaskComplete(userSession, img.getLink());
+					UserTask userTask = DBUserTask.notifyUserTaskComplete(userSession, img.getLink(), img.getId());
+					
 					if(userTask != null)
 						return Persist.SUCCESS;
 					else

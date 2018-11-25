@@ -124,12 +124,13 @@ public class AsyncUploadDataServlet extends HttpServlet {
 		asyncContext.start(() -> {
 			System.out.println("CompletableFuture call started...");
 
+			/*
 			saveAndResizeImagesFromURLs(sessionkey, keyword).
 			thenCompose(savedImages -> ServicesMozaikProcessingCompletableFuture.generateMozaik(savedImages, image, originalFileName)).
 			thenCompose(status -> ServicesMozaikProcessingCompletableFuture.storeMozaik(status, sessionkey, originalFileName)).
 			thenAccept( (statusImgIdSimpleEntry) -> {					
 				System.out.println(System.currentTimeMillis() - startTime);
-				System.out.println("COMPLETED FUTURE - STATUS : " + statusImgIdSimpleEntry/* + " imgPath : " + statusImgIdSimpleEntry.getValue()*/);
+				System.out.println("COMPLETED FUTURE - STATUS : " + statusImgIdSimpleEntry*//* + " imgPath : " + statusImgIdSimpleEntry.getValue()*//*);
 
 				JSONObject json = new JSONObject();
 				PrintWriter asyncWriter = null;
@@ -146,6 +147,7 @@ public class AsyncUploadDataServlet extends HttpServlet {
 					e.printStackTrace();
 				}
 			});
+			*/
 		});
 
 		return Persist.PROCESS_COMPLETABLE_FUTURE_TASKS_STARTED;

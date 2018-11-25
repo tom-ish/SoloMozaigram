@@ -104,18 +104,17 @@ public class ServicesMozaikProcessingCompletableFuture {
 			return CompletableFuture.completedFuture(previousReturnCode);
 	}
 	
-	public static CompletableFuture<Integer> generateMozaik(List<BufferedImage> savedImages, Image image, String originalFileName) {
+	public static CompletableFuture<Integer> generateMozaik(List<BufferedImage> savedImages, Image image, String originalFileName, String storedFilename) {
 		if(savedImages != null)
-			return CompletableFuture.completedFuture(MozaikGenerator.generate(savedImages, image, originalFileName));
+			return CompletableFuture.completedFuture(MozaikGenerator.generate(savedImages, image, originalFileName, storedFilename));
 		return CompletableFuture.completedFuture(Persist.ERROR);
 	}
 	
-	public static CompletableFuture<Integer> storeMozaik(Integer previousReturnCode, String sessionkey, String originalFileName) {
+	public static CompletableFuture<Integer> storeMozaik(Integer previousReturnCode, String sessionkey, String mozaikFilePath, String originalFilename, String keyword) {
 		//String mozaikFilePath = Persist.DEST_MOZAIK_REPOSITORY_PATH + File.separator + originalFileName;
-		String mozaikFilePath = originalFileName;
 		System.out.println("previousReturnCode from MOZAIKGENERATION = " + previousReturnCode);
 		if(previousReturnCode == Persist.SUCCESS)
-			return CompletableFuture.completedFuture(ServicesImage.addImage(sessionkey, mozaikFilePath));
+			return CompletableFuture.completedFuture(ServicesImage.addImage(sessionkey, mozaikFilePath, originalFilename, keyword));
 		return CompletableFuture.completedFuture(previousReturnCode);
 	}
 	

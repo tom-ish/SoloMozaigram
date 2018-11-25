@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import hibernate_entity.Comment;
 import hibernate_entity.Image;
 import hibernate_entity.User;
+import hibernate_entity.UserTask;
 import utils.HibernateUtil;
 import utils.Persist;
 
@@ -152,8 +153,8 @@ public class DBImage {
 		return Persist.ERROR;
 	}
 
-	public static Image addImage(String imgPath, User user) {
-		Image img = new Image(imgPath, user);
+	public static Image addImage(String imgPath, String originalFilename, String keyword, User user) {
+		Image img = new Image(imgPath, originalFilename, keyword, user);
 		Session session = HibernateUtil.currentSession();
 		Transaction tx = null;
 		if(session != null) {
@@ -204,6 +205,30 @@ public class DBImage {
 		return null;
 	}
 
-
+	public static Image getImgFromUserTask(UserTask userTask) {
+		int imgId = userTask.getImgId();
+		String hql = "from Image as img where img.id=:id";
+		Session session = HibernateUtil.currentSession();
+		if(session != null) {
+			try {
+				List<Image> images = session.createQuery(hql)
+						.setParameter("id",  imgId)
+						.getResultList();
+				for(Image img : images) {
+					if(img.getId() == imgId) {
+						HibernateUtil.closeSession();
+						return img;
+					}
+				}				
+			}
+			catch(HibernateException e) {
+				e.printStackTrace();
+			}
+			finally {
+				HibernateUtil.closeSession();
+			}
+		}
+		return null;
+	}
 
 }
