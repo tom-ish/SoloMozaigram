@@ -52,11 +52,11 @@ var ServerServices = {
 						// Store username in localStorage Object before switching to MozaikPage
 						// Web Storage Compatibility should be checked at start
 						localStorage.clear();
-						localStorage.setItem("username", JSON.stringify(json.username));
-						localStorage.setItem("sessionKey", JSON.stringify(json.sessionKey));
-						localStorage.setItem("friends", JSON.stringify(json.friends));
-						localStorage.setItem("friendRequests", JSON.stringify(json.friendRequests));
-						localStorage.setItem("requestedpage", JSON.stringify(json.username));
+						localStorage.setItem("username", json.username);
+						localStorage.setItem("sessionKey", json.sessionKey);
+						localStorage.setItem("friends", json.friends);
+						localStorage.setItem("friendRequests", json.friendRequests);
+						localStorage.setItem("requestedpage", json.username);
 						localStorage.setItem("images", JSON.stringify(json.images));
 						switchToMyPage();
 					}
@@ -125,7 +125,7 @@ var ServerServices = {
 			var dataform = new FormData();
 			dataform.append("userKeyword", userKeyword);
 			dataform.append("imageFile", imgFile);
-			dataform.append("sessionkey", JSON.parse(sessionkey));
+			dataform.append("sessionkey", sessionkey);
 			
 			$.ajax({
 				type: "POST",
@@ -141,7 +141,7 @@ var ServerServices = {
 						console.log("sessionKey: " + sessionkey);
 						console.log("userTaskId: " + json.userTaskId);
 						is_uploading = true;
-						ServerServices.isMozaikGenerated(sessionkey, JSON.stringify(json.userTaskId));
+						ServerServices.isMozaikGenerated(sessionkey, json.userTaskId);
 					}
 				},
 				error: function(jqXHR, textStatus, errorThrown) {
