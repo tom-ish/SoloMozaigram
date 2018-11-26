@@ -48,5 +48,5 @@ function Image(id, link, originalFilename, keyword, creationDate, author, commen
 			rslt.push(comment);
 		}
 		return rslt;
-	};*/
+	};*/ 
 }
