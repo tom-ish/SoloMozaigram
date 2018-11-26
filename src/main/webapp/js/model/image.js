@@ -35,12 +35,12 @@ function Image(id, link, originalFilename, keyword, creationDate, author, commen
 
 		return card;
 	};
-
+/*
 	this.generateMosaicModalView = function (image) {
 		if(this.comments == null || typeof this.comments == "undefined")
 			return;
 
-		
+
 		var modalView = 
 		for (var i = 0; i < this.comments.length; i++) {
 			let c = comments[i];
@@ -48,5 +48,5 @@ function Image(id, link, originalFilename, keyword, creationDate, author, commen
 			rslt.push(comment);
 		}
 		return rslt;
-	};
+	};*/
 }
