@@ -6,34 +6,9 @@ function Image(id, link, originalFilename, keyword, creationDate, author, commen
 	this.creationDate = creationDate;
 	this.author = author;
 	this.comments = comments;
-	this.cardView = "";
+	this.cardView = generateCardView(this);
 
-	this.generateCardView = function() {
-		this.cardView = $(
-			'<div class="column">' +
-				'<div class="ui centered fluid card">' +
-					'<div class="image">' +
-						'<img src="' + this.link + '" />' +
-					'</div>' +
-					'<div class="content">' +
-						'<a class="header mosaic-card" id="' + this.id + '">' + this.originalFilename + '</a>' +
-						'<div class="meta">' +
-							'<span class="date">' + this.creationDate +'</span>' +
-						'</div>' +
-						'<div class="description">Keyword used : ' + this.keyword + '</div>' +
-					'</div>'+
-					'<div class="extra content">' +
-						'<span class="left floated">' + 
-							'<i class="comments outline icon">'+ '</i>' +
-							((this.comments == null || typeof this.comments == "undefined") ? 0 : this.comments.length) +' comments'+
-						'</span>' +
-					'</div>' +
-				'</div>'+
-			'</div>'
-			);
-
-		//card.find('a.mosaic-card').click(generateMosaicModalView(image));
-	};
+	
 /*
 	this.generateMosaicModalView = function (image) {
 		if(this.comments == null || typeof this.comments == "undefined")
@@ -49,3 +24,30 @@ function Image(id, link, originalFilename, keyword, creationDate, author, commen
 		return rslt;
 	};*/ 
 }
+
+var generateCardView = function(image) {
+		return $(
+			'<div class="column">' +
+				'<div class="ui centered fluid card">' +
+					'<div class="image">' +
+						'<img src="' + image.link + '" />' +
+					'</div>' +
+					'<div class="content">' +
+						'<a class="header mosaic-card" id="' + image.id + '">' + image.originalFilename + '</a>' +
+						'<div class="meta">' +
+							'<span class="date">' + image.creationDate +'</span>' +
+						'</div>' +
+						'<div class="description">Keyword used : ' + image.keyword + '</div>' +
+					'</div>'+
+					'<div class="extra content">' +
+						'<span class="left floated">' + 
+							'<i class="comments outline icon">'+ '</i>' +
+							((image.comments == null || typeof image.comments == "undefined") ? 0 : image.comments.length) +' comments'+
+						'</span>' +
+					'</div>' +
+				'</div>'+
+			'</div>'
+			);
+
+		//card.find('a.mosaic-card').click(generateMosaicModalView(image));
+	};
