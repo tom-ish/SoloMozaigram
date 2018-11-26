@@ -58,21 +58,21 @@ var ServerServices = {
 						localStorage.setItem("friendRequests", json.friendRequests);
 						localStorage.setItem("requestedpage", json.username);
 
-						let images = [];
+						var images = [];
 						if(!(json.images == null || typeof json.images == "undefined" || json.images.length == 0)) {
 							for (var i = 0; i < json.images.length; i++) {
-								let imageItem = json.images[i];
-								let comments = [];
+								var imageItem = json.images[i];
+								var comments = [];
 								if(!(imageItem.allComments == null || typeof imageItem.allComments == "undefined" || imageItem.allComments.length == 0)) {
 									for (var i = 0; i < imageItem.allComments.length; i++) {
-										let commentItem = imageItem.allComments[i];
-										let comment = new Comment(commentItem.id, commentItem.image,
+										var commentItem = imageItem.allComments[i];
+										var comment = new Comment(commentItem.id, commentItem.image,
 											commentItem.auteur, commentItem.text, commentItem.date);
 										comments.push(comment);
 									}
 								}
 
-								let image = new Image(imageItem.id, imageItem.link, imageItem.originalFilename,
+								var image = new Image(imageItem.id, imageItem.link, imageItem.originalFilename,
 									imageItem.keyword, imageItem.creationDate, imageItem.user, comments);
 								images.push(image);
 								console.log(image);
