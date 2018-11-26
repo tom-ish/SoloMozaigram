@@ -107,8 +107,8 @@ var mySpaceContent = {
 			var card = image.generateCardView();
             gallery.append(card);
 		}
-	},
-
+	}
+	/*,
 	setCardClickEvent : function(image) {
 		card.find('a.mosaic-card').click(function(event) {
 			var modal = $(
@@ -171,7 +171,7 @@ var mySpaceContent = {
 			modal.modal('show');
 
 		});
-	}
+	}*/
 };
 
 
