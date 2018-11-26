@@ -6,9 +6,10 @@ function Image(id, link, originalFilename, keyword, creationDate, author, commen
 	this.creationDate = creationDate;
 	this.author = author;
 	this.comments = comments;
+	this.cardView = "";
 
 	this.generateCardView = function() {
-		var card = $(
+		this.cardView = $(
 			'<div class="column">' +
 				'<div class="ui centered fluid card">' +
 					'<div class="image">' +
@@ -32,8 +33,6 @@ function Image(id, link, originalFilename, keyword, creationDate, author, commen
 			);
 
 		//card.find('a.mosaic-card').click(generateMosaicModalView(image));
-
-		return card;
 	};
 /*
 	this.generateMosaicModalView = function (image) {
