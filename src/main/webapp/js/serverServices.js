@@ -75,9 +75,10 @@ var ServerServices = {
 								let image = new Image(imageItem.id, imageItem.link, imageItem.originalFilename,
 									imageItem.keyword, imageItem.creationDate, imageItem.user, comments);
 								images.push(image);
+								console.log(image);
 							}
 						}
-						localStorage.setItem("images", images);
+						localStorage.setItem("images", JSON.stringify(json.images));
 //						localStorage.setItem("images", JSON.stringify(json.images));
 						switchToMyPage();
 					}
