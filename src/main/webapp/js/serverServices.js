@@ -57,7 +57,28 @@ var ServerServices = {
 						localStorage.setItem("friends", json.friends);
 						localStorage.setItem("friendRequests", json.friendRequests);
 						localStorage.setItem("requestedpage", json.username);
-						localStorage.setItem("images", JSON.stringify(json.images));
+
+						let images = [];
+						if(!(json.images == null || typeof json.images == "undefined" || json.images.length == 0)) {
+							for (var i = 0; i < json.images.length; i++) {
+								let imageItem = json.images[i];
+								let comments = [];
+								if(!(imageItem.allComments == null || typeof imageItem.allComments == "undefined" || imageItem.allComments.length == 0)) {
+									for (var i = 0; i < imageItem.allComments.length; i++) {
+										let commentItem = imageItem.allComments[i];
+										let comment = new Comment(commentItem.id, commentItem.image,
+											commentItem.auteur, commentItem.text, commentItem.date);
+										comments.push(comment);
+									}
+								}
+
+								let image = new Image(imageItem.id, imageItem.link, imageItem.originalFilename,
+									imageItem.keyword, imageItem.creationDate, imageItem.user, comments);
+								images.push(image);
+							}
+						}
+						localStorage.setItem("images", images);
+//						localStorage.setItem("images", JSON.stringify(json.images));
 						switchToMyPage();
 					}
 					else{

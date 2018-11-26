@@ -61,9 +61,9 @@ var mySpaceContent = {
 	},
 
 	initializeUserImagesGallery : function() {
-		var images = JSON.parse(localStorage.getItem("images"));
+		//var images = JSON.parse(localStorage.getItem("images"));
 		var gallery = $('#user_images_gallery');
-
+		var images = localStorage.getItem("images");
 
 		for(i in images) {
 			console.log(images[i]);
@@ -100,8 +100,9 @@ var mySpaceContent = {
             card.find('a.mosaic-card').click(setCardClickEvent(image));
 */
 
-			var imageObject = new Image(image.id, image.link, image.originalFilename, image.keyword, image.creationDate, image.author, image.comments);
-			var card = imageObject.generateCardView();
+			//var imageObject = new Image(image.id, image.link, image.originalFilename, image.keyword, image.creationDate, image.author, image.comments);
+			//var card = imageObject.generateCardView();
+			var card = image.generateCardView();
             gallery.append(card);
 		}
 	},
