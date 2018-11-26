@@ -65,7 +65,9 @@ var mySpaceContent = {
 		var gallery = $('#user_images_gallery');
 		var images = localStorage.getItem("images");
 
-		for(i in images) {
+		console.log("images.size() : " + images.length);
+
+		for (var i = 0; i < images.length; i++) {
 			console.log(images[i]);
 			let image = images[i];
 
