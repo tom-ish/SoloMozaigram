@@ -78,7 +78,7 @@ var ServerServices = {
 								console.log(image);
 							}
 						}
-						localStorage.setItem("images", JSON.stringify(json.images));
+						localStorage.setItem("images", images);
 //						localStorage.setItem("images", JSON.stringify(json.images));
 						switchToMyPage();
 					}
