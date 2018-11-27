@@ -62,7 +62,7 @@ var ServerServices = {
 						if(!(json.images == null || typeof json.images == "undefined" || json.images.length == 0)) {
 							for (var i = 0; i < json.images.length; i++) {
 								var imageItem = json.images[i];
-								var imageMosaic = new ImageMosaic(imageItem.id, imageItem.link, imageItem.originalFilename, imageItem.keyword, imageItem.creationDate, imageItem.user, comments);
+								var imageMosaic = new ImageMosaic(imageItem.id, imageItem.link, imageItem.originalFilename, imageItem.keyword, imageItem.creationDate, imageItem.user, imageItem.comments);
 								images.push(imageMosaic);
 								console.log(imageMosaic);
 							}
