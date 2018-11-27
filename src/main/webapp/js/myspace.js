@@ -61,14 +61,14 @@ var mySpaceContent = {
 	},
 
 	initializeUserImagesGallery : function() {
-		var images = JSON.parse(localStorage.getItem("images"));
+		var mosaics = JSON.parse(localStorage.getItem("images"));
 		var gallery = $('#user_images_gallery');
 		
-		console.log("images.size() : " + images.length);
+		console.log("mosaics.size() : " + mosaics.length);
 
-		for (var i = 0; i < images.length; i++) {
-			console.log(images[i]);
-			let image = images[i];
+		for (var i = 0; i < mosaics.length; i++) {
+			console.log(mosaics[i]);
+			let mosaic = mosaics[i];
 
 
 			let divider = document.createElement('div');
@@ -104,7 +104,7 @@ var mySpaceContent = {
 			//var imageObject = new Image(image.id, image.link, image.originalFilename, image.keyword, image.creationDate, image.author, image.comments);
 			//var card = imageObject.generateCardView();
 
-            gallery.append(image.generateCardView());
+            gallery.append($(mosaic.cardView));
 		}
 	}
 	/*,

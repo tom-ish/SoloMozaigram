@@ -7,7 +7,7 @@ function Mosaic(id, link, originalFilename, keyword, creationDate, author, comme
 	this.author = author;
 	this.comments = comments;
 
-	this.generateCardView = generateCardView();
+	this.cardView = generateCardView();
 }
 
 function generateCardView  () {
