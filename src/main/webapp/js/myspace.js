@@ -76,8 +76,9 @@ var mySpaceContent = {
 			gallery.append(divider);
 
 			var cardView = $(imageMosaic.cardView);
-			console.log(cardView);
+			console.log(imageMosaic.cardView);
 			cardView.find('.mosaic-card').click(function () {
+				console.log(imageMosaic.modalView);
 				$('body').append($(imageMosaic.modalView));
 				$(imageMosaic.modalView).modal('show');
 			});
