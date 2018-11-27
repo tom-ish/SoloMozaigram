@@ -103,8 +103,8 @@ var mySpaceContent = {
 
 			//var imageObject = new Image(image.id, image.link, image.originalFilename, image.keyword, image.creationDate, image.author, image.comments);
 			//var card = imageObject.generateCardView();
-			var card = image.generateCardView();
-            gallery.append(card);
+
+            gallery.append(image.generateCardView());
 		}
 	}
 	/*,
