@@ -11,8 +11,7 @@ function Mosaic(id, link, originalFilename, keyword, creationDate, author, comme
 }
 
 function generateCardView  () {
-	return $(
-		'<div class="column">' +
+	return '<div class="column">' +
 			'<div class="ui centered fluid card">' +
 				'<div class="image">' +
 					'<img src="' + this.link + '" />' +
@@ -31,8 +30,7 @@ function generateCardView  () {
 					'</span>' +
 				'</div>' +
 			'</div>'+
-		'</div>'
-	);
+		'</div>';
 }
 	
 /*
