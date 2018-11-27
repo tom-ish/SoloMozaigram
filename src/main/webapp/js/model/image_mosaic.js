@@ -70,7 +70,7 @@ function generateModalView (image) {
 					image.originalFilename +
 				'</div>' +
 			'</div>' +
-			'<div class="ui centered grid">' +
+			'<div class="ui grid">' +
 				'<div>' +
 					'<img class="ui fluid bordered rounded image" src="' + image.link + '" />' +
 				'</div>' +
