@@ -65,26 +65,30 @@ function generateModalView (image) {
 	image.modalView =
 		'<div class="ui modal">' +
 			'<i class="close icon"></i>' +
-			'<div class="header">' +
-				image.originalFilename +
+			'<div class="ui segment">' +
+				'<div class="header">' +
+					image.originalFilename +
+				'</div>' +
 			'</div>' +
 			'<div class="ui centered grid">' +
 				'<div class="ui segment">' +
 					'<img class="ui fluid rounded image" src="' + image.link + '" />' +
 				'</div>' +
-				'<div class="column">' +
-					'<div class="ui comments comments-view">' +
-						'<h3 class="ui dividing header">Comments</h3>' +
-						commentsView +
+				'<div class="ui segment">' +
+					'<div class="column">' +
+						'<div class="ui comments comments-view">' +
+							'<h3 class="ui dividing header">Comments</h3>' +
+							commentsView +
+						'</div>' +
+						'<form class="ui reply form">' +
+							'<div class="field">' +
+								'<textarea></textarea>' +
+							'</div>' +
+							'<div class="ui blue labeled submit icon button">' +
+								'<i class="icon edit"></i> Add Reply' +
+							'</div>' +
+						'</form>' +
 					'</div>' +
-					'<form class="ui reply form">' +
-						'<div class="field">' +
-							'<textarea></textarea>' +
-						'</div>' +
-						'<div class="ui blue labeled submit icon button">' +
-							'<i class="icon edit"></i> Add Reply' +
-						'</div>' +
-					'</form>' +
 				'</div>' +
 			'</div>' +
 			
