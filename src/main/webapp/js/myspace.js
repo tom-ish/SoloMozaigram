@@ -74,22 +74,14 @@ var mySpaceContent = {
 			let divider = document.createElement('div');
 			divider.className = "ui horizontal divider";
 			gallery.append(divider);
-/*
-			
 
-            card.find('a.mosaic-card').click(setCardClickEvent(image));
-*/
-
-			//var imageObject = new Image(image.id, image.link, image.originalFilename, image.keyword, image.creationDate, image.author, image.comments);
-			//var card = imageObject.generateCardView();
-
-			var cardView = generateCardView(imageMosaic);
-			$(cardView).find('.mosaic-card').click(function () {
-				var modalView = generateModalView(imageMosaic);
-				$('body').append($(modalView));
-				$($(modalView)).modal('show');
+			var cardView = $(imageMosaic.cardView);
+			console.log(cardView);
+			cardView.find('.mosaic-card').click(function () {
+				$('body').append($(imageMosaic.modalView));
+				$(imageMosaic.modalView).modal('show');
 			});
-            gallery.append($(cardView));
+            gallery.append(cardView);
 		}
 	}
 	/*,

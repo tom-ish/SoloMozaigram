@@ -5,9 +5,9 @@ function ImageMosaic(id, link, originalFilename, keyword, creationDate, author, 
 	this.keyword = keyword;
 	this.creationDate = creationDate;
 	this.author = author;
-	this.comments = initializeComments(allComments);/*
+	this.comments = initializeComments(allComments);
 	this.cardView = generateCardView(this);
-	this.modalView = generateModalView(this);*/
+	this.modalView = generateModalView(this);
 }
 
 function initializeComments (allComments) {
@@ -54,7 +54,7 @@ function generateModalView (image) {
 			commentsView += commentView;
 		}
 	}
-	var modalView =
+	return
 		'<div class="ui modal">' +
 			'<i class="close icon"></i>' +
 			'<div class="header">' +
@@ -76,8 +76,6 @@ function generateModalView (image) {
 				'<div class="ui button">' + "OK" + '</div>' +
 			'</div>' +
 		'</div>';
-	
-	return modalView;
 }
 
 	
