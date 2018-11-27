@@ -1,17 +1,13 @@
-function Mosaic(id, link, originalFilename, keyword, creationDate, author, comments) {
+var Mosaic = function(id, link, originalFilename, keyword, creationDate, author, comments) {
+	this.id = id;
+	this.link = link;
+	this.originalFilename = originalFilename;
+	this.keyword = keyword;
+	this.creationDate = creationDate;
+	this.author = author;
+	this.comments = comments;
 
-	var self = {};
-
-	self.id = id;
-	self.link = link;
-	self.originalFilename = originalFilename;
-	self.keyword = keyword;
-	self.creationDate = creationDate;
-	self.author = author;
-	self.comments = comments;
-
-
-	self.generateCardView = function() {
+	this.generateCardView = function() {
 		return $(
 			'<div class="column">' +
 				'<div class="ui centered fluid card">' +
@@ -33,12 +29,9 @@ function Mosaic(id, link, originalFilename, keyword, creationDate, author, comme
 					'</div>' +
 				'</div>'+
 			'</div>'
-			);
+		);
 	};
-
-	
-	return self;
-}
+};
 	
 /*
 	this.generateMosaicModalView = function (image) {
