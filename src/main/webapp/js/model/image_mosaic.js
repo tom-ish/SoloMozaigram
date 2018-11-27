@@ -8,7 +8,6 @@ function ImageMosaic(id, link, originalFilename, keyword, creationDate, author, 
 	this.comments = initializeComments(allComments);
 	this.cardView = generateCardView(this);
 	this.modalView = generateModalView(this);
-	this.onCardViewClickEvent = onCardViewClickEvent(this.modalView);
 }
 
 function initializeComments (allComments) {
@@ -81,10 +80,6 @@ function generateModalView (image) {
 	return modalView;
 }
 
-function onCardViewClickEvent(modalView) {
-	$('body').append($(modalView));
-	$(modalView).modal('show');
-}
 	
 /*
 	this.generateMosaicModalView = function (image) {

@@ -84,7 +84,10 @@ var mySpaceContent = {
 			//var card = imageObject.generateCardView();
 
 			var cardView = $(imageMosaic.cardView);
-			cardView.find('.mosaic-card').click(imageMosaic.onCardViewClickEvent);
+			cardView.find('.mosaic-card').click(function () {
+				$('body').append($(imageMosaic.modalView));
+				$(imageMosaic.modalView).modal('show');
+			});
             gallery.append(cardView);
 		}
 	}
