@@ -79,10 +79,14 @@ function generateModalView (image) {
 					'</div>' +
 				'</div>' +
 			'</div>' +
-			'<div class="actions">' +
-				'<div class="ui button">' + "Cancel" + '</div>' +
-				'<div class="ui button">' + "OK" + '</div>' +
-			'</div>' +
+			'<form class="ui reply form">' +
+				'<div class="field">' +
+					'<textarea></textarea>' +
+				'</div>' +
+				'<div class="ui blue labeled submit icon button">' +
+					'<i class="icon edit"></i> Add Reply' +
+				'</div>' +
+			'</form>' +
 		'</div>';
 }
 
