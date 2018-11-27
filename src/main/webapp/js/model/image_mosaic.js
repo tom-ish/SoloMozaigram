@@ -71,7 +71,9 @@ function generateModalView (image) {
 				'</div>' +
 			'</div>' +
 			'<div class="ui centered grid">' +
-				'<img class="ui fluid bordered rounded image" src="' + image.link + '" />' +
+				'<div class="ui segment">' +
+					'<img class="ui fluid bordered rounded image" src="' + image.link + '" />' +
+				'</div>' +
 				'<div class="ui segment">' +
 					'<div class="column">' +
 						'<div class="ui comments comments-view">' +
