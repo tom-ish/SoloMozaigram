@@ -7,26 +7,26 @@ function Mosaic(id, link, originalFilename, keyword, creationDate, author, comme
 	this.author = author;
 	this.comments = comments;
 
-	this.cardView = generateCardView();
+	this.cardView = generateCardView(this);
 }
 
-function generateCardView  () {
+function generateCardView  (image) {
 	return '<div class="column">' +
 			'<div class="ui centered fluid card">' +
 				'<div class="image">' +
-					'<img src="' + this.link + '" />' +
+					'<img src="' + image.link + '" />' +
 				'</div>' +
 				'<div class="content">' +
-					'<a class="header mosaic-card" id="' + this.id + '">' + this.originalFilename + '</a>' +
+					'<a class="header mosaic-card" id="' + image.id + '">' + image.originalFilename + '</a>' +
 					'<div class="meta">' +
-						'<span class="date">' + this.creationDate +'</span>' +
+						'<span class="date">' + image.creationDate +'</span>' +
 					'</div>' +
-					'<div class="description">Keyword used : ' + this.keyword + '</div>' +
+					'<div class="description">Keyword used : ' + image.keyword + '</div>' +
 				'</div>'+
 				'<div class="extra content">' +
 					'<span class="left floated">' + 
 						'<i class="comments outline icon">'+ '</i>' +
-						((this.comments == null || typeof this.comments == "undefined") ? 0 : this.comments.length) +' comments'+
+						((image.comments == null || typeof image.comments == "undefined") ? 0 : image.comments.length) +' comments'+
 					'</span>' +
 				'</div>' +
 			'</div>'+
