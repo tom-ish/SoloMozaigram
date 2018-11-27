@@ -48,7 +48,14 @@ function generateCardView (image) {
 }
 
 function generateModalView (image) {
-	var modalView = $(
+	var commentsView = "";
+	if(!(image.comments == null || typeof image.comments == "undefined" || image.comments.length == 0)) {
+		for (var i = 0; i < image.comments.length; i++) {
+			commentView = image.comments[i].commentView;
+			commentsView += commentView;
+		}
+	}
+	var modalView =
 		'<div class="ui modal">' +
 			'<i class="close icon"></i>' +
 			'<div class="header">' +
@@ -61,6 +68,7 @@ function generateModalView (image) {
 				'<div class="column">' +
 					'<div class="ui comments comments-view">' +
 						'<h3 class="ui dividing header">Comments</h3>' +
+						commentsView +
 					'</div>' +
 				'</div>' +
 			'</div>' +
@@ -68,19 +76,13 @@ function generateModalView (image) {
 				'<div class="ui button">' + "Cancel" + '</div>' +
 				'<div class="ui button">' + "OK" + '</div>' +
 			'</div>' +
-		'</div>');
+		'</div>';
 	
-	if(!(image.comments == null || typeof image.comments == "undefined" || image.comments.length == 0)) {
-		for (var i = 0; i < image.comments.length; i++) {
-			commentView = image.comments[i].commentView;
-			modalView.find('.comments-view').append($(commentView));
-		}
-	}
 	return modalView;
 }
 
 function onCardViewClickEvent(modalView) {
-	$('body').append(modalView);
+	$('body').append($(modalView));
 	modalView.modal('show');
 }
 	
