@@ -1,4 +1,4 @@
-var Mosaic = function(id, link, originalFilename, keyword, creationDate, author, comments) {
+function Mosaic(id, link, originalFilename, keyword, creationDate, author, comments) {
 	this.id = id;
 	this.link = link;
 	this.originalFilename = originalFilename;
@@ -7,31 +7,33 @@ var Mosaic = function(id, link, originalFilename, keyword, creationDate, author,
 	this.author = author;
 	this.comments = comments;
 
-	this.generateCardView = function() {
-		return $(
-			'<div class="column">' +
-				'<div class="ui centered fluid card">' +
-					'<div class="image">' +
-						'<img src="' + self.link + '" />' +
+	this.generateCardView = generateCardView;
+}
+
+function generateCardView  () {
+	return $(
+		'<div class="column">' +
+			'<div class="ui centered fluid card">' +
+				'<div class="image">' +
+					'<img src="' + this.link + '" />' +
+				'</div>' +
+				'<div class="content">' +
+					'<a class="header mosaic-card" id="' + this.id + '">' + this.originalFilename + '</a>' +
+					'<div class="meta">' +
+						'<span class="date">' + this.creationDate +'</span>' +
 					'</div>' +
-					'<div class="content">' +
-						'<a class="header mosaic-card" id="' + self.id + '">' + self.originalFilename + '</a>' +
-						'<div class="meta">' +
-							'<span class="date">' + self.creationDate +'</span>' +
-						'</div>' +
-						'<div class="description">Keyword used : ' + self.keyword + '</div>' +
-					'</div>'+
-					'<div class="extra content">' +
-						'<span class="left floated">' + 
-							'<i class="comments outline icon">'+ '</i>' +
-							((self.comments == null || typeof self.comments == "undefined") ? 0 : self.comments.length) +' comments'+
-						'</span>' +
-					'</div>' +
+					'<div class="description">Keyword used : ' + this.keyword + '</div>' +
 				'</div>'+
-			'</div>'
-		);
-	};
-};
+				'<div class="extra content">' +
+					'<span class="left floated">' + 
+						'<i class="comments outline icon">'+ '</i>' +
+						((this.comments == null || typeof this.comments == "undefined") ? 0 : this.comments.length) +' comments'+
+					'</span>' +
+				'</div>' +
+			'</div>'+
+		'</div>'
+	);
+}
 	
 /*
 	this.generateMosaicModalView = function (image) {
