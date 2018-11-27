@@ -62,17 +62,6 @@ var ServerServices = {
 						if(!(json.images == null || typeof json.images == "undefined" || json.images.length == 0)) {
 							for (var i = 0; i < json.images.length; i++) {
 								var imageItem = json.images[i];
-								console.log(imageItem);
-								var comments = [];
-								if(!(imageItem.allComments == null || typeof imageItem.allComments == "undefined" || imageItem.allComments.length == 0)) {
-									for (var i = 0; i < imageItem.allComments.length; i++) {
-										var commentItem = imageItem.allComments[i];
-										var comment = new Comment(commentItem.id, commentItem.image,
-											commentItem.auteur, commentItem.text, commentItem.date);
-										comments.push(comment);
-									}
-								}
-
 								var imageMosaic = new ImageMosaic(imageItem.id, imageItem.link, imageItem.originalFilename, imageItem.keyword, imageItem.creationDate, imageItem.user, comments);
 								images.push(imageMosaic);
 								console.log(imageMosaic);

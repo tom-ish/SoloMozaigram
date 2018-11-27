@@ -1,17 +1,30 @@
-function ImageMosaic(id, link, originalFilename, keyword, creationDate, author, comments) {
+function ImageMosaic(id, link, originalFilename, keyword, creationDate, author, allComments) {
 	this.id = id;
 	this.link = link;
 	this.originalFilename = originalFilename;
 	this.keyword = keyword;
 	this.creationDate = creationDate;
 	this.author = author;
-	this.comments = comments;
-
+	this.comments = initializeComments(allComments);
 	this.cardView = generateCardView(this);
+	this.modalView = generateModalView(this);
 }
 
-function generateCardView  (image) {
-	return '<div class="column">' +
+function initializeComments (allComments) {
+	var comments = [];
+	if(!(allComments == null || typeof allComments == "undefined" || allComments.length == 0)) {
+		for (var i = 0; i < allComments.length; i++) {
+			var commentItem = allComments[i];
+			var comment = new Comment(commentItem.id, commentItem.image, commentItem.auteur, commentItem.text, commentItem.date);
+			comments.push(comment);
+		}
+	}
+	return comments;
+}
+
+function generateCardView (image) {
+	return 
+		'<div class="column">' +
 			'<div class="ui centered fluid card">' +
 				'<div class="image">' +
 					'<img src="' + image.link + '" />' +
@@ -31,6 +44,37 @@ function generateCardView  (image) {
 				'</div>' +
 			'</div>'+
 		'</div>';
+}
+
+function generateModalView (image) {
+	var modalView = $(
+		'<div class="ui modal">' +
+			'<i class="close icon"></i>' +
+			'<div class="header">' +
+				image.originalFilename +
+			'</div>' +
+			'<div class="image content">' +
+				'<div class="image">' +
+					'<img src="' + image.link + '" />' +
+				'</div>' +
+				'<div class="column">' +
+					'<div class="ui comments comments-view">' +
+						'<h3 class="ui dividing header">Comments</h3>' +
+					'</div>' +
+				'</div>' +
+			'</div>' +
+			'<div class="actions">' +
+				'<div class="ui button">' + "Cancel" + '</div>' +
+				'<div class="ui button">' + "OK" + '</div>' +
+			'</div>' +
+		'</div>');
+	
+	if(!(image.comments == null || typeof image.comments == "undefined" || image.comments.length == 0)) {
+	for (var i = 0; i < image.comments.length; i++) {
+		commentView = image.comments[i].commentView;
+		modalView.find('.comments-view').append($(commentView));
+	}
+	return modalView;
 }
 	
 /*

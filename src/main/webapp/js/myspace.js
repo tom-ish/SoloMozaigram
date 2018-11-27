@@ -75,28 +75,7 @@ var mySpaceContent = {
 			divider.className = "ui horizontal divider";
 			gallery.append(divider);
 /*
-			var card = $(
-				'<div class="column">' +
-					'<div class="ui centered fluid card">' +
-						'<div class="image">' +
-							'<img src="' + image.link + '" />' +
-						'</div>' +
-						'<div class="content">' +
-							'<a class="header mosaic-card" id="' + image.id + '">' + image.originalFilename + '</a>' +
-							'<div class="meta">' +
-								'<span class="date">' + image.creationDate +'</span>' +
-							'</div>' +
-							'<div class="description">Keyword used : ' + image.keyword + '</div>' +
-						'</div>'+
-						'<div class="extra content">' +
-							'<span class="left floated">' + 
-								'<i class="comments outline icon">'+ '</i>' +
-								((image.comments == null || typeof image.comments == "undefined") ? 0 : image.comments.count) +' comments'+
-							'</span>' +
-						'</div>' +
-					'</div>'+
-				'</div>'
-            );
+			
 
             card.find('a.mosaic-card').click(setCardClickEvent(image));
 */
@@ -104,8 +83,15 @@ var mySpaceContent = {
 			//var imageObject = new Image(image.id, image.link, image.originalFilename, image.keyword, image.creationDate, image.author, image.comments);
 			//var card = imageObject.generateCardView();
 
-            gallery.append($(imageMosaic.cardView));
+			var cardView = $(imageMosaic.cardView);
+			cardView.find('.mosaic-card').click(onCardViewClickEvent(imageMosaic));
+            gallery.append(cardView);
 		}
+	},
+	onCardViewClickEvent : function(image) {
+		var modalView = image.modalView;
+		$('body').append(modalView);
+		modalView.modal('show');
 	}
 	/*,
 	setCardClickEvent : function(image) {
