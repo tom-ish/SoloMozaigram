@@ -60,12 +60,6 @@ var mySpaceContent = {
 		*/
 	},
 
-	onCardViewClickEvent : function(image) {
-		var modalView = image.modalView;
-		$('body').append(modalView);
-		modalView.modal('show');
-	},
-	
 	initializeUserImagesGallery : function() {
 		var images = JSON.parse(localStorage.getItem("images"));
 		var gallery = $('#user_images_gallery');
@@ -90,7 +84,7 @@ var mySpaceContent = {
 			//var card = imageObject.generateCardView();
 
 			var cardView = $(imageMosaic.cardView);
-			cardView.find('.mosaic-card').click(onCardViewClickEvent(imageMosaic));
+			cardView.find('.mosaic-card').click(imageMosaic.onCardViewClickEvent);
             gallery.append(cardView);
 		}
 	}
