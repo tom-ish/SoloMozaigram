@@ -70,7 +70,7 @@ function generateModalView (image) {
 					image.originalFilename +
 				'</div>' +
 			'</div>' +
-			'<div class="image content">' +
+			'<div class="image">' +
 				'<img class="ui fluid bordered rounded image" src="' + image.link + '" />' +
 			'</div>' +
 			'<div class="ui grid">' +
@@ -89,7 +89,7 @@ function generateModalView (image) {
 							'<i class="icon edit"></i> Add Reply' +
 						'</div>' +
 					'</form>' +
-				'/div>' +
+				'</div>' +
 			'</div>' +
 		'</div>';
 }
