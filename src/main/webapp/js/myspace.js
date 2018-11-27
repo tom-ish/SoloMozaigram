@@ -61,10 +61,9 @@ var mySpaceContent = {
 	},
 
 	initializeUserImagesGallery : function() {
-		//var images = JSON.parse(localStorage.getItem("images"));
+		var images = JSON.parse(localStorage.getItem("images"));
 		var gallery = $('#user_images_gallery');
-		var images = localStorage.getItem("images");
-
+		
 		console.log("images.size() : " + images.length);
 
 		for (var i = 0; i < images.length; i++) {

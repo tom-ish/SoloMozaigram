@@ -78,8 +78,7 @@ var ServerServices = {
 								console.log(mosaic);
 							}
 						}
-						localStorage.setItem("images", images);
-//						localStorage.setItem("images", JSON.stringify(json.images));
+						localStorage.setItem("images", JSON.stringify(images));
 						switchToMyPage();
 					}
 					else{
