@@ -68,7 +68,7 @@ var mySpaceContent = {
 
 		for (var i = 0; i < images.length; i++) {
 			console.log(images[i]);
-			let image = images[i];
+			let imageMosaic = images[i];
 
 
 			let divider = document.createElement('div');
@@ -104,7 +104,7 @@ var mySpaceContent = {
 			//var imageObject = new Image(image.id, image.link, image.originalFilename, image.keyword, image.creationDate, image.author, image.comments);
 			//var card = imageObject.generateCardView();
 
-            gallery.append($(image.cardView));
+            gallery.append($(imageMosaic.cardView));
 		}
 	}
 	/*,

@@ -1,4 +1,4 @@
-function Image(id, link, originalFilename, keyword, creationDate, author, comments) {
+function ImageMosaic(id, link, originalFilename, keyword, creationDate, author, comments) {
 	this.id = id;
 	this.link = link;
 	this.originalFilename = originalFilename;

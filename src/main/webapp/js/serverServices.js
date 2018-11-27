@@ -73,9 +73,9 @@ var ServerServices = {
 									}
 								}
 
-								var image = new Image(imageItem.id, imageItem.link, imageItem.originalFilename, imageItem.keyword, imageItem.creationDate, imageItem.user, comments);
-								images.push(image);
-								console.log(image);
+								var imageMosaic = new ImageMosaic(imageItem.id, imageItem.link, imageItem.originalFilename, imageItem.keyword, imageItem.creationDate, imageItem.user, comments);
+								images.push(imageMosaic);
+								console.log(imageMosaic);
 							}
 						}
 						localStorage.setItem("images", JSON.stringify(images));
