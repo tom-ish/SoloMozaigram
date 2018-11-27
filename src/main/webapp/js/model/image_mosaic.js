@@ -70,24 +70,27 @@ function generateModalView (image) {
 					image.originalFilename +
 				'</div>' +
 			'</div>' +
-			'<div>' +
+			'<div class="image content">' +
 				'<img class="ui fluid bordered rounded image" src="' + image.link + '" />' +
 			'</div>' +
 			'<div class="ui grid">' +
-				'<div class="ui comments comments-view">' +
-					'<h3 class="ui dividing header">Comments</h3>' +
-					commentsView +
+				'<div class="row">' +
+					'<div class="ui comments comments-view">' +
+						'<h3 class="ui dividing header">Comments</h3>' +
+						commentsView +
+					'</div>' +
 				'</div>' +
-				'<form class="ui reply form">' +
-					'<div class="field">' +
-						'<textarea rows="3"></textarea>' +
-					'</div>' +
-					'<div class="ui blue labeled submit icon button">' +
-						'<i class="icon edit"></i> Add Reply' +
-					'</div>' +
-				'</form>' +
+				'<div class="row">' +
+					'<form class="ui reply form">' +
+						'<div class="field">' +
+							'<textarea rows="3"></textarea>' +
+						'</div>' +
+						'<div class="ui blue labeled submit icon button">' +
+							'<i class="icon edit"></i> Add Reply' +
+						'</div>' +
+					'</form>' +
+				'/div>' +
 			'</div>' +
-			
 		'</div>';
 }
 
