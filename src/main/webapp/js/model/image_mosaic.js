@@ -77,16 +77,17 @@ function generateModalView (image) {
 						'<h3 class="ui dividing header">Comments</h3>' +
 						commentsView +
 					'</div>' +
+					'<form class="ui reply form">' +
+						'<div class="field">' +
+							'<textarea></textarea>' +
+						'</div>' +
+						'<div class="ui blue labeled submit icon button">' +
+							'<i class="icon edit"></i> Add Reply' +
+						'</div>' +
+					'</form>' +
 				'</div>' +
 			'</div>' +
-			'<form class="ui reply form">' +
-				'<div class="field">' +
-					'<textarea></textarea>' +
-				'</div>' +
-				'<div class="ui blue labeled submit icon button">' +
-					'<i class="icon edit"></i> Add Reply' +
-				'</div>' +
-			'</form>' +
+			
 		'</div>';
 }
 
