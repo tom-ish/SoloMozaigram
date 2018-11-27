@@ -70,9 +70,10 @@ function generateModalView (image) {
 		'</div>');
 	
 	if(!(image.comments == null || typeof image.comments == "undefined" || image.comments.length == 0)) {
-	for (var i = 0; i < image.comments.length; i++) {
-		commentView = image.comments[i].commentView;
-		modalView.find('.comments-view').append($(commentView));
+		for (var i = 0; i < image.comments.length; i++) {
+			commentView = image.comments[i].commentView;
+			modalView.find('.comments-view').append($(commentView));
+		}
 	}
 	return modalView;
 }
