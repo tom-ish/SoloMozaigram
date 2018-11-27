@@ -83,7 +83,7 @@ function generateModalView (image) {
 
 function onCardViewClickEvent(modalView) {
 	$('body').append($(modalView));
-	modalView.modal('show');
+	$(modalView).modal('show');
 }
 	
 /*
