@@ -5,9 +5,9 @@ function ImageMosaic(id, link, originalFilename, keyword, creationDate, author, 
 	this.keyword = keyword;
 	this.creationDate = creationDate;
 	this.author = author;
-	this.comments = initializeComments(allComments);
+	this.comments = initializeComments(allComments);/*
 	this.cardView = generateCardView(this);
-	this.modalView = generateModalView(this);
+	this.modalView = generateModalView(this);*/
 }
 
 function initializeComments (allComments) {

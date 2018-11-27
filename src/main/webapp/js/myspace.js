@@ -83,12 +83,13 @@ var mySpaceContent = {
 			//var imageObject = new Image(image.id, image.link, image.originalFilename, image.keyword, image.creationDate, image.author, image.comments);
 			//var card = imageObject.generateCardView();
 
-			var cardView = $(imageMosaic.cardView);
-			cardView.find('.mosaic-card').click(function () {
-				$('body').append($(imageMosaic.modalView));
-				$(imageMosaic.modalView).modal('show');
+			var cardView = generateCardView(imageMosaic);
+			$(cardView).find('.mosaic-card').click(function () {
+				var modalView = generateModalView(imageMosaic);
+				$('body').append($(modalView));
+				$($(modalView)).modal('show');
 			});
-            gallery.append(cardView);
+            gallery.append($(cardView);
 		}
 	}
 	/*,
