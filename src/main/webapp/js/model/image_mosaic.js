@@ -73,10 +73,10 @@ function generateModalView (image) {
 			'<div class="image">' +
 				'<img class="ui fluid bordered rounded image" src="' + image.link + '" />' +
 			'</div>' +
-			'<div class="ui grid">' +
+			'<div class="ui container">' +
 				'<div class="row">' +
 					'<div class="ui comments comments-view">' +
-						'<h3 class="ui dividing header">Comments</h3>' +
+						'<h3 class="ui horizontal divider header">Comments</h3>' +
 						commentsView +
 					'</div>' +
 				'</div>' +
@@ -85,7 +85,7 @@ function generateModalView (image) {
 						'<div class="field">' +
 							'<textarea rows="3"></textarea>' +
 						'</div>' +
-						'<div class="ui blue labeled submit icon button">' +
+						'<div class="ui blue right floated labeled submit icon button">' +
 							'<i class="icon edit"></i> Add Reply' +
 						'</div>' +
 					'</form>' +
