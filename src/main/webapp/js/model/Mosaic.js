@@ -36,6 +36,7 @@ function Mosaic(id, link, originalFilename, keyword, creationDate, author, comme
 			);
 	};
 
+	
 	return self;
 }
 	
