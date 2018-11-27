@@ -89,7 +89,7 @@ var mySpaceContent = {
 				$('body').append($(modalView));
 				$($(modalView)).modal('show');
 			});
-            gallery.append($(cardView);
+            gallery.append($(cardView));
 		}
 	}
 	/*,
