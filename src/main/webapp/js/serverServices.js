@@ -64,9 +64,6 @@ var ServerServices = {
 								var imageItem = json.images[i];
 								var imageMosaic = new ImageMosaic(imageItem.id, imageItem.link, imageItem.originalFilename, imageItem.keyword, imageItem.creationDate, imageItem.user, imageItem.comments);
 								images.push(imageMosaic);
-								console.log(imageMosaic);
-								console.log(imageMosaic.cardView);
-								console.log(imageMosaic.modalView);
 							}
 						}
 						localStorage.setItem("images", JSON.stringify(images));

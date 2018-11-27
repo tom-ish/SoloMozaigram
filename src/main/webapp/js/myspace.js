@@ -67,7 +67,6 @@ var mySpaceContent = {
 		console.log("images.size() : " + images.length);
 
 		for (var i = 0; i < images.length; i++) {
-			console.log(images[i]);
 			let imageMosaic = images[i];
 
 
@@ -76,9 +75,7 @@ var mySpaceContent = {
 			gallery.append(divider);
 
 			var cardView = $(imageMosaic.cardView);
-			console.log(imageMosaic.cardView);
 			cardView.find('.mosaic-card').click(function () {
-				console.log(imageMosaic.modalView);
 				$('body').append($(imageMosaic.modalView));
 				$(imageMosaic.modalView).modal('show');
 			});

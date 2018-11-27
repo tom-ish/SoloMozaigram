@@ -10,12 +10,8 @@ function ImageMosaic(id, link, originalFilename, keyword, creationDate, author, 
 	this.cardView = "";
 	this.modalView = "";
 
-	console.log(this.comments);
 	generateCardView(this);
 	generateModalView(this);
-
-	console.log(this.cardView);
-	console.log(this.modalView);
 	/*
 	this.cardView = generateCardView(this);
 	this.modalView = generateModalView(this);
@@ -35,7 +31,6 @@ function initializeComments (allComments) {
 }
 
 function generateCardView (image) {
-	console.log("generateCardView");
 	image.cardView = 
 		'<div class="column">' +
 			'<div class="ui centered fluid card">' +
@@ -60,7 +55,6 @@ function generateCardView (image) {
 }
 
 function generateModalView (image) {
-	console.log("generateModalView");
 	var commentsView = "";
 	if(!(image.comments == null || typeof image.comments == "undefined" || image.comments.length == 0)) {
 		for (var i = 0; i < image.comments.length; i++) {
@@ -76,7 +70,7 @@ function generateModalView (image) {
 			'</div>' +
 			'<div class="image content">' +
 				'<div class="image">' +
-					'<img src="' + image.link + '" />' +
+					'<img class="ui fluid image" src="' + image.link + '" />' +
 				'</div>' +
 				'<div class="column">' +
 					'<div class="ui comments comments-view">' +
