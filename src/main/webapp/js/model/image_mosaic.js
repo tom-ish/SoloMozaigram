@@ -76,9 +76,7 @@ function generateModalView (image) {
 			'<div class="ui container">' +
 				'<div class="row">' +
 					'<div class="ui comments comments-view">' +
-						'<div class="ui centered grid">' +
-							'<h3 class="ui horizontal divider">Comments</h3>' +
-						'</div>' +
+						'<h3 class="ui horizontal divider">Comments</h3>' +
 						commentsView +
 					'</div>' +
 				'</div>' +
