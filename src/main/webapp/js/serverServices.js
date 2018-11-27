@@ -73,8 +73,7 @@ var ServerServices = {
 									}
 								}
 
-								var mosaic = new Mosaic(imageItem.id, imageItem.link, imageItem.originalFilename,
-									imageItem.keyword, imageItem.creationDate, imageItem.user, comments);
+								var mosaic = new Mosaic(imageItem.id, imageItem.link, imageItem.originalFilename, imageItem.keyword, imageItem.creationDate, imageItem.user, comments);
 								images.push(mosaic);
 								console.log(mosaic);
 							}
