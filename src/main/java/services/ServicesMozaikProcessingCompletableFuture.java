@@ -110,11 +110,11 @@ public class ServicesMozaikProcessingCompletableFuture {
 		return CompletableFuture.completedFuture(Persist.ERROR);
 	}
 	
-	public static CompletableFuture<Integer> storeMozaik(Integer previousReturnCode, String sessionkey, String mozaikFilePath, String originalFilename, String keyword) {
+	public static CompletableFuture<Integer> storeMozaik(Integer previousReturnCode, String sessionkey, String originalFilename, String mozaikFilePath, String keyword) {
 		//String mozaikFilePath = Persist.DEST_MOZAIK_REPOSITORY_PATH + File.separator + originalFileName;
 		System.out.println("previousReturnCode from MOZAIKGENERATION = " + previousReturnCode);
 		if(previousReturnCode == Persist.SUCCESS)
-			return CompletableFuture.completedFuture(ServicesImage.addImage(sessionkey, mozaikFilePath, originalFilename, keyword));
+			return CompletableFuture.completedFuture(ServicesImage.addImage(sessionkey, originalFilename, mozaikFilePath, keyword));
 		return CompletableFuture.completedFuture(previousReturnCode);
 	}
 	
