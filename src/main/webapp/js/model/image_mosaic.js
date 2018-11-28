@@ -42,7 +42,7 @@ function generateCardView (image) {
 					'<div class="meta">' +
 						'<span class="date">' + image.creationDate +'</span>' +
 					'</div>' +
-					'<div class="description">Keyword used : ' + image.keyword + '</div>' +
+					'<div class="ui label">' + image.keyword + '</div>' +
 				'</div>'+
 				'<div class="extra content">' +
 					'<span class="left floated">' + 
@@ -67,8 +67,14 @@ function generateModalView (image) {
 			'<i class="close icon"></i>' +
 			'<div class="ui segment">' +
 				'<div class="header">' +
-					'Keyword : ' + image.keyword + ' / ' +
-					'File : ' + image.originalFilename +
+					'<div class="ui label">' +
+						'Keyword' +
+						'<div class="detail">' + image.keyword + '</div>' +
+					'</div>' +
+					'<div class="ui label">' +
+						'Filename' +
+						'<div class="detail">' + image.originalFilename + '</div>' +
+					'</div>' +
 				'</div>' +
 			'</div>' +
 			'<div class="image">' +
