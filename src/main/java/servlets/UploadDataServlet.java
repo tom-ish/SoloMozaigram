@@ -152,8 +152,10 @@ public class UploadDataServlet extends HttpServlet {
 		
 		
 		saveAndResizeImagesFromURLs(sessionkey, keyword).
-			thenCompose(savedImages -> ServicesMozaikProcessingCompletableFuture.generateMozaik(savedImages, image, originalFileName, newFilename)).
-			thenAccept(status -> ServicesMozaikProcessingCompletableFuture.storeMozaik(status, sessionkey, originalFileName, newFilename, keyword)).
+			thenCompose(savedImages -> 
+				ServicesMozaikProcessingCompletableFuture.generateMozaik(savedImages, image, originalFileName, newFilename)).
+			thenCompose(pairStatusVSStoredFilename -> 
+				ServicesMozaikProcessingCompletableFuture.storeMozaik(pairStatusVSStoredFilename.getKey(), sessionkey, originalFileName, pairStatusVSStoredFilename.getValue(), keyword)).
 			thenAccept( (status) -> {
 				System.out.println(System.currentTimeMillis() - startTime);
 				System.out.println("COMPLETED FUTURE - STATUS : " + status);

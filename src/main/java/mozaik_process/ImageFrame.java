@@ -6,9 +6,12 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.AbstractMap;
+import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map.Entry;
 
 import javax.imageio.ImageIO;
 
@@ -35,172 +38,7 @@ public class ImageFrame {
 		this.storedFilename = storedFilename;
 	}
 	
-	public int compute(int grain) {
-		long startTime = System.currentTimeMillis();
-		// la matrice RGB de tous les pixels de l'image contenue dans component
-		int [][][] pixels=component.getPixel();
-		// la matrice RGB de toutes les tuiles de l'image contenue dans component
-		int [][][] weighedpixels=new int[pixels.length/grain][pixels[0].length/grain][3];
-		
-		for (int i=0;i<weighedpixels.length;i++){
-			for (int j=0;j<weighedpixels[0].length;j++){
-				weighedpixels[i][j][0]=0;
-				weighedpixels[i][j][1]=0;
-				weighedpixels[i][j][2]=0;
-				for (int k=0;k<grain;k++){
-					for (int l=0;l<grain;l++){
-						weighedpixels[i][j][0]+=pixels[grain*i+k][grain*j+l][0];
-						weighedpixels[i][j][1]+=pixels[grain*i+k][grain*j+l][1];
-						weighedpixels[i][j][2]+=pixels[grain*i+k][grain*j+l][2];
-					}
-				}
-				weighedpixels[i][j][0]=weighedpixels[i][j][0]/(grain*grain);
-				weighedpixels[i][j][1]=weighedpixels[i][j][1]/(grain*grain);
-				weighedpixels[i][j][2]=weighedpixels[i][j][2]/(grain*grain);
-			}
-		}
-		System.out.print("INITIALIZATION : ");
-		System.out.println(System.currentTimeMillis() - startTime);
-		
-		loadLibrary(grain);
-
-		System.out.println("LIBRARY LOADING : ");
-		System.out.println(System.currentTimeMillis() - startTime);
-		
-		HashMap<String, Integer[]> collection=new HashMap<String,Integer[]>();
-		for (String p:library){
-			ImageComponent c = null;
-			try {
-				c = new ImageComponent(ImageIO.read(new File(p)));
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				System.out.println("IOException... cannot read file : " + p);
-				return Persist.ERROR_FILE_NOT_FOUND;
-			}
-			int[] averPix=c.getAveragePixel();
-			Integer[] a=new Integer[3];
-			a[0]=averPix[0];
-			a[1]=averPix[1];
-			a[2]=averPix[2];
-			collection.put(p, a);
-		}
-		
-		System.out.println("MOZAIKS");
-		System.out.print("RESCALED IMAGES COLLECTION LOADING : ");
-		System.out.println(System.currentTimeMillis() - startTime);
-		ArrayList<String> mozaikS=new ArrayList<String>();
-		
-		//HashMap<String,Integer> iter=new HashMap<String, Integer>();
-		/*
-		for (String c:library){
-			iter.put(c,0);
-		}
-		*/
-			
-			
-		System.out.println("COLLECTION.SIZE() : " + collection.size());
-		
-		System.out.println("PIXELS.length : " + pixels.length + " PIXELS[0].LENGTH : " + pixels[0].length);
-		System.out.println("WEIGHTEDPIXELS.length : " + weighedpixels.length + " WEIGHTEDPIXELS[0].LENGTH : " + weighedpixels[0].length);
-		for (int i=0; i<weighedpixels[0].length;i++){
-			for (int j=0;j<weighedpixels.length;j++){
-				int distance=Integer.MAX_VALUE;
-				//int itofclos=0;
-				String closer=null;
-				//System.out.println("< ================ ["+i+"/"+weighedpixels.length+"]["+j+"/"+weighedpixels[0].length+"] ================ >");
-				for (String c:library){
-					int d=(weighedpixels[j][i][0]-collection.get(c)[0])*(weighedpixels[j][i][0]-collection.get(c)[0])+(weighedpixels[j][i][1]-collection.get(c)[1])*(weighedpixels[j][i][1]-collection.get(c)[1])+(weighedpixels[j][i][2]-collection.get(c)[2])*(weighedpixels[j][i][2]-collection.get(c)[2]);
-					//System.out.println("from library : " + c + " d="+d);
-					if (d<distance){
-						distance=d;
-						closer=c;
-						//itofclos=iter.get(c);
-					}
-				}
-				//System.out.println("STEP");
-/*				if (closer==null){
-					for (String c:library){
-						int d=(weighedpixels[j][i][0]-collection.get(c)[0])*(weighedpixels[j][i][0]-collection.get(c)[0])+(weighedpixels[j][i][1]-collection.get(c)[1])*(weighedpixels[j][i][1]-collection.get(c)[1])+(weighedpixels[j][i][2]-collection.get(c)[2])*(weighedpixels[j][i][2]-collection.get(c)[2]);
-						if (d<distance){
-							System.out.println("from library : "+c);
-							distance=d;
-							closer=c;
-						}
-					}
-				}
-*/
-			//	corCol.add(new Color(red,green,blue));
-				mozaikS.add(closer);
-				//System.out.println(" ................................... ");
-			}
-			//System.out.println("++++++++++++++++++++++++++++++++++");
-		}
-
-		System.out.print("CLOSEST COLOR IMAGES LOADING : ");
-		System.out.println(System.currentTimeMillis() - startTime);
-		
-		System.out.println("KO");
-		System.out.println("Component.width : " + pixels.length + " Height : " + pixels[0].length);
-		
-		BufferedImage rslt= new BufferedImage(pixels.length, pixels[0].length, BufferedImage.TYPE_INT_RGB);
-		System.out.println("OK");
-
-		Graphics g = rslt.getGraphics();
-		int x = 0;
-		int y = 0;
-		int count=0;
-		
-		for (String c:mozaikS){
-			//System.out.println("from mozaikS : " +c);
-			BufferedImage bi = null;
-			try {
-				bi = ImageIO.read(new File(c));
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return Persist.ERROR_FILE_NOT_FOUND;
-			}
-		 	/*
-			for (int i=0;i<bi.getWidth();i++){
-				for (int j=0;j<bi.getHeight();j++){
-						bi.setRGB(i, j, bi.getRGB(i, j)+ corCol.get(count).getRGB());
-				}
-			}
-			*/
-			g.drawImage(bi, x, y, grain, grain, null);
-			x+=grain;
-			
-			if (x>=rslt.getWidth()){
-				y+=grain;
-				x=0;
-			}
-			count++;
-		}
-		
-		System.out.println("GRAPHICS");
-		System.out.print("DRAW OPERATION : ");
-		System.out.println(System.currentTimeMillis() - startTime);
-		try {
-			if(!Persist.DEST_MOZAIK_REPOSITORY.exists() || !Persist.DEST_MOZAIK_REPOSITORY.isDirectory())
-				Persist.DEST_MOZAIK_REPOSITORY.mkdir();
-			String rsltFileName = Persist.DEST_MOZAIK_REPOSITORY_PATH + File.separator + originalFileName;
-			System.out.println("OUTPUT FILEPATH : " + rsltFileName);
-			ImageIO.write(rslt, "jpg", new File(rsltFileName));
-			
-			emptyLibrary();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println("IOException... cannot write on output.jpg file...");
-			return Persist.ERROR_FILE_NOT_FOUND;
-		}
-		System.out.println("Mozaik generated!");
-		return Persist.SUCCESS;
-	}
-	
-	
-	public int generateMozaik(int grain) {
+	public Entry<Integer, String> generateMozaik(int grain) {
 		long startTime = System.currentTimeMillis();
 		// la matrice RGB de tous les pixels de l'image contenue dans component
 		int [][][] pixels=component.getPixel();
@@ -334,7 +172,7 @@ public class ImageFrame {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return Persist.ERROR_FILE_NOT_FOUND;
+			return new AbstractMap.SimpleEntry<Integer, String>(Persist.ERROR_FILE_NOT_FOUND, "");
 		}
 		
 		/*
@@ -358,7 +196,7 @@ public class ImageFrame {
 		int finalRslt = AmazonUtilities.uploadImagesAmazonAPI(output);
 		if(finalRslt == Persist.SUCCESS)
 			System.out.println("Mozaik generated!");
-		return finalRslt;
+		return new AbstractMap.SimpleEntry<Integer, String>(finalRslt, this.storedFilename);
 	}
 	
 	private void loadLibrary(int grain) {

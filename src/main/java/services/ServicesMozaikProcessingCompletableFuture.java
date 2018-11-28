@@ -4,9 +4,10 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.nio.file.Paths;
-import java.util.AbstractMap.SimpleEntry;
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionService;
 import java.util.concurrent.ExecutionException;
@@ -104,10 +105,10 @@ public class ServicesMozaikProcessingCompletableFuture {
 			return CompletableFuture.completedFuture(previousReturnCode);
 	}
 	
-	public static CompletableFuture<Integer> generateMozaik(List<BufferedImage> savedImages, Image image, String originalFileName, String storedFilename) {
+	public static CompletableFuture<Entry<Integer, String>> generateMozaik(List<BufferedImage> savedImages, Image image, String originalFileName, String storedFilename) {
 		if(savedImages != null)
 			return CompletableFuture.completedFuture(MozaikGenerator.generate(savedImages, image, originalFileName, storedFilename));
-		return CompletableFuture.completedFuture(Persist.ERROR);
+		return CompletableFuture.completedFuture(new AbstractMap.SimpleEntry<Integer, String>(Persist.ERROR, ""));
 	}
 	
 	public static CompletableFuture<Integer> storeMozaik(Integer previousReturnCode, String sessionkey, String originalFilename, String mozaikFilePath, String keyword) {
