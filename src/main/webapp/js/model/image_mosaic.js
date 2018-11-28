@@ -67,7 +67,8 @@ function generateModalView (image) {
 			'<i class="close icon"></i>' +
 			'<div class="ui segment">' +
 				'<div class="header">' +
-					image.originalFilename +
+					'Keyword : ' + image.keyword + ' / ' +
+					'File : ' + image.originalFilename +
 				'</div>' +
 			'</div>' +
 			'<div class="image">' +
