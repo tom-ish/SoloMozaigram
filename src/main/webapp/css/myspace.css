@@ -11,6 +11,10 @@
 .ui.modal {
 	padding: 20px;
 }
+.header.mosaic-card {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 /*
 #main_menu {
 	z-index: 2;
