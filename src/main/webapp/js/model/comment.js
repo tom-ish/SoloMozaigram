@@ -4,11 +4,13 @@ function Comment(id, img, author, text, date) {
 	this.author = author;
 	this.content = text;
 	this.date = date;
-	this.commentView = generateCommentView(this);
+	this.commentView = "";
+
+	generateCommentView(this);
 }
 
 function generateCommentView(comment) {
-	return 
+	comment.commentView = 
 		'<div class="comment">' +
     		'<a class="avatar">' +
 				'<img src="/images/avatar/small/matt.jpg">' +

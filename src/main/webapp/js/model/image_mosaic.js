@@ -12,10 +12,7 @@ function ImageMosaic(id, link, originalFilename, keyword, creationDate, author, 
 
 	generateCardView(this);
 	generateModalView(this);
-	/*
-	this.cardView = generateCardView(this);
-	this.modalView = generateModalView(this);
-	console.log(this.modalView);*/
+	setCommentValidationRules(this);
 }
 
 function initializeComments (allComments) {
@@ -90,10 +87,10 @@ function generateModalView (image) {
 				'<div class="row">' +
 					'<form class="ui reply form">' +
 						'<div class="field">' +
-							'<textarea rows="3"></textarea>' +
+							'<textarea rows="3" name="comment-content"></textarea>' +
 						'</div>' +
 						'<div class="ui blue right floated labeled submit icon button">' +
-							'<i class="icon edit"></i> Add Reply' +
+							'<i class="icon edit"></i>Leave a comment' +
 						'</div>' +
 					'</form>' +
 				'</div>' +
@@ -101,18 +98,51 @@ function generateModalView (image) {
 		'</div>';
 }
 
-	
-/*
-	this.generateMosaicModalView = function (image) {
-		if(this.comments == null || typeof this.comments == "undefined")
-			return;
+function setCommentValidationRules(image) {
+	var commentValidationRules = {
+		inline : true,
+		delay : false,
+		on : 'submit',
+		fields : {
+			commentContent : {
+				identifier : 'comment_content',
+				rules : [
+					{
+						type : 'empty',
+						prompt : 'Your comment\'s content is empty'
+					}
+				]
+			}
+		},
+		onSuccess : function(event, fields) {
+			event.preventDefault();
+			event.stopImmediatePropagation();
+			console.log("comment content form validation success");
 
-
-		var modalView = 
-		for (var i = 0; i < this.comments.length; i++) {
-			let c = comments[i];
-			var comment = new Comment(c.id, c.img.id, c.auteur, c.text, c.date);
-			rslt.push(comment);
+			console.log(image);
+			console.log(fields.commentContent);
+			console.log(event.target.id);
+			//login();
 		}
-		return rslt;
-	};*/ 
+	};
+
+	$('.ui.reply.form').form(commentValidationRules);
+}
+
+/*
+
+var createUser = function() {
+		var formulaire = $('#signupForm');
+		
+		username = formulaire.find('#signupUsernameInput').val();
+		email = formulaire.find('#signupEmailInput').val();
+		pwd = formulaire.find('#signupPasswordInput').val();
+		pwd2 = formulaire.find('#signupConfirmPasswordInput').val();
+		
+		console.log("input values : " + username + ", " + pwd + ", " + pwd2 + ", " + email);
+		$('#signupButton').addClass('loading disabled');
+
+		ServerServices.signup(username, pwd, pwd2, email);
+	};
+
+	*/
