@@ -126,7 +126,7 @@ function setCommentValidationRules(image) {
 		}
 	};
 
-	$('.ui.reply.form').form(commentValidationRules);
+	$(image.modalView).find('.ui.reply.form').form(commentValidationRules);
 }
 
 /*
