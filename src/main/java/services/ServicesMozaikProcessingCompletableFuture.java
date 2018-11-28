@@ -105,9 +105,9 @@ public class ServicesMozaikProcessingCompletableFuture {
 			return CompletableFuture.completedFuture(previousReturnCode);
 	}
 	
-	public static CompletableFuture<Entry<Integer, String>> generateMozaik(List<BufferedImage> savedImages, Image image, String originalFileName, String storedFilename) {
+	public static CompletableFuture<Entry<Integer, String>> generateMozaik(List<BufferedImage> savedImages, Image image, String originalFileName) {
 		if(savedImages != null)
-			return CompletableFuture.completedFuture(MozaikGenerator.generate(savedImages, image, originalFileName, storedFilename));
+			return CompletableFuture.completedFuture(MozaikGenerator.generate(savedImages, image, originalFileName));
 		return CompletableFuture.completedFuture(new AbstractMap.SimpleEntry<Integer, String>(Persist.ERROR, ""));
 	}
 	

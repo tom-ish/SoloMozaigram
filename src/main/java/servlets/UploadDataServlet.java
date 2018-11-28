@@ -148,12 +148,10 @@ public class UploadDataServlet extends HttpServlet {
 
 	private int generateMozaik(String sessionkey, String keyword, Image image, String originalFileName) {
 		long startTime = System.currentTimeMillis();
-		String newFilename = originalFileName;
-		
 		
 		saveAndResizeImagesFromURLs(sessionkey, keyword).
 			thenCompose(savedImages -> 
-				ServicesMozaikProcessingCompletableFuture.generateMozaik(savedImages, image, originalFileName, newFilename)).
+				ServicesMozaikProcessingCompletableFuture.generateMozaik(savedImages, image, originalFileName)).
 			thenCompose(pairStatusVSStoredFilename -> 
 				ServicesMozaikProcessingCompletableFuture.storeMozaik(pairStatusVSStoredFilename.getKey(), sessionkey, originalFileName, pairStatusVSStoredFilename.getValue(), keyword)).
 			thenAccept( (status) -> {

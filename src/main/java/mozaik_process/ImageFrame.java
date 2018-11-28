@@ -31,11 +31,11 @@ public class ImageFrame {
 	private String originalFileName, storedFilename;
 	
 
-	public ImageFrame (List<BufferedImage> savedImages, Image file, String originalFileName, String storedFilename) {
+	public ImageFrame (List<BufferedImage> savedImages, Image file, String originalFileName) {
 		this.component = new ImageComponent(file);
 		this.savedImages = savedImages;
 		this.originalFileName = originalFileName;
-		this.storedFilename = storedFilename;
+		this.storedFilename = originalFileName;
 	}
 	
 	public Entry<Integer, String> generateMozaik(int grain) {
