@@ -97,7 +97,7 @@ function generateModalView (image) {
 			'</div>' +
 		'</div>';
 
-	$(modalView).find(".button").on('click', function() {
+	$(modalView).find("div.submit").on('click', function() {
 		console.log("button clicked : " + $(this).id);
 	});
 
