@@ -59,7 +59,7 @@ function generateModalView (image) {
 			commentsView += commentView;
 		}
 	}
-	image.modalView =
+	var modalView =
 		'<div class="ui modal">' +
 			'<i class="close icon"></i>' +
 			'<div class="ui segment">' +
@@ -96,6 +96,12 @@ function generateModalView (image) {
 				'</div>' +
 			'</div>' +
 		'</div>';
+
+	$(modalView).find(".button").on('click', function() {
+		console.log("button clicked : " + $(this).id);
+	});
+
+	image.modalView = modalView;
 }
 
 function setCommentValidationRules(image) {
@@ -126,7 +132,6 @@ function setCommentValidationRules(image) {
 		}
 	};
 
-	console.log($(image.modalView).find("textarea").val());
 
 	$(document).on('click', '#commentButton_' + image.id, function() {
 		console.log($(image.modalView).find("textarea").val());
