@@ -68,23 +68,21 @@ var mySpaceContent = {
 
 		for (var i = 0; i < images.length; i++) {
 			let imageMosaic = images[i];
-
+			console.log(imageMosaic);
 
 			let divider = document.createElement('div');
 			divider.className = "ui horizontal divider";
 			gallery.append(divider);
 
-			var modalView = $(imageMosaic.modalView);
-			modalView.find('.submit').click(function() {
-				console.log("button clicked...");
-				console.log("button clicked : " + $(this).id);
-			});
-			
+
 			var cardView = $(imageMosaic.cardView);
 			cardView.find('.mosaic-card').click(function () {
 				$('body').append($(imageMosaic.modalView));
 				$(imageMosaic.modalView).modal('show');
-
+				$('body').find('.modal').find('.submit').click(function() {
+					console.log("button clicked...");
+					console.log("button clicked : " + $(this).id);
+				});
 			});
 
             gallery.append(cardView);
