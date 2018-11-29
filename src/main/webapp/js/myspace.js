@@ -74,6 +74,12 @@ var mySpaceContent = {
 			divider.className = "ui horizontal divider";
 			gallery.append(divider);
 
+			var modalView = $(imageMosaic.modalView);
+			modalView.find('.submit').click(function() {
+				console.log("button clicked...");
+				console.log("button clicked : " + $(this).id);
+			});
+			
 			var cardView = $(imageMosaic.cardView);
 			cardView.find('.mosaic-card').click(function () {
 				$('body').append($(imageMosaic.modalView));
@@ -81,11 +87,6 @@ var mySpaceContent = {
 
 			});
 
-			var modalView = $(imageMosaic.modalView);
-			modalView.find('.submit').click(function() {
-				console.log("button clicked...");
-				console.log("button clicked : " + $(this).id);
-			});
             gallery.append(cardView);
 		}
 	}
