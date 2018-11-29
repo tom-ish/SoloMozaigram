@@ -127,7 +127,7 @@ function setCommentValidationRules(image) {
 	};
 
 
-	console.log($(image.modalView));
+	console.log($($($(image.modalView).find("form")).find("textarea")).value);
 }
 
 /*
