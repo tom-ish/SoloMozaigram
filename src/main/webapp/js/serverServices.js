@@ -399,8 +399,8 @@ var ServerServices = {
 						console.log("add Comment success!");
 						console.log("returned code : ")
 						console.log(json);
-						var lastCommentInfo = json.authorId+STRINGIFY_SEPARATOR+json.text+STRINGIFY_SEPARATOR+json.imgId;
-						localStorage.setItem("lastCommentInfo", lastCommentInfo);
+						let comment = new Comment(json.commentId, json.imgId, json.authorId, json.commentContent, json.date);
+						console.log(comment);
 					}
 					else{
 						console.log("add Comment failed!");

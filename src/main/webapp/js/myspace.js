@@ -1,5 +1,7 @@
 var mySpaceContent = {
 	initialize : function(){
+		sessionKey = localStorage.getItem("sessionKey");
+
 		$('a.sidebar-toggle').click(function() {
 			$('#sidebar')
 				.sidebar('setting', 'transition', 'overlay')
@@ -83,7 +85,7 @@ var mySpaceContent = {
 					let commentContent = $(this).parent().find('textarea').val();
 					if(!(typeof commentContent == "undefined") && commentContent.length > 0) {
 						console.log("button clicked : " + commentContent);
-						
+						ServerServices.addComment(sessionKey, commentContent, imageId);
 					}
 
 				});

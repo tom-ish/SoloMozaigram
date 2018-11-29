@@ -15,9 +15,8 @@ import utils.Persist;
 
 public class DBComments {
 	
-	public static int addComment(Image img, String txt, User user) {
+	public static int addComment(Comment comment) {
 		System.out.println("TEXTE ADD COMMENT : ");
-		Comment comment = new Comment(txt, user, img);
 		Session session = HibernateUtil.currentSession();
 		Transaction tx = null;
 		if(session != null) {
