@@ -80,8 +80,15 @@ var mySpaceContent = {
 				$('body').append($(imageMosaic.modalView));
 				$(imageMosaic.modalView).modal('show');
 				$('body').find('.modal').find('.submit').click(function() {
-					console.log("button clicked : " + $(this).parent().find('textarea').val());
+					let commentContent = $(this).parent().find('textarea').val();
+					if(!(typeof commentContent == "undefined") && commentContent.length > 0) {
+						console.log("button clicked : " + commentContent);
+						
+					}
+
 				});
+
+
 			});
 
             gallery.append(cardView);
