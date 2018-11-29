@@ -126,7 +126,13 @@ function setCommentValidationRules(image) {
 		}
 	};
 
-	$('#commentForm_'+image.id).form(commentValidationRules);
+	console.log($(image.modalView).find("textarea").val());
+
+	$(image.modalView).on('click', '.button', function() {
+		console.log($(image.modalView).find("textarea").val());
+	});
+
+	//$('#commentForm_'+image.id).form(commentValidationRules);
 }
 
 /*
