@@ -80,7 +80,7 @@ var mySpaceContent = {
 				$('body').append($(imageMosaic.modalView));
 				$(imageMosaic.modalView).modal('show');
 				$('body').find('.modal').find('.submit').click(function() {
-					console.log("button clicked : " + $(this).parent.find('textarea').val());
+					console.log("button clicked : " + $(this).parent().find('textarea').val());
 				});
 			});
 
