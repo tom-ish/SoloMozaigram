@@ -85,9 +85,9 @@ function generateModalView (image) {
 /*					'</div>' +*/
 				'</div>' +
 				'<div class="row">' +
-					'<form class="ui reply form">' +
+					'<form class="ui reply form" id="commentForm_' + image.id + '">' +
 						'<div class="field">' +
-							'<textarea rows="3" name="comment-content"></textarea>' +
+							'<textarea rows="3" name="comment_content" id="commentContent_' + image.id + '"></textarea>' +
 						'</div>' +
 						'<div class="ui blue right floated labeled submit icon button">' +
 							'<i class="icon edit"></i>Leave a comment' +
@@ -126,8 +126,7 @@ function setCommentValidationRules(image) {
 		}
 	};
 
-
-	console.log($($($(image.modalView).find("form")).find("textarea")).value);
+	$('#commentForm_'+image.id).form(commentValidationRules);
 }
 
 /*
