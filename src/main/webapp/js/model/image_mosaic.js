@@ -126,7 +126,7 @@ function setCommentValidationRules(image) {
 		}
 	};
 
-	$(image.modalView).find('form').form(commentValidationRules);
+	console.log($(image.modalView).find('form').value);
 }
 
 /*
