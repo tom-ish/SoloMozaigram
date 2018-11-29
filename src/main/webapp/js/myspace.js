@@ -78,6 +78,9 @@ var mySpaceContent = {
 			cardView.find('.mosaic-card').click(function () {
 				$('body').append($(imageMosaic.modalView));
 				$(imageMosaic.modalView).modal('show');
+				$(imageMosaic.modalView).find("div.submit").click(function() {
+					console.log("button clicked : " + $(this).id);
+				});
 			});
             gallery.append(cardView);
 		}

@@ -59,7 +59,7 @@ function generateModalView (image) {
 			commentsView += commentView;
 		}
 	}
-	var modalView =
+	image.modalView =
 		'<div class="ui modal">' +
 			'<i class="close icon"></i>' +
 			'<div class="ui segment">' +
@@ -96,12 +96,6 @@ function generateModalView (image) {
 				'</div>' +
 			'</div>' +
 		'</div>';
-
-	$(modalView).find("div.submit").on('click', function() {
-		console.log("button clicked : " + $(this).id);
-	});
-
-	image.modalView = modalView;
 }
 
 function setCommentValidationRules(image) {
